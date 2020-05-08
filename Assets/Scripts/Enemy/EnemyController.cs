@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
         moveTimer += Time.deltaTime;  //
 
         //计算经过的beat
-        float timeOffset = Mathf.Abs(moveTimer - MusicController.Instance.beatTime);
+        float timeOffset = Mathf.Abs(moveTimer - MusicController.getInstance().BeatTime);
         if (timeOffset <= 0.01f)   //两个浮点数不能直接用 == 比较
         {
             beatTimer++;
