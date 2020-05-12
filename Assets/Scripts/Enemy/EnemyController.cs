@@ -17,6 +17,8 @@ public class EnemyController : MonoBehaviour
     protected Animator anim;
     protected GameObject player;
 
+    public NavMeshAgent agent;
+
     public virtual void Start()
     {
         anim = this.GetComponent<Animator>();
@@ -27,7 +29,8 @@ public class EnemyController : MonoBehaviour
         moveTimer += Time.deltaTime;  //
 
         //计算经过的beat
-        float timeOffset = Mathf.Abs(moveTimer - MusicController.Instance.beatTime);
+        // float timeOffset = Mathf.Abs(moveTimer - MusicController.Instance.beatTime);
+        float timeOffset = 0;
         if (timeOffset <= 0.01f)   //两个浮点数不能直接用 == 比较
         {
             beatTimer++;
@@ -55,10 +58,18 @@ public class EnemyController : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, 1.5f))
         {
-            if (hitInfo.transform.tag == "Ostabcle")
+            Debug.Log(hitInfo.transform.tag);
+            if (hitInfo.transform.tag == "Obstacle")
+            {
+                Debug.Log("can not move");
                 return false;
+                
+            }
             else
+            {
                 return true;
+            }
+                
         }
         else
             return true;
@@ -68,23 +79,38 @@ public class EnemyController : MonoBehaviour
     {
         if (beatTimer >= beatCanMove)
         {
-            Vector3 target = this.transform.position + GetTargetPosition();
+            //Vector3 target = this.transform.position + GetTargetPosition();
+            //Vector3 dir = target - this.transform.position;
+            //Ray ray = new Ray(this.transform.position, dir);
+            //RaycastHit hitInfo;
 
-            if (CheckCanMove(target - this.transform.position))
-            {
-                StartCoroutine(SmoothMove(this.transform.position, target));
-                beatTimer = 0;
-            }
-            else
-            {
-                beatTimer = 0;
-            }
+            //if(Physics.Raycast(ray, out hitInfo))
+            //{
+            //    anim.SetTrigger("move");
+            //    agent.SetDestination(hitInfo.point);
+            //}
+            Debug.Log("MOve");
+            StartCoroutine(Move2Player());
+            
         }
     }
 
     protected void LooaAtPlayer()
     {
         this.transform.LookAt(player.transform);
+    }
+
+    protected IEnumerator Move2Player()
+    {
+        
+        while(Vector3.Distance(this.transform.position,player.transform.position) > 5f)
+        {
+            Debug.Log(1111);
+            anim.SetTrigger("move");
+            LooaAtPlayer();
+            agent.SetDestination(player.transform.position);
+            yield return null;
+        }
     }
 
     protected IEnumerator SmoothMove(Vector3 start, Vector3 target)
@@ -104,6 +130,12 @@ public class EnemyController : MonoBehaviour
         Vector3 target = player.transform.position - this.transform.position;
         // Debug.Log(target);
         return target.normalized;
+    }
+
+    public void Move2Attack()
+    {
+        anim.SetTrigger("idle");
+        agent.isStopped = true;
     }
 
 }
