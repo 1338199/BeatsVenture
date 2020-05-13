@@ -1,58 +1,108 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class MusicController : MonoBehaviour
+public class MusicController
 {
-    public AudioClip audioClip;
+    private static MusicController _instance;
+    public static MusicController getInstance()
+    {
+        if (_instance == null)
+        {
+            _instance = new MusicController();
+        }
+        return _instance;
+    }
 
-    public float beatTime = 0;
-    public int bpm;
-
-    public float timeDeviation = 0.1f;  //允许玩家按键的时间偏差量
-
-    public float minCanMoveTime;  //用来表示可以进行操作的最小时间（两次节奏的时间间隔）
-    public float maxCanMoveTime;//用来表示可以进行操作的最大时间（两次节奏的时间间隔）
-
-    private AudioSource audioSource;
-
+    public void Play()
+    {
+        var audioObject = new GameObject("backtrack");
+        this.audioPlayer = audioObject.AddComponent<AudioSource>();
+        audioPlayer.clip = Resources.Load<AudioClip>("Music/" + SongName);
+        audioPlayer.playOnAwake = false;
+        audioPlayer.loop = true;
+        //for (var i = 0; i != beatsPerBar; ++i)
+        //{
+        //    rhythm.Add(new List<int>(new int[] { 1, 0 }));
+        //}
+        rhythm.Add(new List<int>(new int[] { 1, 0 }));
+        rhythm.Add(new List<int>(new int[] { 1, 0 }));
+        rhythm.Add(new List<int>(new int[] { 2, 0, 1 }));
+        rhythm.Add(new List<int>(new int[] { 1, 0 }));
+        audioPlayer.Play();
+        startTime = Time.time;
+    }
 
     /// <summary>
-    /// 单例
+    /// check if time is legitimate
     /// </summary>
-    private static MusicController instance;
+    /// <param name="time">time since game start in seconds. Time.time recommended</param>
+    /// <returns></returns>
+    public bool CheckTime(float time)
+    {
+        float timeSpan = time - this.startTime;
+        float beatCount = timeSpan / BeatTime;
+        int beatInBar = (int)beatCount % beatsPerBar;
+        var pattern = rhythm[beatInBar];
+        float res = beatCount - (int)beatCount;
+        Debug.Log(beatInBar + res);
+        for (var i = 1; i != pattern.Count; ++i)
+        {
+            if (Math.Abs(res - (float)pattern[i] / pattern[0]) < thresh)
+            {
+                Debug.Log("YEAH!");
+                return true;
+            }
+        }
+        //start of next bar
+        int nextBar = ((int)beatCount + 1) % beatsPerBar;
+        pattern = rhythm[nextBar];
+        if (Math.Abs(res - (1 + pattern[1] / pattern[0])) < thresh)
+        {
+            return true;
+        }
+        return false;
+    }
 
-    public static MusicController Instance
+    private string _songName = "mygame1";
+    public string SongName
     {
         get
         {
-            return instance;
+            return _songName;
         }
-
-    }
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
+        set
         {
-            Destroy(this);
+            _songName = value;
         }
-        else
+    }
+
+    private int beatsPerBar = 4;
+    private int bpm = 130;
+    private float startTime = 0;
+    private float thresh = 0.2f;
+    private AudioSource audioPlayer;
+    private float BarTime
+    {
+        get
         {
-            instance = this;
+            return 60f / bpm * beatsPerBar;
         }
-        beatTime = 60f / bpm;
-        //Debug.Log(beatTime);
-        minCanMoveTime = beatTime - timeDeviation;
-        maxCanMoveTime = beatTime + timeDeviation;
     }
-
-    private void Start()
+    public float BeatTime
     {
-        audioSource = GetComponent<AudioSource>();
+        get
+        {
+            return 60f / bpm;
+        }
     }
+    private List<List<int>> rhythm = new List<List<int>>();
 
-    private void Update()
+    private MusicController()
     {
+
     }
 }
