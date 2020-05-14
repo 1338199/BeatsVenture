@@ -7,10 +7,14 @@ public class MusicDriver : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        MusicController.getInstance().SongName = "mygame01";
-        MusicController.getInstance().Play();
+
     }
 
+    void Start()
+    {
+        MusicController.getInstance().SongName = "NoEscape";
+        MusicController.getInstance().Play();
+    }
     // Update is called once per frame
     void Update()
     {

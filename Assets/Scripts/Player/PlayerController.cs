@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 //节奏不对
-                UIController.Instance.ShowWaring();
+                //UIController.Instance.ShowWaring();
             }
         }
     }
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 //节奏不对
-                UIController.Instance.ShowWaring();
+                //UIController.Instance.ShowWaring();
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 //节奏不对
-                UIController.Instance.ShowWaring();
+                //UIController.Instance.ShowWaring();
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 //节奏不对
-                UIController.Instance.ShowWaring();
+                //UIController.Instance.ShowWaring();
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 //节奏不对
-                UIController.Instance.ShowWaring();
+                //UIController.Instance.ShowWaring();
             }
         }
     }
@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 //节奏不对
-                UIController.Instance.ShowWaring();
+                //UIController.Instance.ShowWaring();
             }
         }
         else if (Input.GetKeyDown(KeyCode.S))
@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                UIController.Instance.ShowWaring();
+                //UIController.Instance.ShowWaring();
 
             }
         }
@@ -158,7 +158,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                UIController.Instance.ShowWaring();
+                //UIController.Instance.ShowWaring();
 
             }
         }
@@ -174,7 +174,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                UIController.Instance.ShowWaring();
+                //UIController.Instance.ShowWaring();
 
             }
         }
@@ -183,19 +183,19 @@ public class PlayerController : MonoBehaviour
     void Lookat()  //控制朝向
     {
 
-        Ray lookatRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hitInfo;
-        if (Physics.Raycast(lookatRay, out hitInfo, 100, 1 << LayerMask.NameToLayer("Ground")))
-        {
-            Vector3 dir = new Vector3(hitInfo.point.x, 0, hitInfo.point.z);
+        //Ray lookatRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //RaycastHit hitInfo;
+        //if (Physics.Raycast(lookatRay, out hitInfo, 100, 1 << LayerMask.NameToLayer("Ground")))
+        //{
+        //    Vector3 dir = new Vector3(hitInfo.point.x, 0, hitInfo.point.z);
 
-            if (Vector3.Distance(transform.position, dir) < 1)
-            {
-                return;
-            }
+        //    if (Vector3.Distance(transform.position, dir) < 1)
+        //    {
+        //        return;
+        //    }
 
-            transform.LookAt(dir);
-        }
+        //    transform.LookAt(dir);
+        //}
 
     }
 

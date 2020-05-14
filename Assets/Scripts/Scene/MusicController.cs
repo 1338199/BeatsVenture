@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -53,7 +54,6 @@ public class MusicController
         {
             if (Math.Abs(res - (float)pattern[i] / pattern[0]) < thresh)
             {
-                Debug.Log("YEAH!");
                 return true;
             }
         }
@@ -81,7 +81,24 @@ public class MusicController
     }
 
     private int beatsPerBar = 4;
-    private int bpm = 130;
+    private int bpm
+    {
+        get
+        {
+            switch (this._songName)
+            {
+                case "mygame1":
+                    return 130;
+                    break;
+                case "NoEscape":
+                    return 119;
+                    break;
+                default:
+                    return 119;
+                    break;
+            }
+        }
+    }
     private float startTime = 0;
     private float thresh = 0.2f;
     private AudioSource audioPlayer;
