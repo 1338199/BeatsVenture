@@ -183,19 +183,21 @@ public class PlayerController : MonoBehaviour
     void Lookat()  //控制朝向
     {
 
-        //Ray lookatRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //RaycastHit hitInfo;
-        //if (Physics.Raycast(lookatRay, out hitInfo, 100, 1 << LayerMask.NameToLayer("Ground")))
-        //{
-        //    Vector3 dir = new Vector3(hitInfo.point.x, 0, hitInfo.point.z);
+        Ray lookatRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //Debug.Log(lookatRay);
+        RaycastHit hitInfo;
+        //Debug.Log(LayerMask.NameToLayer("Ground"));
+        if (Physics.Raycast(lookatRay, out hitInfo, 100, 1 << LayerMask.NameToLayer("Ground")))
+        {
+            Vector3 dir = new Vector3(hitInfo.point.x, this.transform.position.y, hitInfo.point.z);
 
-        //    if (Vector3.Distance(transform.position, dir) < 1)
-        //    {
-        //        return;
-        //    }
+            if (Vector3.Distance(transform.position, dir) < 1)
+            {
+                return;
+            }
 
-        //    transform.LookAt(dir);
-        //}
+            transform.LookAt(dir);
+        }
 
     }
 
@@ -206,7 +208,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, 1.5f))
         {
-            if (hitInfo.transform.tag == "Ostabcle")
+            if (hitInfo.transform.tag == "Obstacle")
                 return false;
             else return true;
         }
