@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -17,9 +18,14 @@ public class EnemyController : MonoBehaviour
     protected Animator anim;
     protected GameObject player;
 
+    private NavMeshAgent agent;
+
     public virtual void Start()
     {
         anim = this.GetComponent<Animator>();
+        agent = this.GetComponent<NavMeshAgent>();
+        agent.speed = 0.5f;
+        agent.stoppingDistance = 1.5f;
     }
 
     public virtual void FixedUpdate()   //不用update是因为update调用的事件是不固定的，而fixedupdate是每0.02s执行一次
@@ -47,57 +53,93 @@ public class EnemyController : MonoBehaviour
         player = g;
     }
 
-
-    protected bool CheckCanMove(Vector3 dir)   //判断是否能够进行移动
-    {
-        Ray ray = new Ray(this.transform.position, dir);
-
-        RaycastHit hitInfo;
-        if (Physics.Raycast(ray, out hitInfo, 1.5f))
-        {
-            if (hitInfo.transform.tag == "Ostabcle")
-                return false;
-            else
-                return true;
-        }
-        else
-            return true;
-    }
-
     protected void Move()
     {
-        if (beatTimer >= beatCanMove)
+        //StartCoroutine(Move2Player());
+        anim.SetTrigger("move");
+        LookAtPlayer();
+        //agent.destination = player.transform.position;
+        //Debug.Log(agent.path.corners);
+        NavMeshPath path = new NavMeshPath();
+        Debug.Log(transform.position);
+        Debug.Log(player.transform.position);
+        NavMesh.CalculatePath(transform.position, player.transform.position, NavMesh.AllAreas, path);
+        for (int i = 0; i < path.corners.Length - 1; i++)
         {
-            Vector3 target = this.transform.position + GetTargetPosition();
-
-            if (CheckCanMove(target - this.transform.position))
-            {
-                StartCoroutine(SmoothMove(this.transform.position, target));
-                beatTimer = 0;
-            }
-            else
-            {
-                beatTimer = 0;
-            }
+            Debug.DrawLine(path.corners[i], path.corners[i + 1], Color.red);
+            Debug.Log(path.corners[i]);
+         
         }
+            
+        //Vector3 middlePoint = path.corners[1];
+        //Vector3 direc = middlePoint - this.transform.position;
+        //Vector3 destination = this.transform.position + agent.speed * direc;
+        agent.SetDestination(path.corners[path.corners.Length-1]);
     }
 
-    protected void LooaAtPlayer()
+    protected IEnumerator Move2Player()
+    {
+        //while(isFindPlayer && Vector3.Distance(this.transform.position,player.transform.position) > 5f)
+        //{
+        anim.SetTrigger("move");
+        LookAtPlayer();
+        agent.SetDestination(player.transform.position);
+        Debug.Log(agent.path.corners);
+        yield return null;
+        //}
+    }
+
+
+    //protected bool CheckCanMove(Vector3 dir)   //判断是否能够进行移动
+    //{
+    //    Ray ray = new Ray(this.transform.position, dir);
+
+    //    RaycastHit hitInfo;
+    //    if (Physics.Raycast(ray, out hitInfo, 1.5f))
+    //    {
+    //        if (hitInfo.transform.tag == "Ostabcle")
+    //            return false;
+    //        else
+    //            return true;
+    //    }
+    //    else
+    //        return true;
+    //}
+
+    //protected void Move()
+    //{
+    //    if (beatTimer >= beatCanMove)
+    //    {
+    //        Vector3 target = this.transform.position + GetTargetPosition();
+
+    //        if (CheckCanMove(target - this.transform.position))
+    //        {
+    //            StartCoroutine(SmoothMove(this.transform.position, target));
+    //            beatTimer = 0;
+    //        }
+    //        else
+    //        {
+    //            beatTimer = 0;
+    //        }
+    //    }
+    //}
+
+    protected void LookAtPlayer()
     {
         this.transform.LookAt(player.transform);
     }
 
-    protected IEnumerator SmoothMove(Vector3 start, Vector3 target)
-    {
-        while (Vector3.Distance(this.transform.position, target) > 0.1f)
-        {
-            anim.SetTrigger("move");
-            LooaAtPlayer();
-            this.transform.position = Vector3.MoveTowards(this.transform.position, target, speed * Time.deltaTime);
-            yield return null;
-        }
+    //protected IEnumerator SmoothMove(Vector3 start, Vector3 target)
+    //{
+    //    while (Vector3.Distance(this.transform.position, target) > 0.1f)
+    //    {
+    //        anim.SetTrigger("move");
+    //        LooaAtPlayer();
+    //        this.transform.position = Vector3.MoveTowards(this.transform.position, target, speed * Time.deltaTime);
+    //        yield return null;
+    //    }
 
-    }
+    //}
 
     protected Vector3 GetTargetPosition()  //获得移动的方向
     {
