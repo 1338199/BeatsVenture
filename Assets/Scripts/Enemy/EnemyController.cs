@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour
     {
         anim = this.GetComponent<Animator>();
         agent = this.GetComponent<NavMeshAgent>();
-        agent.speed = 0.5f;
+        agent.speed = 5f;
         agent.stoppingDistance = 1.5f;
     }
 
@@ -39,10 +39,12 @@ public class EnemyController : MonoBehaviour
             beatTimer++;
 
 
-            if (isFindPlayer && !isHitPlayer)
+            if (beatTimer > beatCanMove && isFindPlayer && !isHitPlayer)
             {
                 Move();
+                beatTimer = 0;
             }
+            
 
             moveTimer = 0;
         }
@@ -55,6 +57,10 @@ public class EnemyController : MonoBehaviour
 
     protected void Move()
     {
+        if(!isHitPlayer)
+        {
+            agent.isStopped = false;
+        }
         //StartCoroutine(Move2Player());
         anim.SetTrigger("move");
         LookAtPlayer();
@@ -64,24 +70,20 @@ public class EnemyController : MonoBehaviour
         Debug.Log(transform.position);
         Debug.Log(player.transform.position);
         NavMesh.CalculatePath(transform.position, player.transform.position, NavMesh.AllAreas, path);
-        for (int i = 0; i < path.corners.Length - 1; i++)
-        {
-            Debug.DrawLine(path.corners[i], path.corners[i + 1], Color.red);
-            Debug.Log(path.corners[i]);
-         
-        }
-            
-        //Vector3 middlePoint = path.corners[1];
-        //Vector3 direc = middlePoint - this.transform.position;
-        //Vector3 destination = this.transform.position + agent.speed * direc;
+        Debug.Log(path.corners[path.corners.Length - 1]);
+
+        Vector3 middlePoint = path.corners[1];
+        Vector3 direc = middlePoint - this.transform.position;
+        Vector3 destination = this.transform.position + agent.speed * direc;
         agent.SetDestination(path.corners[path.corners.Length-1]);
+        //this.transform.position = Vector3.MoveTowards(this.transform.position, path.corners[path.corners.Length - 1], 20f*Time.deltaTime);
     }
 
     protected IEnumerator Move2Player()
     {
         //while(isFindPlayer && Vector3.Distance(this.transform.position,player.transform.position) > 5f)
         //{
-        anim.SetTrigger("move");
+     //  anim.SetTrigger("move");
         LookAtPlayer();
         agent.SetDestination(player.transform.position);
         Debug.Log(agent.path.corners);
@@ -123,6 +125,12 @@ public class EnemyController : MonoBehaviour
     //        }
     //    }
     //}
+
+    public void stopMove()
+    {
+        //anim.SetTrigger("move");
+        agent.isStopped = true;
+    }
 
     protected void LookAtPlayer()
     {

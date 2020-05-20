@@ -7,7 +7,12 @@ public class EnemyAttack : MonoBehaviour
     private EnemyController enemyController;
     private ParticleSystem ps;
     private bool isStay = false;
-   
+
+    private float moveTimer = 0f;
+    public int beatCanAttack = 5;
+    private int beat = 0;
+    private GameObject mplayer;
+
 
     // Use this for initialization
     void Start()
@@ -22,15 +27,35 @@ public class EnemyAttack : MonoBehaviour
 
     }
 
+    public void FixedUpdate()
+    {
+        moveTimer += Time.deltaTime;
+
+        float timeOffset = Mathf.Abs(moveTimer - MusicController.getInstance().BeatTime);
+        if(timeOffset < 0.1f)
+        {
+            beat++;
+            if(beat >= beatCanAttack && enemyController.isHitPlayer)
+            {
+                Attack(mplayer);
+                beat = 0;
+            }
+            moveTimer = 0;
+        }
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        if(other.transform.tag == "Player")
+
+        if (other.transform.tag == "Player")
         {
+            Debug.Log("Can attack");
+            enemyController.stopMove();
             isStay = true;
             enemyController.isHitPlayer = true;
-            StartCoroutine(Attack(other));
+            mplayer = other.transform.gameObject;
+            //StartCoroutine(Attack(other));
 
         }
     }
@@ -40,22 +65,25 @@ public class EnemyAttack : MonoBehaviour
 
         if (other.transform.tag == "Player")
         {
-            ps.Stop();
             isStay = false;
             enemyController.isHitPlayer = false;
-            
-
         }
     }
 
-    protected IEnumerator Attack(Collider other)
+    protected void Attack(GameObject other)
     {
-        while (isStay)
-        {
-            ps.Play();
-            
-            yield return new WaitForSeconds(2.0f);
-        }
+        ps.Play();
+
     }
+
+    //protected IEnumerator Attack(Collider other)
+    //{
+    //    while (isStay)
+    //    {
+    //        ps.Play();
+
+    //        yield return new WaitForSeconds(2.0f);
+    //    }
+    //}
 
 }
