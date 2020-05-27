@@ -35,11 +35,21 @@ public class PlayerController : MonoBehaviour
         Lookat();
     }
 
+    private int index = -1;
     void Update()
     {
-        Move();
-        Attack();
-        ReleaseSkill();
+        //int temp = 0;
+        //if (MusicController.getInstance().CheckTime1(Time.time, out temp))
+        //{
+        //    if (temp != index)
+        //    {
+                //index = temp;
+                //this.GetComponent<AudioSource>().Play();
+                Move();
+                Attack();
+                ReleaseSkill();
+        //    }
+        //}
     }
 
     void Attack()
@@ -49,6 +59,7 @@ public class PlayerController : MonoBehaviour
             if (mc.CheckTime(currentTime))
             {
                 Lookat();
+                this.GetComponent<AudioSource>().Play();
                 Instantiate(bullet, musszleTrans.position, musszleTrans.rotation);
             }
             else

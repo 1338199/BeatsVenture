@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Runtime.Serialization;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR.WSA.Input;
 
 public class MusicController
 {
@@ -34,17 +36,18 @@ public class MusicController
         rhythm.Add(new List<int>(new int[] { 2, 0, 1 }));
         rhythm.Add(new List<int>(new int[] { 1, 0 }));
         audioPlayer.Play();
-        startTime = Time.time;
     }
+
 
     /// <summary>
     /// check if time is legitimate
     /// </summary>
     /// <param name="time">time since game start in seconds. Time.time recommended</param>
+    /// <param name="stamp">a number uniquely corresponding to a beat</param>
     /// <returns></returns>
-    public bool CheckTime(float time)
+    public bool CheckTime(float time,  int stamp = -1)
     {
-        float timeSpan = time - this.startTime;
+        float timeSpan = this.audioPlayer.time;
         float beatCount = timeSpan / BeatTime;
         int beatInBar = (int)beatCount % beatsPerBar;
         var pattern = rhythm[beatInBar];
@@ -54,6 +57,7 @@ public class MusicController
         {
             if (Math.Abs(res - (float)pattern[i] / pattern[0]) < thresh)
             {
+                stamp = (int)beatCount * 10 + i;
                 return true;
             }
         }
@@ -62,8 +66,10 @@ public class MusicController
         pattern = rhythm[nextBar];
         if (Math.Abs(res - (1 + pattern[1] / pattern[0])) < thresh)
         {
+            stamp = ((int)beatCount + 1) * 10 + 1;
             return true;
         }
+        stamp = -1;
         return false;
     }
 
@@ -99,7 +105,6 @@ public class MusicController
             }
         }
     }
-    private float startTime = 0;
     private float thresh = 0.2f;
     private AudioSource audioPlayer;
     private float BarTime
