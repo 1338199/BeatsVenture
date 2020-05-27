@@ -100,7 +100,7 @@ public class MusicController
         }
     }
     private float startTime = 0;
-    private float thresh = 0.2f;
+    private float thresh = 1.0f;
     private AudioSource audioPlayer;
     private float BarTime
     {
