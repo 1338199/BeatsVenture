@@ -73,6 +73,7 @@ public class EnemyAttack : MonoBehaviour
     protected void Attack(GameObject other)
     {
         ps.Play();
+        other.GetComponent<HealthController>().TakeDamage(damage);
 
     }
 
