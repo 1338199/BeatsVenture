@@ -400,7 +400,7 @@ public class PlayerController : MonoBehaviour
     private bool checkOnBeat(bool use = true)
     {
         var temp = -1;
-        if (mc.CheckTime(currentTime, out temp))
+        if (mc.CheckTime(out temp))
         {
             if (temp > lastRespondedBeat)
             {
