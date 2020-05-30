@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public Transform musszleTrans;
     public GameObject bullet;
 
+    public MusicController mc;
 
     private float currentTime = 0;   //用来记录时间
 
@@ -17,7 +18,8 @@ public class PlayerController : MonoBehaviour
     private SkillsController SkillsController;
     private Rigidbody rb;
 
-    public MusicController mc;
+    private int lastRespondedBeat = -1;
+
 
     private void Start()
     {
@@ -36,32 +38,26 @@ public class PlayerController : MonoBehaviour
         Lookat();
     }
 
-    private int index = -1;
-    void Update()
+    private void Update()
     {
-        //int temp = 0;
-        //if (MusicController.getInstance().CheckTime1(Time.time, out temp))
-        //{
-        //    if (temp != index)
-        //    {
-                //index = temp;
-                //this.GetComponent<AudioSource>().Play();
-                Move();
-                Attack();
-                ReleaseSkill();
-        //    }
-        //}
+        if (move())
+            return;
+        if (Attack())
+            return;
+        if (ReleaseSkill())
+            return;
     }
 
-    void Attack()
+    private bool Attack()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (mc.CheckTime(currentTime))
+            if (checkOnBeat())
             {
                 Lookat();
                 this.GetComponent<AudioSource>().Play();
                 Instantiate(bullet, musszleTrans.position, musszleTrans.rotation);
+                return true;
             }
             else
             {
@@ -69,15 +65,17 @@ public class PlayerController : MonoBehaviour
                 //UIController.Instance.ShowWaring();
             }
         }
+        return false;
     }
 
-    void ReleaseSkill()
+    private bool ReleaseSkill()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if (mc.CheckTime(currentTime))
+            if (checkOnBeat())
             {
                 SkillsController.RealseSkills(1);
+                return true;
             }
             else
             {
@@ -87,9 +85,10 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (mc.CheckTime(currentTime))
+            if (checkOnBeat())
             {
                 SkillsController.RealseSkills(2);
+                return true;
             }
             else
             {
@@ -99,9 +98,10 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            if (mc.CheckTime(currentTime))
+            if (checkOnBeat())
             {
                 SkillsController.RealseSkills(3);
+                return true;
             }
             else
             {
@@ -111,9 +111,10 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            if (mc.CheckTime(currentTime))
+            if (checkOnBeat())
             {
                 SkillsController.RealseSkills(4);
+                return true;
             }
             else
             {
@@ -121,14 +122,15 @@ public class PlayerController : MonoBehaviour
                 //UIController.Instance.ShowWaring();
             }
         }
+        return false;
     }
 
 
-    private void Move()
+    private bool move()
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            if (mc.CheckTime(currentTime))
+            if (checkOnBeat())
             {
                 Vector3 target = this.transform.position + new Vector3(0, 0, 1);
                 if (CheckCanMove(target - this.transform.position))
@@ -136,6 +138,7 @@ public class PlayerController : MonoBehaviour
 
                     StartCoroutine(SmoothMove(this.transform.position, target));
                     //SmoothMove(this.transform.position, target);
+                    return true;
                 }
             }
             else
@@ -146,13 +149,14 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            if (mc.CheckTime(currentTime))
+            if (checkOnBeat())
             {
                 Vector3 target = this.transform.position + new Vector3(0, 0, -1);
                 if (CheckCanMove(target - this.transform.position))
                 {
                     StartCoroutine(SmoothMove(this.transform.position, target));
                     //SmoothMove(this.transform.position, target);
+                    return true;
                 }
             }
             else
@@ -163,13 +167,14 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
-            if (mc.CheckTime(currentTime))
+            if (checkOnBeat())
             {
                 Vector3 target = this.transform.position + new Vector3(-1, 0, 0);
                 if (CheckCanMove(target - this.transform.position))
                 {
                     StartCoroutine(SmoothMove(this.transform.position, target));
                     //SmoothMove(this.transform.position, target);
+                    return true;
                 }
             }
             else
@@ -180,13 +185,14 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
-            if (mc.CheckTime(currentTime))
+            if (checkOnBeat())
             {
                 Vector3 target = this.transform.position + new Vector3(1, 0, 0);
                 if (CheckCanMove(target - this.transform.position))
                 {
-                    StartCoroutine(SmoothMove(this.transform.position, target));
-                  //  SmoothMove(this.transform.position, target);
+                    var a = StartCoroutine(SmoothMove(this.transform.position, target));
+                    //  SmoothMove(this.transform.position, target);
+                    return true;
                 }
             }
             else
@@ -195,9 +201,10 @@ public class PlayerController : MonoBehaviour
 
             }
         }
+        return false;
     }   //控制移动
 
-    void Lookat()  //控制朝向
+    private void Lookat()  //控制朝向
     {
 
         Ray lookatRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -218,7 +225,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    bool CheckCanMove(Vector3 dir)   //判断是否能够进行移动
+    private bool CheckCanMove(Vector3 dir)   //判断是否能够进行移动
     {
         Ray ray = new Ray(this.transform.position, dir);
 
@@ -304,14 +311,14 @@ public class PlayerController : MonoBehaviour
 
 
 
-    IEnumerator SmoothMove(Vector3 start, Vector3 target)
+    private IEnumerator SmoothMove(Vector3 start, Vector3 target)
     {
 
         anim.SetTrigger("move");
         bool first = true;
         // while (Vector3.Distance(this.transform.position, target) > 0.001f)
         Debug.Log((this.transform.position - target).sqrMagnitude);
-        while ((this.transform.position-target).sqrMagnitude > 0.1f)
+        while ((this.transform.position - target).sqrMagnitude > 0.1f)
         {
             Lookat();
             Debug.Log(target);
@@ -362,7 +369,7 @@ public class PlayerController : MonoBehaviour
                         target = curPosition + moveDirec * speed * dot;
                         Debug.Log(target);
                         Debug.Log(curPosition);
-                        this.transform.position = Vector3.MoveTowards(curPosition, target, speed*Time.deltaTime);
+                        this.transform.position = Vector3.MoveTowards(curPosition, target, speed * Time.deltaTime);
                         Debug.Log(this.transform.position);
                     }
                 }
@@ -376,10 +383,10 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log(first);
                 Debug.Log(curPosition);
-                this.transform.position = Vector3.MoveTowards(curPosition, target, speed* Time.deltaTime);
+                this.transform.position = Vector3.MoveTowards(curPosition, target, speed * Time.deltaTime);
                 Debug.Log(this.transform.position);
             }
-            
+
 
 
             //Debug.Log(this.transform.position);
@@ -390,5 +397,22 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
+    private bool checkOnBeat(bool use = true)
+    {
+        var temp = -1;
+        if (mc.CheckTime(currentTime, out temp))
+        {
+            if (temp > lastRespondedBeat)
+            {
+                if (use)
+                {
+                    lastRespondedBeat = temp;
+                }
+                return true;
+            }
+            return false;
+        }
+        else
+            return false;
+    }
 }

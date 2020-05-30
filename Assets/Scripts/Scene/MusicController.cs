@@ -11,6 +11,9 @@ using UnityEngine.XR.WSA.Input;
 public class MusicController
 {
     private static MusicController _instance;
+
+    public float thresh = 0.2f;
+
     public static MusicController getInstance()
     {
         if (_instance == null)
@@ -45,7 +48,7 @@ public class MusicController
     /// <param name="time">time since game start in seconds. Time.time recommended</param>
     /// <param name="stamp">a number uniquely corresponding to a beat</param>
     /// <returns></returns>
-    public bool CheckTime(float time,  int stamp = -1)
+    public bool CheckTime(float time,  out int stamp)
     {
         float timeSpan = this.audioPlayer.time;
         float beatCount = timeSpan / BeatTime;
@@ -105,7 +108,6 @@ public class MusicController
             }
         }
     }
-    private float thresh = 0.2f;
     private AudioSource audioPlayer;
     private float BarTime
     {
