@@ -366,7 +366,7 @@ public class PlayerController : MonoBehaviour
                         movement.y = 0;
                         Vector3 moveDirec = movement.normalized;
                         float dot = Vector3.Dot(moveDirec, direction.normalized);
-                        target = curPosition + moveDirec * speed * dot;
+                        target = curPosition + moveDirec  * dot;
                         Debug.Log(target);
                         Debug.Log(curPosition);
                         this.transform.position = Vector3.MoveTowards(curPosition, target, speed * Time.deltaTime);
