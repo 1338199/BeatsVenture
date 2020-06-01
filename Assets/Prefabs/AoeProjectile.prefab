@@ -4923,7 +4923,8 @@ MonoBehaviour:
   damageAmout: 20
   maxDistance: 5
   speed: 10
-  spawnPos: {fileID: 1940101021238670, guid: e26e3fc255476af48a2ea11a27aea3c2, type: 3}
+  spawnPos: {fileID: 1480055686717267146, guid: 292e59c871f304a01b837ee3851ac383,
+    type: 3}
 --- !u!1 &1881322071671942
 GameObject:
   m_ObjectHideFlags: 0

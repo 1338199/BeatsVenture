@@ -43,7 +43,7 @@ public class FlashSkills : PlayerSkills
                         {
                             if (hitInfo.transform.tag == "Ground")
                             {
-                                this.transform.parent.position = new Vector3(portalParticleGO.transform.position.x, 0, portalParticleGO.transform.position.z);
+                                this.transform.parent.position = new Vector3(portalParticleGO.transform.position.x, this.transform.parent.position.y, portalParticleGO.transform.position.z);
                                 portalParticleGO.gameObject.SetActive(false);
                                 isFlash = true;
 
