@@ -24,13 +24,17 @@ public class HealthController : MonoBehaviour
         healthText.text = healthSilder.value.ToString();
         Debug.Log("Health:" + hp.ToString());
         if (hp < 1)
+        {
+            Debug.Log("Die!");
             Die();
+        }
     }
 
     public virtual void Die()
     {
         if (actor == 1)
         {
+            Debug.Log("showDeathMenu!");
             deathMenu.showDeathMenu();
         }
     }
