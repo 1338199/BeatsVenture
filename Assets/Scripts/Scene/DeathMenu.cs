@@ -9,7 +9,7 @@ public class DeathMenu : MonoBehaviour
     public Image bgImg;
     private bool isShown = true;
     private float transition = 0.0f;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +44,10 @@ public class DeathMenu : MonoBehaviour
 
     public void quitGame()
     {
-        ;
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
-    
 }

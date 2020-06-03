@@ -36,6 +36,7 @@ public class HealthController : MonoBehaviour
         {
             Debug.Log("showDeathMenu!");
             deathMenu.showDeathMenu();
+            //MusicController.getInstance().Pause()
         }
     }
 }
