@@ -19,17 +19,17 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
 
     private int lastRespondedBeat = -1;
-
+    
 
     private void Start()
     {
         anim = GetComponent<Animator>();
 
-
         SkillsController = GetComponent<SkillsController>();
         rb = GetComponent<Rigidbody>();
 
         mc = MusicController.getInstance();
+       
     }
 
     private void FixedUpdate()
@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
             return;
         if (ReleaseSkill())
             return;
+
     }
 
     private bool Attack()
