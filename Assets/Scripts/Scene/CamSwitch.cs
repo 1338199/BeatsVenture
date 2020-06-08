@@ -12,13 +12,17 @@ public class CamSwitch : MonoBehaviour
     {
         if (Input.GetButtonDown("5Key"))
         {
-            cam1.SetActive(true);
-            cam2.SetActive(false);
+            cam1.GetComponent<Camera>().enabled = true;
+            cam1.tag = "MainCamera";
+            cam2.GetComponent<Camera>().enabled = false;
+            cam1.tag = "Untagged";
         }
         if (Input.GetButtonDown("6Key"))
         {
-            cam2.SetActive(true);
-            cam1.SetActive(false);
+            cam2.GetComponent<Camera>().enabled = true;
+            cam2.tag = "MainCamera";
+            cam1.GetComponent<Camera>().enabled = false;
+            cam1.tag = "Untagged";
         }
     }
 }

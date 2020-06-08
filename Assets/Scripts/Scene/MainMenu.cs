@@ -36,6 +36,7 @@ public class MainMenu : MonoBehaviour
         int showVolume = (int) (newVolume*100);
         volumeText.text = showVolume.ToString();
         Debug.Log("newVolume:" + volumeText.text);
+        PlayerPrefs.SetFloat("volume", volume);
     }
     
     public void BackToMenu()

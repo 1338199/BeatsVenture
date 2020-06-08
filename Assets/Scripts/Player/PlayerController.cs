@@ -133,7 +133,10 @@ public class PlayerController : MonoBehaviour
         {
             if (checkOnBeat())
             {
-                Vector3 target = this.transform.position + new Vector3(0, 0, 1);
+
+                float y = Camera.main.transform.rotation.eulerAngles.y;
+                var targetDirection = Quaternion.Euler(0, y, 0) * new Vector3(0, 0, 1);
+                Vector3 target = this.transform.position + targetDirection.normalized;
                 if (CheckCanMove(target - this.transform.position))
                 {
 
@@ -152,7 +155,9 @@ public class PlayerController : MonoBehaviour
         {
             if (checkOnBeat())
             {
-                Vector3 target = this.transform.position + new Vector3(0, 0, -1);
+                float y = Camera.main.transform.rotation.eulerAngles.y;
+                var targetDirection = Quaternion.Euler(0, y, 0) * new Vector3(0, 0, -1);
+                Vector3 target = this.transform.position + targetDirection.normalized;
                 if (CheckCanMove(target - this.transform.position))
                 {
                     StartCoroutine(SmoothMove(this.transform.position, target));
@@ -170,7 +175,9 @@ public class PlayerController : MonoBehaviour
         {
             if (checkOnBeat())
             {
-                Vector3 target = this.transform.position + new Vector3(-1, 0, 0);
+                float y = Camera.main.transform.rotation.eulerAngles.y;
+                var targetDirection = Quaternion.Euler(0, y, 0) * new Vector3(-1, 0, 0);
+                Vector3 target = this.transform.position + targetDirection.normalized;
                 if (CheckCanMove(target - this.transform.position))
                 {
                     StartCoroutine(SmoothMove(this.transform.position, target));
@@ -188,7 +195,9 @@ public class PlayerController : MonoBehaviour
         {
             if (checkOnBeat())
             {
-                Vector3 target = this.transform.position + new Vector3(1, 0, 0);
+                float y = Camera.main.transform.rotation.eulerAngles.y;
+                var targetDirection = Quaternion.Euler(0, y, 0) * new Vector3(1, 0, 0);
+                Vector3 target = this.transform.position + targetDirection.normalized;
                 if (CheckCanMove(target - this.transform.position))
                 {
                     var a = StartCoroutine(SmoothMove(this.transform.position, target));

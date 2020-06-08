@@ -113,7 +113,9 @@ public class MusicController : MonoBehaviour
         audioPlayer.clip = Resources.Load<AudioClip>("Music/" + SongName);
         audioPlayer.playOnAwake = false;
         audioPlayer.loop = true;
-        audioPlayer.volume = 0.5f;
+
+        float volume = PlayerPrefs.GetFloat("volume", 0.5f);
+        audioPlayer.volume = volume;
         //for (var i = 0; i != beatsPerBar; ++i)
         //{
         //    rhythm.Add(new List<int>(new int[] { 1, 0 }));
@@ -123,6 +125,11 @@ public class MusicController : MonoBehaviour
         rhythm.Add(new List<int>(new int[] { 2, 0, 1 }));
         rhythm.Add(new List<int>(new int[] { 1, 0 }));
         audioPlayer.Play();
+    }
+
+    public void Pause()
+    {
+        this.audioPlayer.Pause();
     }
 
 
