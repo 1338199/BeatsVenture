@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForeseeBeats: 2
-  thresh: 0.2
+  thresh: 0.1
   BeatIcon: {fileID: 7643633764095824823, guid: e8199eae36d15b446b7ac7def9cb7854,
     type: 3}
   BeatBlackhole: {fileID: 0}

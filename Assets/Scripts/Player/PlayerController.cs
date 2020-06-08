@@ -423,6 +423,12 @@ public class PlayerController : MonoBehaviour
             return false;
         }
         else
+        {
+            if (use)
+            {
+                UIController.Instance.ShowWaring();
+            }
             return false;
+        }
     }
 }

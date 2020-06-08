@@ -114,7 +114,7 @@ public class MusicController : MonoBehaviour
         audioPlayer.playOnAwake = false;
         audioPlayer.loop = true;
 
-        float volume = PlayerPrefs.GetFloat("volume", 0.5f);
+        float volume = PlayerPrefs.GetFloat("volume", 0.1f);
         audioPlayer.volume = volume;
         //for (var i = 0; i != beatsPerBar; ++i)
         //{
