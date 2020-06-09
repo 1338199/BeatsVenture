@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     private SkillsController SkillsController;
     private Rigidbody rb;
+    public int step = 2;  //每次按键的移动步长(距离)
 
     private int lastRespondedBeat = -1;
     
@@ -136,7 +137,7 @@ public class PlayerController : MonoBehaviour
 
                 float y = Camera.main.transform.rotation.eulerAngles.y;
                 var targetDirection = Quaternion.Euler(0, y, 0) * new Vector3(0, 0, 1);
-                Vector3 target = this.transform.position + targetDirection.normalized;
+                Vector3 target = this.transform.position + targetDirection.normalized * step;
                 if (CheckCanMove(target - this.transform.position))
                 {
 
@@ -157,7 +158,7 @@ public class PlayerController : MonoBehaviour
             {
                 float y = Camera.main.transform.rotation.eulerAngles.y;
                 var targetDirection = Quaternion.Euler(0, y, 0) * new Vector3(0, 0, -1);
-                Vector3 target = this.transform.position + targetDirection.normalized;
+                Vector3 target = this.transform.position + targetDirection.normalized * step;
                 if (CheckCanMove(target - this.transform.position))
                 {
                     StartCoroutine(SmoothMove(this.transform.position, target));
@@ -177,7 +178,7 @@ public class PlayerController : MonoBehaviour
             {
                 float y = Camera.main.transform.rotation.eulerAngles.y;
                 var targetDirection = Quaternion.Euler(0, y, 0) * new Vector3(-1, 0, 0);
-                Vector3 target = this.transform.position + targetDirection.normalized;
+                Vector3 target = this.transform.position + targetDirection.normalized * step;
                 if (CheckCanMove(target - this.transform.position))
                 {
                     StartCoroutine(SmoothMove(this.transform.position, target));
@@ -197,7 +198,7 @@ public class PlayerController : MonoBehaviour
             {
                 float y = Camera.main.transform.rotation.eulerAngles.y;
                 var targetDirection = Quaternion.Euler(0, y, 0) * new Vector3(1, 0, 0);
-                Vector3 target = this.transform.position + targetDirection.normalized;
+                Vector3 target = this.transform.position + targetDirection.normalized * step;
                 if (CheckCanMove(target - this.transform.position))
                 {
                     var a = StartCoroutine(SmoothMove(this.transform.position, target));
@@ -326,33 +327,36 @@ public class PlayerController : MonoBehaviour
 
         anim.SetTrigger("move");
         bool first = true;
+        bool canMove = true;
         // while (Vector3.Distance(this.transform.position, target) > 0.001f)
         Debug.Log((this.transform.position - target).sqrMagnitude);
-        while ((this.transform.position - target).sqrMagnitude > 0.1f)
+        while ((this.transform.position - target).sqrMagnitude > 0.1f && canMove)
         {
             Lookat();
             Debug.Log(target);
-            Vector3 direction = target - start;
-            Vector3 movement = direction * speed * Time.deltaTime;
+            Vector3 direction = target - this.transform.position;
+            //direction = direction.normalized;
+            Vector3 movement = target;
+            Vector3 originMovement = movement;
             Vector3 curPosition = this.transform.position;
             NavMeshHit hit;
             Debug.Log(first);
             if (first)
             {
                 first = false;
-                if (NavMesh.SamplePosition(curPosition, out hit, 0.5f, -1))
+                if (NavMesh.SamplePosition(curPosition, out hit, 1f, NavMesh.AllAreas))
                 {
                     curPosition = hit.position;
                 }
-                Vector3 temp = curPosition + movement;
-                if (NavMesh.SamplePosition(temp, out hit, 0.5f, -1))
+                target = movement;
+                if (NavMesh.SamplePosition(target, out hit, 1f, NavMesh.AllAreas))
                 {
-                    temp = hit.position;
+                    target = hit.position;
                 }
 
-                bool canMove = true;
+
                 NavMeshPath path = new NavMeshPath();
-                if (!NavMesh.CalculatePath(curPosition, temp, NavMesh.AllAreas, path))
+                if (!NavMesh.CalculatePath(curPosition, target, NavMesh.AllAreas, path))
                 {
                     canMove = false;
                 }
@@ -376,10 +380,14 @@ public class PlayerController : MonoBehaviour
                         movement.y = 0;
                         Vector3 moveDirec = movement.normalized;
                         float dot = Vector3.Dot(moveDirec, direction.normalized);
-                        target = curPosition + moveDirec  * dot;
+                        target = curPosition + movement * dot;
+                        if ((originMovement - target).sqrMagnitude > 0.3f)
+                        {
+                            target = curPosition;
+                        }
                         Debug.Log(target);
                         Debug.Log(curPosition);
-                        this.transform.position = Vector3.MoveTowards(curPosition, target, speed * Time.deltaTime);
+                        this.transform.position = Vector3.MoveTowards(curPosition, target, speed * Time.deltaTime * step);
                         Debug.Log(this.transform.position);
                     }
                 }
@@ -393,7 +401,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log(first);
                 Debug.Log(curPosition);
-                this.transform.position = Vector3.MoveTowards(curPosition, target, speed * Time.deltaTime);
+                this.transform.position = Vector3.MoveTowards(curPosition, target, speed * Time.deltaTime * step);
                 Debug.Log(this.transform.position);
             }
 

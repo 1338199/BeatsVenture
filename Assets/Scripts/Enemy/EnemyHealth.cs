@@ -24,6 +24,7 @@ public class EnemyHealth : HealthController
     public override void Die()
     {
         this.GetComponent<EnemyController>().enabled = false;
+        this.GetComponent<EnemyController>().isDie = true;
         anim.SetTrigger("die");
     }
 

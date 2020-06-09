@@ -35,7 +35,7 @@ public class EnemyAttack : MonoBehaviour
         if(timeOffset < 0.1f)
         {
             beat++;
-            if(beat >= beatCanAttack && enemyController.isHitPlayer)
+            if(!enemyController.isDie && beat >= beatCanAttack && enemyController.isHitPlayer)
             {
                 Attack(mplayer);
                 beat = 0;

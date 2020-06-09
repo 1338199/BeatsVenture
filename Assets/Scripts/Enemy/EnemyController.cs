@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     protected float moveTimer = 0;   //用来控制敌人的行动时机
     public int beatCanMove = 2;   //敌人经过多少个节拍才可以移动
     protected int beatTimer;  //用来标记经过多少个节拍
+    public bool isDie = false;
 
     public float speed = 5f;
 
