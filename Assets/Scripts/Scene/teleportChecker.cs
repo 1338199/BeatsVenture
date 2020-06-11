@@ -2,39 +2,56 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using VSCodeEditor;
 
 public class teleportChecker : MonoBehaviour
 {
-    public int stageNum;
+    public static int[] pointCount = {3, 3, 3};
+    public int stageId;
+    public static int getPointNum = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        getPointNum = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
+
     void OnTriggerEnter(Collider collider)
     {
         var objectName = collider.name;
         if (objectName == "Player")
         {
-            Debug.Log("Go to Next Level!");
-            if (stageNum < 3)
+            if (getPointNum == pointCount[stageId - 1])
             {
-                var nextStageName = "Level" + (stageNum+1).ToString();
-                Debug.Log(nextStageName);
-                SceneManager.LoadScene(nextStageName);
+                Debug.Log("Go to Next Level!");
+                if (stageId < 3)
+                {
+                    var nextStageName = "Level" + (stageId + 1).ToString();
+                    Debug.Log(nextStageName);
+                    SceneManager.LoadScene(nextStageName);
+                }
+                else
+                {
+                    Debug.Log("全部通关！");
+                }
             }
             else
             {
-                Debug.Log("全部通关！");
+                Debug.Log("还没有捡到所有的点！");
             }
 
         }
     }
 
+    public static void GetPoint()
+    {
+        getPointNum += 1;
+        Debug.Log(getPointNum);
+    }
+    
 }
