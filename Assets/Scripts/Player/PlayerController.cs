@@ -329,18 +329,18 @@ public class PlayerController : MonoBehaviour
         bool first = true;
         bool canMove = true;
         // while (Vector3.Distance(this.transform.position, target) > 0.001f)
-        Debug.Log((this.transform.position - target).sqrMagnitude);
+       // Debug.Log((this.transform.position - target).sqrMagnitude);
         while ((this.transform.position - target).sqrMagnitude > 0.1f && canMove)
         {
             Lookat();
-            Debug.Log(target);
+           // Debug.Log(target);
             Vector3 direction = target - this.transform.position;
             //direction = direction.normalized;
             Vector3 movement = target;
             Vector3 originMovement = movement;
             Vector3 curPosition = this.transform.position;
             NavMeshHit hit;
-            Debug.Log(first);
+            //Debug.Log(first);
             if (first)
             {
                 first = false;
@@ -385,10 +385,10 @@ public class PlayerController : MonoBehaviour
                         {
                             target = curPosition;
                         }
-                        Debug.Log(target);
-                        Debug.Log(curPosition);
+                        //Debug.Log(target);
+                        //Debug.Log(curPosition);
                         this.transform.position = Vector3.MoveTowards(curPosition, target, speed * Time.deltaTime * step);
-                        Debug.Log(this.transform.position);
+                        //Debug.Log(this.transform.position);
                     }
                 }
 
@@ -399,10 +399,10 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                Debug.Log(first);
-                Debug.Log(curPosition);
+                //Debug.Log(first);
+                //Debug.Log(curPosition);
                 this.transform.position = Vector3.MoveTowards(curPosition, target, speed * Time.deltaTime * step);
-                Debug.Log(this.transform.position);
+                //Debug.Log(this.transform.position);
             }
 
 
