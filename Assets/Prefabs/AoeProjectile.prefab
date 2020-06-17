@@ -4767,6 +4767,7 @@ GameObject:
   - component: {fileID: 135294337486061282}
   - component: {fileID: 96254027272639270}
   - component: {fileID: 114692601262604358}
+  - component: {fileID: 5547773531278293013}
   m_Layer: 0
   m_Name: AoeProjectile
   m_TagString: Untagged
@@ -4806,10 +4807,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1807736125123490}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!96 &96254027272639270
 TrailRenderer:
@@ -4920,11 +4921,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13647c8f3d84754d8f45d79cccdae10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmout: 20
+  damageAmout: 5
   maxDistance: 5
   speed: 10
   spawnPos: {fileID: 1480055686717267146, guid: 292e59c871f304a01b837ee3851ac383,
     type: 3}
+--- !u!54 &5547773531278293013
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807736125123490}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1881322071671942
 GameObject:
   m_ObjectHideFlags: 0
@@ -8545,7 +8562,7 @@ ParticleSystem:
   CollisionModule:
     enabled: 0
     serializedVersion: 3
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -8721,7 +8738,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 512
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5

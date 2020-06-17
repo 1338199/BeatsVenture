@@ -21,30 +21,32 @@ public class FrozenSkills : PlayerSkills
 
     public override IEnumerator Release()
     {
+        skill3Cnt++;
         if (timer >= coolDown)
         {
-            while (!isSelectTarget)
+            while (!isSelectTarget && skill3Cnt%2==1)
             {
                 base.SetRange();  //显示施法范围
 
                 ShowIndicator(hitRender);
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hitInfo;
-
                 if (Physics.Raycast(ray, out hitInfo, 100, enemyLayer))
                 {
-                    if (hitInfo.transform.tag == "Enemy")
+                    if (hitInfo.transform.parent.tag == "Enemy")
                     {
-                        hitRender = hitInfo.transform.GetComponentInChildren<Renderer>();
-
+                        
+                        hitRender = hitInfo.transform.parent.GetComponentInChildren<Renderer>();
+                       
                         if (Input.GetMouseButtonDown(0))
                         {
+                            Debug.Log("Frozen");
                             //显示冰冻效果
                             frozenParicles.SetActive(true);
                             Instantiate(frozenParicles, hitRender.transform.position, Quaternion.identity);
 
                             //冰冻
-                            EnemyController enemyController = hitInfo.transform.GetComponent<EnemyController>();
+                            EnemyController enemyController = hitInfo.transform.parent.GetComponent<EnemyController>();
                             enemyController.enabled = false;
                             float orginSpeed = enemyController.speed;
 
@@ -53,6 +55,7 @@ public class FrozenSkills : PlayerSkills
                             hitRender = null;
                             ShowIndicator(hitRender);
                             isSelectTarget = true;
+                            skill3Cnt++;
                         }
                     }
                 }

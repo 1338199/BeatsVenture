@@ -12,6 +12,8 @@ public class PlayerSkills : MonoBehaviour
 
     public float coolDown = 5;
 
+    public int skill2Cnt = 0;
+    public int skill3Cnt = 0;
     protected float timer = 0;
 
     protected LineRenderer lineRenderer; //用来渲染施法范围

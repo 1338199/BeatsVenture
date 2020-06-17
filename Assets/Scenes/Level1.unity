@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7571,6 +7571,16 @@ PrefabInstance:
       propertyPath: healthSilder
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114910990814119706, guid: 0f931a9ef3f76264998857851f8f827d,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114910990814119706, guid: 0f931a9ef3f76264998857851f8f827d,
+        type: 3}
+      propertyPath: m_Value
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 135797192802718950, guid: 0f931a9ef3f76264998857851f8f827d,
         type: 3}
       propertyPath: m_Radius
@@ -7642,7 +7652,7 @@ MonoBehaviour:
   hp: 100
   actor: 0
   healthSilder: {fileID: 951000472}
-  healthText: {fileID: 602208834}
+  healthText: {fileID: 0}
   deathMenu: {fileID: 0}
 --- !u!195 &951000476
 NavMeshAgent:
@@ -11481,7 +11491,7 @@ MonoBehaviour:
   hp: 100
   actor: 0
   healthSilder: {fileID: 1280070519}
-  healthText: {fileID: 602208834}
+  healthText: {fileID: 0}
   deathMenu: {fileID: 0}
 --- !u!195 &1280070523
 NavMeshAgent:
@@ -13064,6 +13074,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyBunny (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1000011175136134, guid: 0f931a9ef3f76264998857851f8f827d, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1000011393938506, guid: 0f931a9ef3f76264998857851f8f827d, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -13150,10 +13164,30 @@ PrefabInstance:
       propertyPath: healthSilder
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114910990814119706, guid: 0f931a9ef3f76264998857851f8f827d,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114910990814119706, guid: 0f931a9ef3f76264998857851f8f827d,
+        type: 3}
+      propertyPath: m_Value
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 135797192802718950, guid: 0f931a9ef3f76264998857851f8f827d,
         type: 3}
       propertyPath: m_Radius
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 136000010215827036, guid: 0f931a9ef3f76264998857851f8f827d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136000010215827036, guid: 0f931a9ef3f76264998857851f8f827d,
+        type: 3}
+      propertyPath: m_Direction
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198471874422276552, guid: 0f931a9ef3f76264998857851f8f827d,
         type: 3}
@@ -13221,7 +13255,7 @@ MonoBehaviour:
   hp: 100
   actor: 0
   healthSilder: {fileID: 1388810676}
-  healthText: {fileID: 602208834}
+  healthText: {fileID: 0}
   deathMenu: {fileID: 0}
 --- !u!195 &1388810680
 NavMeshAgent:
@@ -13230,7 +13264,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388810675}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 1
   m_Speed: 3.5
@@ -35068,7 +35102,7 @@ MonoBehaviour:
   hp: 100
   actor: 0
   healthSilder: {fileID: 114822741839323272}
-  healthText: {fileID: 326332856}
+  healthText: {fileID: 0}
   deathMenu: {fileID: 0}
 --- !u!1 &1769192279255400
 GameObject:
@@ -35168,7 +35202,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975164951513530}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -51.2, y: 0, z: 73.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224751732885096134}

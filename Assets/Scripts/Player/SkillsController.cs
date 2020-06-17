@@ -16,7 +16,6 @@ public class SkillsController : MonoBehaviour
     private void Start()
     {
         playerController = GetComponentInParent<PlayerController>();
-
         aoeSkills = GetComponentInChildren<AoeSkills>();
         flashSkills = GetComponentInChildren<FlashSkills>();
         frozenSkills = GetComponentInChildren<FrozenSkills>();

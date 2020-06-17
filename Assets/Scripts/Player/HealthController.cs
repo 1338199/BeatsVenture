@@ -21,7 +21,7 @@ public class HealthController : MonoBehaviour
     public virtual void UpdateInfo()
     {
         healthSilder.value = hp;
-        healthText.text = healthSilder.value.ToString();
+        //healthText.text = healthSilder.value.ToString();
         Debug.Log("Health:" + hp.ToString());
         if (hp < 1)
         {

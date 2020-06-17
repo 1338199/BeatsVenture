@@ -23,11 +23,12 @@ public class FlashSkills : PlayerSkills
 
     public override IEnumerator Release()
     {
+        skill2Cnt++;
         if (timer >= coolDown)
         {
-            while (!isFlash)
+            while (!isFlash&&skill2Cnt % 2 == 1)
             {
-                SetRange();  //显示施法范围
+                SetRange();
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hitInfo;
 
@@ -46,7 +47,7 @@ public class FlashSkills : PlayerSkills
                                 this.transform.parent.position = new Vector3(portalParticleGO.transform.position.x, this.transform.parent.position.y, portalParticleGO.transform.position.z);
                                 portalParticleGO.gameObject.SetActive(false);
                                 isFlash = true;
-
+                                skill2Cnt++;
                             }
                         }
                     }
@@ -57,6 +58,7 @@ public class FlashSkills : PlayerSkills
                 }
                 yield return new WaitForFixedUpdate();
             }
+            portalParticleGO.gameObject.SetActive(false);
             //消除划线
             lineRenderer.positionCount = 0;
             StartCoroutine(StartCoolDown());
