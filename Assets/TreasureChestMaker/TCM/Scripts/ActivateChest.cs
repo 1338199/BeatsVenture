@@ -9,20 +9,24 @@ public class ActivateChest : MonoBehaviour {
 	public bool canClose;                       // Can the chest be closed
 	public static int skillNum;
 	public static bool[] activeSkills;
+	public static int money;
 
 	[HideInInspector]
 	public bool _open;                          // Is the chest opened
 	public bool _get;
     private void Awake()
     {
-		skillNum = 0;
 		try
 		{
 			activeSkills = skillUtils.loadSkills();
+			money = MoneyUtils.loadMoney();
+			skillNum = SkillNumUtils.loadSkillNum();
 		}
 		catch
 		{
 			activeSkills = new bool[4] { false, false, false, false };
+			money = 0;
+			skillNum = 0;
 		}
 		_get = false;
 	}
@@ -41,7 +45,8 @@ public class ActivateChest : MonoBehaviour {
 	void ChestClicked(Quaternion toRot){
 		if (lid.rotation != toRot){
 			lid.rotation = Quaternion.Lerp(lid.rotation, toRot, Time.deltaTime * openSpeed);
-			if (skillNum < 4 && !_get)
+			int mors = Random.Range(0, 4);
+			if (mors == 3 && skillNum < 4 && !_get)
 			{
 				int index = Random.Range(0, 4);
 				while (true)
@@ -60,6 +65,10 @@ public class ActivateChest : MonoBehaviour {
 				_get = true;
 				//getSkillsRom.ShowSkills();
 			}
+			else if(mors < 3)
+            {
+				money = money + Random.Range(50,100);
+            }
 		}
 	}
 	
