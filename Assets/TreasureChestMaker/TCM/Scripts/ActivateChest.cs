@@ -15,7 +15,7 @@ public class ActivateChest : MonoBehaviour {
     private void Awake()
     {
 		skillNum = 0;
-		activeSkills = new bool[4] { true, false, false, false };
+		activeSkills = new bool[4] { false, false, false, false };
 		_get = false;
 	}
 
