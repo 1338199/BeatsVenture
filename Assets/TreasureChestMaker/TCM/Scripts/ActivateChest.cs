@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Player;
+using UnityEngine;
 using System.Collections;
 
 public class ActivateChest : MonoBehaviour {
@@ -15,7 +16,14 @@ public class ActivateChest : MonoBehaviour {
     private void Awake()
     {
 		skillNum = 0;
-		activeSkills = new bool[4] { true, false, false, false };
+		try
+		{
+			activeSkills = skillUtils.loadSkills();
+		}
+		catch
+		{
+			activeSkills = new bool[4] { false, false, false, false };
+		}
 		_get = false;
 	}
 

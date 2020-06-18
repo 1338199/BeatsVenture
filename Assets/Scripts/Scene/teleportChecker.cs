@@ -26,7 +26,7 @@ public class teleportChecker : MonoBehaviour
         var objectName = collider.name;
         if (objectName == "Player")
         {
-            if (getPointNum == pointCount[stageId - 1])
+            if (getPointNum >= pointCount[stageId - 1])
             {
                 Debug.Log("Go to Next Level!");
                 if (stageId < 3)

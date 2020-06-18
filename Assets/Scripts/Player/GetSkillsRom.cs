@@ -1,5 +1,9 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Player;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+using System.Xml.Schema;
 using UnityEngine;
 
 public class GetSkillsRom : MonoBehaviour
@@ -16,7 +20,15 @@ public class GetSkillsRom : MonoBehaviour
         {
             child.gameObject.SetActive(false);
         }
-        activeSkills = new bool[4] { false, false, false, false };
+
+        try
+        {
+            activeSkills = skillUtils.loadSkills();
+        }
+        catch
+        {
+            activeSkills = new bool[4] { false, false, false, false };
+        }
     }
 
     // Update is called once per frame
@@ -63,6 +75,11 @@ public class GetSkillsRom : MonoBehaviour
     {
         //skillNum = ActivateChest.skillNum;
         //activeSkills = ActivateChest.activeSkills;
-        
+
+    }
+
+    public void OnDestroy()
+    {
+        skillUtils.saveSkills(activeSkills);
     }
 }

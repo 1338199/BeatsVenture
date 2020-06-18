@@ -15,7 +15,7 @@ public class CamSwitch : MonoBehaviour
             cam1.GetComponent<Camera>().enabled = true;
             cam1.tag = "MainCamera";
             cam2.GetComponent<Camera>().enabled = false;
-            cam1.tag = "Untagged";
+            cam2.tag = "Untagged";
         }
         if (Input.GetButtonDown("6Key"))
         {
