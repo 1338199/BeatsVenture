@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PlayerHealth : HealthController
 {
     private Animator anim;
-    public Text healthText;
 
     private void Start()
     {
@@ -17,6 +16,7 @@ public class PlayerHealth : HealthController
     {
         anim.SetTrigger("hit");
         healthText.text = hp.ToString();
+        Debug.Log("hp:" + healthText.text.ToString());
         base.UpdateInfo();
         if (hp <= 0)
             Die();
