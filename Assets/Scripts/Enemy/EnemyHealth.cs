@@ -25,6 +25,7 @@ public class EnemyHealth : HealthController
     {
         this.GetComponent<EnemyController>().enabled = false;
         this.GetComponent<EnemyController>().isDie = true;
+        this.GetComponent<EnemyController>().disableNav();
         anim.SetTrigger("die");
     }
 

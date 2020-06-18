@@ -157,4 +157,9 @@ public class EnemyController : MonoBehaviour
         return target.normalized;
     }
 
+
+    public void disableNav()
+    {
+        agent.enabled = false;
+    }
 }
