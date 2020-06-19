@@ -20,7 +20,14 @@ public class EnemyController : MonoBehaviour
     protected Animator anim;
     protected GameObject player;
 
-    private NavMeshAgent agent;
+    protected NavMeshAgent agent;
+
+
+    protected Vector3[] directions = { new Vector3(1, 0, 0),
+        new Vector3(-1,0,0), new Vector3(0,0,1), new Vector3(0,0,-1),
+        new Vector3(1,0,1).normalized, new Vector3(-1,0,1).normalized,
+        new Vector3(1,0,-1).normalized, new Vector3(-1,0,-1).normalized
+    };
 
     Coroutine coroutine = null;
 
@@ -36,6 +43,7 @@ public class EnemyController : MonoBehaviour
     {
         moveTimer += Time.deltaTime;  //
 
+        
         //计算经过的beat
         float timeOffset = Mathf.Abs(moveTimer - MusicController.getInstance().BeatTime);
         if (timeOffset <= 0.01f)   //两个浮点数不能直接用 == 比较
@@ -43,14 +51,23 @@ public class EnemyController : MonoBehaviour
             beatTimer++;
 
 
-            if (beatTimer > beatCanMove && isFindPlayer && !isHitPlayer)
+            if (beatTimer > beatCanMove)
             {
+
                 if (coroutine != null)
                 {
                     StopCoroutine(coroutine);
                 }
 
-                coroutine = StartCoroutine(Move());
+                if (isFindPlayer && !isHitPlayer)
+                {
+                    coroutine = StartCoroutine(Move());
+                }
+                else
+                {
+
+                }
+                
                 beatTimer = 0;
             }
             
@@ -64,7 +81,7 @@ public class EnemyController : MonoBehaviour
         player = g;
     }
 
-    protected IEnumerator Move()
+    protected virtual IEnumerator  Move()
     {
         if(!isHitPlayer)
         {
@@ -90,7 +107,9 @@ public class EnemyController : MonoBehaviour
             target = this.transform.position + step * direc;
         }
 
-        while(Vector3.Distance(this.transform.position,target) > 0.1)
+
+
+        while(Vector3.Distance(this.transform.position,target) > 0.1 && !isHitPlayer)
         {
          //   anim.SetTrigger("move");
             this.transform.position = Vector3.MoveTowards(this.transform.position, target, speed * Time.deltaTime);
@@ -100,6 +119,12 @@ public class EnemyController : MonoBehaviour
         //agent.SetDestination(path.corners[path.corners.Length-1]);
         
     }
+
+
+    //protected virtual IEnumerator Patrol()
+    //{
+        
+    //}
 
     protected IEnumerator Move2Player()
     {

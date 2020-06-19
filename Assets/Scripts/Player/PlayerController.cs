@@ -265,11 +265,20 @@ public class PlayerController : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, 1.5f))
         {
-            if (hitInfo.transform.tag == "Obstacle")
+            if (hitInfo.transform.tag == "Obstacle" || hitInfo.transform.tag == "Enemy")
+            {
+                anim.SetTrigger("move");
                 return false;
-            else return true;
+            }
+
+            else
+            {
+                return true;
+            }
         }
-        else return true;
+        else {
+            return true;
+        }
     }
 
     //void SmoothMove(Vector3 start, Vector3 target)
