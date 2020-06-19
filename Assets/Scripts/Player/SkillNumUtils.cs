@@ -19,7 +19,7 @@ namespace Assets.Scripts.Player
         static public int loadSkillNum()
         {
             var result = PlayerPrefs.GetString("skillNum");
-            int skillNum = result[0];
+            int skillNum = int.Parse(result);
             return skillNum;
         }
     }
