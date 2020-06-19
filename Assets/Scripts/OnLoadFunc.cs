@@ -15,6 +15,8 @@ namespace Assets.Scripts
         static OnLoadFunc()
         {
             skillUtils.saveSkills(new bool[4] { false, false, false, false });
+            MoneyUtils.saveMoney(0);
+            SkillNumUtils.saveSkillNum(0);
         }
     }
 }

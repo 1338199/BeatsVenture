@@ -15,14 +15,15 @@ public class ActivateChest : MonoBehaviour {
 	public bool _get;
     private void Awake()
     {
-		skillNum = 0;
 		try
 		{
 			activeSkills = skillUtils.loadSkills();
+			skillNum = SkillNumUtils.loadSkillNum();
 		}
 		catch
 		{
 			activeSkills = new bool[4] { false, false, false, false };
+			skillNum = 0;
 		}
 		_get = false;
 	}
@@ -41,7 +42,8 @@ public class ActivateChest : MonoBehaviour {
 	void ChestClicked(Quaternion toRot){
 		if (lid.rotation != toRot){
 			lid.rotation = Quaternion.Lerp(lid.rotation, toRot, Time.deltaTime * openSpeed);
-			if (skillNum < 4 && !_get)
+			int mors = Random.Range(0, 3);
+			if (mors == 2 && skillNum < 4 && !_get)
 			{
 				int index = Random.Range(0, 4);
 				while (true)
@@ -60,6 +62,11 @@ public class ActivateChest : MonoBehaviour {
 				_get = true;
 				//getSkillsRom.ShowSkills();
 			}
+			else if(mors < 2 && !_get)
+            {
+				Coins.money = Coins.money + Random.Range(50,100);
+				_get = true;
+            }
 		}
 	}
 	
