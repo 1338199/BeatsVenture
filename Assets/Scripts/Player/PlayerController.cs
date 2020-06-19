@@ -20,7 +20,9 @@ public class PlayerController : MonoBehaviour
     public int step = 2;  //每次按键的移动步长(距离)
 
     private int lastRespondedBeat = -1;
-    
+
+    Coroutine moveCorotine = null;
+
 
     private void Start()
     {
@@ -140,8 +142,12 @@ public class PlayerController : MonoBehaviour
                 Vector3 target = this.transform.position + targetDirection.normalized * step;
                 if (CheckCanMove(target - this.transform.position))
                 {
+                    if (moveCorotine != null)
+                    {
+                        StopCoroutine(moveCorotine);
+                    }
 
-                    StartCoroutine(SmoothMove(this.transform.position, target));
+                    moveCorotine = StartCoroutine(SmoothMove(this.transform.position, target));
                     //SmoothMove(this.transform.position, target);
                     return true;
                 }
@@ -161,7 +167,12 @@ public class PlayerController : MonoBehaviour
                 Vector3 target = this.transform.position + targetDirection.normalized * step;
                 if (CheckCanMove(target - this.transform.position))
                 {
-                    StartCoroutine(SmoothMove(this.transform.position, target));
+                    if (moveCorotine != null)
+                    {
+                        StopCoroutine(moveCorotine);
+                    }
+
+                    moveCorotine = StartCoroutine(SmoothMove(this.transform.position, target));
                     //SmoothMove(this.transform.position, target);
                     return true;
                 }
@@ -181,7 +192,12 @@ public class PlayerController : MonoBehaviour
                 Vector3 target = this.transform.position + targetDirection.normalized * step;
                 if (CheckCanMove(target - this.transform.position))
                 {
-                    StartCoroutine(SmoothMove(this.transform.position, target));
+
+                    if (moveCorotine != null)
+                    {
+                        StopCoroutine(moveCorotine);
+                    }
+                    moveCorotine = StartCoroutine(SmoothMove(this.transform.position, target));
                     //SmoothMove(this.transform.position, target);
                     return true;
                 }
@@ -201,7 +217,13 @@ public class PlayerController : MonoBehaviour
                 Vector3 target = this.transform.position + targetDirection.normalized * step;
                 if (CheckCanMove(target - this.transform.position))
                 {
-                    var a = StartCoroutine(SmoothMove(this.transform.position, target));
+
+                    if (moveCorotine != null)
+                    {
+                        StopCoroutine(moveCorotine);
+                    }
+
+                    moveCorotine = StartCoroutine(SmoothMove(this.transform.position, target));
                     //  SmoothMove(this.transform.position, target);
                     return true;
                 }
@@ -243,11 +265,20 @@ public class PlayerController : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, 1.5f))
         {
-            if (hitInfo.transform.tag == "Obstacle")
+            if (hitInfo.transform.tag == "Obstacle" || hitInfo.transform.tag == "Enemy")
+            {
+                anim.SetTrigger("move");
                 return false;
-            else return true;
+            }
+
+            else
+            {
+                return true;
+            }
         }
-        else return true;
+        else {
+            return true;
+        }
     }
 
     //void SmoothMove(Vector3 start, Vector3 target)

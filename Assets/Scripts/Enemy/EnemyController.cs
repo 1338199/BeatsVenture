@@ -13,13 +13,23 @@ public class EnemyController : MonoBehaviour
     public int beatCanMove = 2;   //敌人经过多少个节拍才可以移动
     protected int beatTimer;  //用来标记经过多少个节拍
     public bool isDie = false;
+    public int step = 1;
 
     public float speed = 5f;
 
     protected Animator anim;
     protected GameObject player;
 
-    private NavMeshAgent agent;
+    protected NavMeshAgent agent;
+
+
+    protected Vector3[] directions = { new Vector3(1, 0, 0),
+        new Vector3(-1,0,0), new Vector3(0,0,1), new Vector3(0,0,-1),
+        new Vector3(1,0,1).normalized, new Vector3(-1,0,1).normalized,
+        new Vector3(1,0,-1).normalized, new Vector3(-1,0,-1).normalized
+    };
+
+    Coroutine coroutine = null;
 
     public virtual void Start()
     {
@@ -33,6 +43,7 @@ public class EnemyController : MonoBehaviour
     {
         moveTimer += Time.deltaTime;  //
 
+        
         //计算经过的beat
         float timeOffset = Mathf.Abs(moveTimer - MusicController.getInstance().BeatTime);
         if (timeOffset <= 0.01f)   //两个浮点数不能直接用 == 比较
@@ -40,9 +51,23 @@ public class EnemyController : MonoBehaviour
             beatTimer++;
 
 
-            if (beatTimer > beatCanMove && isFindPlayer && !isHitPlayer)
+            if (beatTimer > beatCanMove)
             {
-                Move();
+
+                if (coroutine != null)
+                {
+                    StopCoroutine(coroutine);
+                }
+
+                if (isFindPlayer && !isHitPlayer)
+                {
+                    coroutine = StartCoroutine(Move());
+                }
+                else
+                {
+
+                }
+                
                 beatTimer = 0;
             }
             
@@ -56,14 +81,14 @@ public class EnemyController : MonoBehaviour
         player = g;
     }
 
-    protected void Move()
+    protected virtual IEnumerator  Move()
     {
         if(!isHitPlayer)
         {
             agent.isStopped = false;
         }
         //StartCoroutine(Move2Player());
-        anim.SetTrigger("move");
+        
         LookAtPlayer();
         //agent.destination = player.transform.position;
         //Debug.Log(agent.path.corners);
@@ -72,13 +97,34 @@ public class EnemyController : MonoBehaviour
         Debug.Log(player.transform.position);
         NavMesh.CalculatePath(transform.position, player.transform.position, NavMesh.AllAreas, path);
         Debug.Log(path.corners[path.corners.Length - 1]);
-
         Vector3 middlePoint = path.corners[1];
-        Vector3 direc = middlePoint - this.transform.position;
-        Vector3 destination = this.transform.position + agent.speed * direc;
-        agent.SetDestination(path.corners[path.corners.Length-1]);
-        //this.transform.position = Vector3.MoveTowards(this.transform.position, path.corners[path.corners.Length - 1], 20f*Time.deltaTime);
+        Vector3 mmDistance = middlePoint - this.transform.position;
+        Vector3 direc = mmDistance.normalized;
+        float p = mmDistance.x / direc.x;
+        Vector3 target = mmDistance + this.transform.position;
+        if(p > step)
+        {
+            target = this.transform.position + step * direc;
+        }
+
+
+
+        while(Vector3.Distance(this.transform.position,target) > 0.1 && !isHitPlayer)
+        {
+         //   anim.SetTrigger("move");
+            this.transform.position = Vector3.MoveTowards(this.transform.position, target, speed * Time.deltaTime);
+            yield return null;
+        }
+        //Vector3 destination = this.transform.position + agent.speed * direc;
+        //agent.SetDestination(path.corners[path.corners.Length-1]);
+        
     }
+
+
+    //protected virtual IEnumerator Patrol()
+    //{
+        
+    //}
 
     protected IEnumerator Move2Player()
     {
@@ -130,7 +176,11 @@ public class EnemyController : MonoBehaviour
     public void stopMove()
     {
         //anim.SetTrigger("move");
-        agent.isStopped = true;
+        if (agent.enabled)
+        {
+            agent.isStopped = true;
+        }
+        
     }
 
     protected void LookAtPlayer()
@@ -157,4 +207,9 @@ public class EnemyController : MonoBehaviour
         return target.normalized;
     }
 
+
+    public void disableNav()
+    {
+        agent.enabled = false;
+    }
 }

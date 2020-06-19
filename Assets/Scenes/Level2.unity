@@ -344,12 +344,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!4 &1981039 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2249084982077667171, guid: 188208524bdf4bf4892ccc1dac69e829,
-    type: 3}
-  m_PrefabInstance: {fileID: 1981033}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3212655
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,7 +1805,6 @@ Transform:
   - {fileID: 877297490}
   - {fileID: 405030259}
   - {fileID: 2107299925}
-  - {fileID: 1356267810}
   - {fileID: 1903584440}
   - {fileID: 693495125}
   - {fileID: 2138642737}
@@ -12012,77 +12005,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354199188}
   m_Mesh: {fileID: 4300070, guid: b1ed70984716593449276df5ea9a6e20, type: 3}
---- !u!1001 &1356267809
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 178827531}
-    m_Modifications:
-    - target: {fileID: 100000, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 78.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 50.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -36.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.25867862
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7068177
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.6156211
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.23346268
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
-      propertyPath: m_RootOrder
-      value: 39
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
-      propertyPath: InitialModule.startSizeY.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
-      propertyPath: InitialModule.startSizeZ.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
-      propertyPath: InitialModule.startRotationX.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
-      propertyPath: InitialModule.startRotationY.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
---- !u!4 &1356267810 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 67f24726d6977d94ebf5a33200b6e275,
-    type: 3}
-  m_PrefabInstance: {fileID: 1356267809}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1389584644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16642,8 +16564,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9fcd54fe11fc4c0b8dfb988e1ce247c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerTransform: {fileID: 1981039}
-  SmoothFactor: 0.6
+  player: {fileID: 0}
+  camPosX: 0
+  camPosY: 0
+  camPosZ: 0
+  camRotationX: 0
+  camRotationY: 0
+  camRotationZ: 0
+  turnSpeed: 0
 --- !u!20 &1852169201
 Camera:
   m_ObjectHideFlags: 0
@@ -17489,7 +17417,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 178827531}
-  m_RootOrder: 40
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &1903584441
 Light:
@@ -18056,8 +17984,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9fcd54fe11fc4c0b8dfb988e1ce247c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerTransform: {fileID: 1981039}
-  SmoothFactor: 0.6
+  player: {fileID: 0}
+  camPosX: 0
+  camPosY: 0
+  camPosZ: 0
+  camRotationX: 0
+  camRotationY: 0
+  camRotationZ: 0
+  turnSpeed: 0
 --- !u!81 &1954695653
 AudioListener:
   m_ObjectHideFlags: 0

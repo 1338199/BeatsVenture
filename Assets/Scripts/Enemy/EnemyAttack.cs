@@ -9,7 +9,7 @@ public class EnemyAttack : MonoBehaviour
     private bool isStay = false;
 
     private float moveTimer = 0f;
-    public int beatCanAttack = 5;
+    public int beatCanAttack = 3;
     private int beat = 0;
     private GameObject mplayer;
 
@@ -29,19 +29,28 @@ public class EnemyAttack : MonoBehaviour
 
     public void FixedUpdate()
     {
-        moveTimer += Time.deltaTime;
-
-        float timeOffset = Mathf.Abs(moveTimer - MusicController.getInstance().BeatTime);
-        if(timeOffset < 0.1f)
+        if (isStay)
         {
-            beat++;
-            if(!enemyController.isDie && beat >= beatCanAttack && enemyController.isHitPlayer)
+            moveTimer += Time.deltaTime;
+
+            float timeOffset = Mathf.Abs(moveTimer - MusicController.getInstance().BeatTime);
+            if (timeOffset < 0.1f)
             {
-                Attack(mplayer);
-                beat = 0;
+                beat++;
+                if (!enemyController.isDie && beat >= beatCanAttack && enemyController.isHitPlayer)
+                {
+                    Attack(mplayer);
+                    beat = 0;
+                }
+                moveTimer = 0;
             }
-            moveTimer = 0;
         }
+        else
+        {
+            moveTimer = 0;
+            beat = 0;
+        }
+        
     }
 
 
