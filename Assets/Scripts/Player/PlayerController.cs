@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
     public Transform musszleTrans;
+    public Boolean debug = false;
     public GameObject bullet;
 
     public MusicController mc;
@@ -25,6 +26,10 @@ public class PlayerController : MonoBehaviour
     {
         get
         {
+            if (debug)
+            {
+                return 5f;
+            }
             return 0.5f + continuousOnBeatCount/5;
         }
     }
