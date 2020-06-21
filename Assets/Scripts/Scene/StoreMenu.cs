@@ -68,15 +68,51 @@ public class StoreMenu : MonoBehaviour
                     break;
                 case 4:
                     Debug.Log("Buy 4");
+                    if (!ActivateChest.activeSkills[0])
+                    {
+                        ActivateChest.activeSkills[0] = true;
+                        ActivateChest.skillNum++;
+                    }
+                    else
+                    {
+                        Coins.money += itemCost[id];
+                    }
                     break;
                 case 5:
                     Debug.Log("Buy 5");
+                    if (!ActivateChest.activeSkills[1])
+                    {
+                        ActivateChest.activeSkills[1] = true;
+                        ActivateChest.skillNum++;
+                    }
+                    else
+                    {
+                        Coins.money += itemCost[id];
+                    }
                     break;
                 case 6:
                     Debug.Log("Buy 6");
+                    if (!ActivateChest.activeSkills[2])
+                    {
+                        ActivateChest.activeSkills[2] = true;
+                        ActivateChest.skillNum++;
+                    }
+                    else
+                    {
+                        Coins.money += itemCost[id];
+                    }
                     break;
                 case 7:
                     Debug.Log("Buy 7");
+                    if (!ActivateChest.activeSkills[3])
+                    {
+                        ActivateChest.activeSkills[3] = true;
+                        ActivateChest.skillNum++;
+                    }
+                    else
+                    {
+                        Coins.money += itemCost[id];
+                    }
                     break;
                 default:
                     break;
