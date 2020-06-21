@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,8 @@ public class UIController : MonoBehaviour
     public GameObject waringImage;
     public Text InfoText;
     public GameObject infoBar;
+    public float pureTimer;
+    public Text pureTimerText;
     /// <summary>
     /// 单例
     /// </summary>
@@ -16,6 +19,7 @@ public class UIController : MonoBehaviour
     void Start()
     {
         infoBar.gameObject.SetActive(false);
+        pureTimer = 0;
     }
     
     public static UIController Instance
@@ -26,7 +30,7 @@ public class UIController : MonoBehaviour
         }
 
     }
-
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -39,6 +43,31 @@ public class UIController : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (pureTimer > 0)
+        {
+            pureTimer -= Time.deltaTime;
+            pureTimerText.text = pureTimer.ToString("F0");
+            Debug.Log(pureTimer);
+        }
+        else
+        {
+  //          pureTimerText.text = "0";
+        }
+    }
+
+    /*
+    IEnumerator pureTimerCountDown()
+    {
+        while (pureTimer > 0)
+        {
+            pureTimerText.GetComponent<Text>().text = pureTimer.ToString();
+            yield return new WaitForSeconds(1);
+            pureTimer--;
+        }
+    }
+*/
     public void ShowInfo(string str)
     {
         InfoText.text = str;

@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyHealth : HealthController
 {
 
-    private Animator anim;
-    private ParticleSystem hitPs;
+    protected Animator anim;
+    protected ParticleSystem hitPs;
 
     private void Awake()
     {
@@ -28,6 +28,7 @@ public class EnemyHealth : HealthController
         this.GetComponent<EnemyController>().isDie = true;
         this.GetComponent<EnemyController>().disableNav();
         anim.SetTrigger("die");
+        Money();
     }
 
     IEnumerator StartSinking()   //通过动画事件调用下沉
@@ -39,5 +40,11 @@ public class EnemyHealth : HealthController
             yield return null;
         }
         Destroy(this.gameObject, 0.5f);
+    }
+
+    public virtual void Money()
+    {
+        int money = UnityEngine.Random.Range(8, 12);
+        Coins.money += money;
     }
 }

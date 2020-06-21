@@ -351,7 +351,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Idle
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110100000}
@@ -382,7 +382,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BiteAttack
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110156675}
@@ -562,17 +562,17 @@ AnimatorStateMachine:
     m_Position: {x: 96, y: 84, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110221082}
-    m_Position: {x: -348, y: -372, z: 0}
+    m_Position: {x: -350, y: -370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110265093}
-    m_Position: {x: 204, y: -240, z: 0}
+    m_Position: {x: 210, y: -240, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 110169188}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: -324, y: -264, z: 0}
+  m_AnyStatePosition: {x: -320, y: -260, z: 0}
   m_EntryPosition: {x: -132, y: -84, z: 0}
   m_ExitPosition: {x: -336, y: -468, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

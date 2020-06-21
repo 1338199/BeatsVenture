@@ -88,6 +88,7 @@ public class BatController : EnemyController
     {
         
         Vector3 target = this.transform.position + curDirec * step;
+        Vector3 target_clone = target;
         NavMeshPath path = new NavMeshPath();
         NavMesh.CalculatePath(this.transform.position, target, NavMesh.AllAreas, path);
         if (path.corners.Length == 0)
@@ -97,13 +98,14 @@ public class BatController : EnemyController
         else
         {
             Vector3 middlePoint = path.corners[0];
+            target_clone.y = middlePoint.y;
             if (path.corners.Length > 1)
             {
                 middlePoint = path.corners[1];
             }
 
 
-            if (Vector3.Distance(middlePoint, target) < 0.01f)
+            if (Vector3.Distance(middlePoint, target_clone) < 0.01f)
             {
                 this.transform.LookAt(target);
 

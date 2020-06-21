@@ -7,18 +7,15 @@ using UnityEngine.UI;
 public class StoreMenu : MonoBehaviour
 {
     private bool isShown = false;
-    public int pureTimer;
-    public Text pureTimerText;
 
     public int[] itemCost = {40, 60, 100, 50, 200, 100, 100, 500};
     // Start is called before the first frame update
     void Start()
     {
         gameObject.SetActive(false);
-        pureTimer = 0;
-        Coins.money = 100;
+        Debug.Log("money1:" + Coins.money);
     }
-
+    
     void Update()
     {
         
@@ -42,21 +39,12 @@ public class StoreMenu : MonoBehaviour
     // 没写完等会再写
     public void getCureItem()
     {
-        pureTimer = 30;
-    }
-
-    IEnumerator pureTimerCountDown()
-    {
-        while (pureTimer >=0)
-        {
-            pureTimerText.GetComponent<Text>().text = pureTimer.ToString();
-            yield return new WaitForSeconds(1);
-            pureTimer--;
-        }
+        UIController.Instance.pureTimer = 30;
     }
 
     public void buyItem(int id)
     {
+        Debug.Log("money2:" + Coins.money);
         if (Coins.money < itemCost[id])
         {
             UIController.Instance.ShowInfo("Not enough money");
@@ -82,15 +70,51 @@ public class StoreMenu : MonoBehaviour
                     break;
                 case 4:
                     Debug.Log("Buy 4");
+                    if (!ActivateChest.activeSkills[0])
+                    {
+                        ActivateChest.activeSkills[0] = true;
+                        ActivateChest.skillNum++;
+                    }
+                    else
+                    {
+                        Coins.money += itemCost[id];
+                    }
                     break;
                 case 5:
                     Debug.Log("Buy 5");
+                    if (!ActivateChest.activeSkills[1])
+                    {
+                        ActivateChest.activeSkills[1] = true;
+                        ActivateChest.skillNum++;
+                    }
+                    else
+                    {
+                        Coins.money += itemCost[id];
+                    }
                     break;
                 case 6:
                     Debug.Log("Buy 6");
+                    if (!ActivateChest.activeSkills[2])
+                    {
+                        ActivateChest.activeSkills[2] = true;
+                        ActivateChest.skillNum++;
+                    }
+                    else
+                    {
+                        Coins.money += itemCost[id];
+                    }
                     break;
                 case 7:
                     Debug.Log("Buy 7");
+                    if (!ActivateChest.activeSkills[3])
+                    {
+                        ActivateChest.activeSkills[3] = true;
+                        ActivateChest.skillNum++;
+                    }
+                    else
+                    {
+                        Coins.money += itemCost[id];
+                    }
                     break;
                 default:
                     break;
