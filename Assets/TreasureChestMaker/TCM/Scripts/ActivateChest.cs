@@ -66,6 +66,7 @@ public class ActivateChest : MonoBehaviour {
 			}
 			else if(mors < 2 && !_get)
             {
+				UIController.Instance.ShowInfo("Your money has been raised");
 				Coins.money = Coins.money + Random.Range(50,100);
 				_get = true;
             }
@@ -75,6 +76,7 @@ public class ActivateChest : MonoBehaviour {
 				pos = new Vector3(this.transform.position.x - 3, this.transform.position.y, this.transform.position.z);
 				Instantiate(TreasureMonster, pos, TreasureMonster.transform.rotation);
 				_get = true;
+				UIController.Instance.ShowInfo("An enemy has been produced");
 			}
 
 		}

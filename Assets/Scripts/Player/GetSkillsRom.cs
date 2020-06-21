@@ -48,25 +48,26 @@ public class GetSkillsRom : MonoBehaviour
             {
                 activeSkills[0] = true;
                 gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                UIController.Instance.ShowInfo("Press 1 to activate this AOESkill");
 
             }
             if (ActivateChest.activeSkills[1] && !activeSkills[1])
             {
                 activeSkills[1] = true;
                 gameObject.transform.GetChild(1).gameObject.SetActive(true);
-
+                UIController.Instance.ShowInfo("Press 2 to activate this FlashSkill");
             }
             if (ActivateChest.activeSkills[2] && !activeSkills[2])
             {
                 activeSkills[2] = true;
                 gameObject.transform.GetChild(2).gameObject.SetActive(true);
-
+                UIController.Instance.ShowInfo("Press 3 to activate this FrozenSkill");
             }
             if (ActivateChest.activeSkills[3] && !activeSkills[3])
             {
                 activeSkills[3] = true;
                 gameObject.transform.GetChild(3).gameObject.SetActive(true);
-
+                UIController.Instance.ShowInfo("Press 4 to summon meteors");
             }
         }
     }
