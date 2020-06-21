@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.XR.WSA.Input;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,18 +13,31 @@ public class PlayerController : MonoBehaviour
 
     public MusicController mc;
 
+    public GameObject playerHalo;
+
     private float currentTime = 0;   //用来记录时间
 
     private Animator anim;
 
     private SkillsController SkillsController;
     private Rigidbody rb;
-    public int step = 2;  //每次按键的移动步长(距离)
+    public float step
+    {
+        get
+        {
+            return 0.5f + continuousOnBeatCount/5;
+        }
+    }
 
     private int lastRespondedBeat = -1;
 
     Coroutine moveCorotine = null;
 
+    public int continuousOnBeatCount
+    {
+        get;
+        set;
+    } = 0;
 
     private void Start()
     {
@@ -52,6 +67,25 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void startRadiusChange()
+    {
+        float end = continuousOnBeatCount * 0.05f;
+        StartCoroutine(changeRadius(end));
+    }
+    private IEnumerator changeRadius(float end)
+    {
+        float start_time = Time.time;
+        float frac = 0;
+        ParticleSystem.ShapeModule shape = playerHalo.GetComponent<ParticleSystem>().shape;
+        float start = shape.radius;
+        while (frac <= 1)
+        {
+            frac = (Time.time - start_time) / 0.2f;
+            shape.radius = frac*end + (1-frac)*start;
+            yield return null;
+        }
+    }
+
     private bool Attack()
     {
         if (Input.GetMouseButtonDown(0))
@@ -62,11 +96,6 @@ public class PlayerController : MonoBehaviour
                 this.GetComponent<AudioSource>().Play();
                 Instantiate(bullet, musszleTrans.position, musszleTrans.rotation);
                 return true;
-            }
-            else
-            {
-                //节奏不对
-                //UIController.Instance.ShowWaring();
             }
         }
         return false;
@@ -81,11 +110,6 @@ public class PlayerController : MonoBehaviour
                 SkillsController.RealseSkills(1);
                 return true;
             }
-            else
-            {
-                //节奏不对
-                //UIController.Instance.ShowWaring();
-            }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -93,11 +117,6 @@ public class PlayerController : MonoBehaviour
             {
                 SkillsController.RealseSkills(2);
                 return true;
-            }
-            else
-            {
-                //节奏不对
-                //UIController.Instance.ShowWaring();
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -107,11 +126,6 @@ public class PlayerController : MonoBehaviour
                 SkillsController.RealseSkills(3);
                 return true;
             }
-            else
-            {
-                //节奏不对
-                //UIController.Instance.ShowWaring();
-            }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
@@ -119,11 +133,6 @@ public class PlayerController : MonoBehaviour
             {
                 SkillsController.RealseSkills(4);
                 return true;
-            }
-            else
-            {
-                //节奏不对
-                //UIController.Instance.ShowWaring();
             }
         }
         return false;
@@ -152,11 +161,6 @@ public class PlayerController : MonoBehaviour
                     return true;
                 }
             }
-            else
-            {
-                //节奏不对
-                //UIController.Instance.ShowWaring();
-            }
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
@@ -176,11 +180,6 @@ public class PlayerController : MonoBehaviour
                     //SmoothMove(this.transform.position, target);
                     return true;
                 }
-            }
-            else
-            {
-                //UIController.Instance.ShowWaring();
-
             }
         }
         else if (Input.GetKeyDown(KeyCode.A))
@@ -202,11 +201,6 @@ public class PlayerController : MonoBehaviour
                     return true;
                 }
             }
-            else
-            {
-                //UIController.Instance.ShowWaring();
-
-            }
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
@@ -227,11 +221,6 @@ public class PlayerController : MonoBehaviour
                     //  SmoothMove(this.transform.position, target);
                     return true;
                 }
-            }
-            else
-            {
-                //UIController.Instance.ShowWaring();
-
             }
         }
         return false;
@@ -280,78 +269,6 @@ public class PlayerController : MonoBehaviour
             return true;
         }
     }
-
-    //void SmoothMove(Vector3 start, Vector3 target)
-    //{
-
-    //    anim.SetTrigger("move");
-    //    // while (Vector3.Distance(this.transform.position, target) > 0.001f)
-
-    //    Lookat();
-
-    //    //Vector3 direction = target - start;
-    //    //Vector3 movement = direction * speed;
-    //    //Vector3 curPosition = this.transform.position;
-    //    //NavMeshHit hit;
-    //    //if(NavMesh.SamplePosition(curPosition,out hit, 0.5f, -1))
-    //    //{
-    //    //    curPosition = hit.position;
-    //    //}
-    //    //Vector3 temp = curPosition + movement;
-    //    //if(NavMesh.SamplePosition(temp, out hit, 0.5f, -1))
-    //    //{
-    //    //    temp = hit.position;
-    //    //}
-
-    //    //bool canMove = true;
-    //    //NavMeshPath path = new NavMeshPath();
-    //    //if (!NavMesh.CalculatePath(curPosition, temp, NavMesh.AllAreas, path))
-    //    //{
-    //    //    canMove = false;
-    //    //}
-    //    //else
-    //    //{
-    //    //    if(path.corners.Length < 2)
-    //    //    {
-    //    //        if(path.corners.Length == 1)
-    //    //        {
-    //    //            movement = path.corners[0] - curPosition;
-    //    //            movement.y = curPosition.y; //?
-    //    //        }
-    //    //        else
-    //    //        {
-    //    //            canMove = false;
-    //    //        }
-    //    //    }
-    //    //    else
-    //    //    {
-    //    //        movement = path.corners[1] - curPosition;
-    //    //        movement.y = curPosition.y;
-    //    //        Vector3 moveDirec = movement.normalized;
-    //    //        float dot = Vector3.Dot(moveDirec, direction.normalized);
-    //    //        movement = moveDirec * speed * dot;
-
-    //    //        Debug.Log(movement);    
-    //    //        Debug.Log(dot);
-    //    //        Debug.Log(curPosition);
-    //    //        Debug.Log(movement + curPosition);
-    //    //        this.transform.position = Vector3.MoveTowards(curPosition, movement + curPosition, speed * Time.deltaTime);
-
-    //    //    }
-    //    //}
-
-    //    //if (!canMove)
-    //    //{
-    //    //    //todo
-    //    //}
-
-
-    //    Debug.Log(this.transform.position);
-    //    this.transform.position = Vector3.MoveTowards(this.transform.position, target, speed * Time.deltaTime);
-    //    Debug.Log(this.transform.position);
-    //}
-
-
 
     private IEnumerator SmoothMove(Vector3 start, Vector3 target)
     {
@@ -436,11 +353,6 @@ public class PlayerController : MonoBehaviour
                 //Debug.Log(this.transform.position);
             }
 
-
-
-            //Debug.Log(this.transform.position);
-            //this.transform.position = Vector3.MoveTowards(this.transform.position, target, speed * Time.deltaTime);
-            //Debug.Log(this.transform.position);
             yield return null;
         }
 
@@ -456,6 +368,9 @@ public class PlayerController : MonoBehaviour
                 if (use)
                 {
                     lastRespondedBeat = temp;
+                    continuousOnBeatCount++;
+                    continuousOnBeatCount = Math.Min(continuousOnBeatCount, 20);
+                    startRadiusChange();
                 }
                 return true;
             }
@@ -466,6 +381,9 @@ public class PlayerController : MonoBehaviour
             if (use)
             {
                 UIController.Instance.ShowWaring();
+                continuousOnBeatCount -= 10;
+                continuousOnBeatCount = Math.Max(continuousOnBeatCount, 0);
+                startRadiusChange();
             }
             return false;
         }

@@ -2749,6 +2749,95 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 326332854}
   m_CullTransparentMesh: 0
+--- !u!1001 &337389248
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 547322788}
+    m_Modifications:
+    - target: {fileID: 2034403431319805858, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerHalo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805868, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805868, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805868, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805868, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e48e3a839f16662449241d1cdd769979, type: 3}
 --- !u!1001 &343356135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4635,6 +4724,11 @@ PrefabInstance:
       propertyPath: step
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2244738723466320446, guid: 188208524bdf4bf4892ccc1dac69e829,
+        type: 3}
+      propertyPath: playerHalo
+      value: 
+      objectReference: {fileID: 2021448933}
     - target: {fileID: 2244738724026914678, guid: 188208524bdf4bf4892ccc1dac69e829,
         type: 3}
       propertyPath: skillRange
@@ -27093,6 +27187,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010255771}
   m_CullTransparentMesh: 0
+--- !u!1 &2021448933 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2034403431319805858, guid: e48e3a839f16662449241d1cdd769979,
+    type: 3}
+  m_PrefabInstance: {fileID: 337389248}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2024778678
 GameObject:
   m_ObjectHideFlags: 0
