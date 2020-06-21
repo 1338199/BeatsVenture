@@ -22,21 +22,11 @@ public class HealthController : MonoBehaviour
     {
         healthSilder.value = hp;
         //healthText.text = healthSilder.value.ToString();
-        Debug.Log("Health:" + hp.ToString());
-        if (hp < 1)
-        {
-            Debug.Log("Die!");
-            Die();
-        }
+        //Debug.Log("Health:" + hp.ToString());
     }
 
     public virtual void Die()
     {
-        if (actor == 1)
-        {
-            Debug.Log("showDeathMenu!");
-            deathMenu.showDeathMenu();
-            MusicController.getInstance().Pause();
-        }
+
     }
 }

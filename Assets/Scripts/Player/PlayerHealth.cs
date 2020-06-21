@@ -24,6 +24,10 @@ public class PlayerHealth : HealthController
 
     public override void Die()
     {
+        this.GetComponent<PlayerController>().enabled = false;
         anim.SetTrigger("die");
+        Debug.Log("showDeathMenu!");
+        deathMenu.showDeathMenu();
+        MusicController.getInstance().Pause();
     }
 }
