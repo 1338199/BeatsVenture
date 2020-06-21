@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5276,7 +5276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &545809503
 Light:
   m_ObjectHideFlags: 0
@@ -6589,6 +6589,7 @@ MonoBehaviour:
   lidClose: {fileID: 1836933895}
   openSpeed: 5
   canClose: 0
+  TreasureMonster: {fileID: 0}
   _open: 0
   _get: 0
 --- !u!65 &658959038
@@ -18787,6 +18788,7 @@ MonoBehaviour:
   lidClose: {fileID: 121543079}
   openSpeed: 5
   canClose: 0
+  TreasureMonster: {fileID: 100046, guid: 99d348bd1a0ac7d438dd6239352c91d8, type: 3}
   _open: 0
   _get: 0
 --- !u!65 &1353236334
@@ -18810,7 +18812,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353236332}
   m_LocalRotation: {x: -0.49579057, y: -0.5041743, z: -0.5041743, w: 0.49579063}
-  m_LocalPosition: {x: -27.8, y: 1.8, z: 0.5}
+  m_LocalPosition: {x: -63.3, y: 1.8, z: 44.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 686828701}
@@ -27024,7 +27026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2010255772
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27274,6 +27276,7 @@ MonoBehaviour:
   lidClose: {fileID: 1035210320}
   openSpeed: 5
   canClose: 0
+  TreasureMonster: {fileID: 0}
   _open: 0
   _get: 0
 --- !u!65 &2034631806
