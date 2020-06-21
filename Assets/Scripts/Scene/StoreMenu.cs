@@ -6,18 +6,16 @@ using UnityEngine.UI;
 public class StoreMenu : MonoBehaviour
 {
     private bool isShown = false;
-    public int pureTimer;
-    public Text pureTimerText;
 
     public int[] itemCost = {40, 60, 100, 50, 200, 100, 100, 500};
     // Start is called before the first frame update
     void Start()
     {
+        Coins.money += 100;
         gameObject.SetActive(false);
-        pureTimer = 0;
-        Coins.money = 100;
+        Debug.Log("money1:" + Coins.money);
     }
-
+    
     void Update()
     {
         
@@ -39,21 +37,12 @@ public class StoreMenu : MonoBehaviour
     // 没写完等会再写
     public void getCureItem()
     {
-        pureTimer = 30;
-    }
-
-    IEnumerator pureTimerCountDown()
-    {
-        while (pureTimer >=0)
-        {
-            pureTimerText.GetComponent<Text>().text = pureTimer.ToString();
-            yield return new WaitForSeconds(1);
-            pureTimer--;
-        }
+        UIController.Instance.pureTimer = 30;
     }
 
     public void buyItem(int id)
     {
+        Debug.Log("money2:" + Coins.money);
         if (Coins.money < itemCost[id])
         {
             UIController.Instance.ShowInfo("Not enough money");

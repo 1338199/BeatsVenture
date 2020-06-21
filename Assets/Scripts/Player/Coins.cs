@@ -8,6 +8,8 @@ public class Coins : MonoBehaviour
 {
     public static int money;
     public Text coinText;
+    public Text storeCoinText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +18,16 @@ public class Coins : MonoBehaviour
             money = MoneyUtils.loadMoney();
             Debug.Log("money:"+MoneyUtils.loadMoney());
             coinText.text = money.ToString();
+            if (storeCoinText)
+            {
+                storeCoinText.text = money.ToString();
+            }
         }
         catch
         {
             money = 0;
             coinText.text = money.ToString();
+            storeCoinText.text = money.ToString();
         }
         
     }
@@ -29,6 +36,11 @@ public class Coins : MonoBehaviour
     void Update()
     {
         coinText.text = money.ToString();
+        if (storeCoinText)
+        {
+            storeCoinText.text = money.ToString();
+        }
+
     }
     public void OnDestroy()
     {
