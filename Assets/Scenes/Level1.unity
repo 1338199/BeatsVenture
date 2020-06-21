@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1240,7 +1240,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinText: {fileID: 796045337}
-  storeCoinText: {fileID: 0}
 --- !u!1 &182061229
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,6 +1350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40582381fd9d44d519f3f413ed1a9009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pureTimer: 0
+  pureTimerText: {fileID: 0}
   itemCost: 280000003c0000006400000032000000c80000006400000064000000f4010000
 --- !u!114 &189374440
 MonoBehaviour:
@@ -1783,18 +1784,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 219514530}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 189374439}
-        m_MethodName: buyItem
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &219514530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2759,6 +2749,95 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 326332854}
   m_CullTransparentMesh: 0
+--- !u!1001 &337389248
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 547322788}
+    m_Modifications:
+    - target: {fileID: 2034403431319805858, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerHalo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805868, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805868, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805868, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805868, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034403431319805871, guid: e48e3a839f16662449241d1cdd769979,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e48e3a839f16662449241d1cdd769979, type: 3}
 --- !u!1001 &343356135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3379,7 +3458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a65cb743729bb41eb8422411b8322ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 2
+  damageAmount: 1
 --- !u!1 &413379830
 GameObject:
   m_ObjectHideFlags: 0
@@ -4449,18 +4528,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 463082775}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 189374439}
-        m_MethodName: buyItem
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &463082775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4656,6 +4724,11 @@ PrefabInstance:
       propertyPath: step
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2244738723466320446, guid: 188208524bdf4bf4892ccc1dac69e829,
+        type: 3}
+      propertyPath: playerHalo
+      value: 
+      objectReference: {fileID: 2021448933}
     - target: {fileID: 2244738724026914678, guid: 188208524bdf4bf4892ccc1dac69e829,
         type: 3}
       propertyPath: skillRange
@@ -4664,7 +4737,7 @@ PrefabInstance:
     - target: {fileID: 2244738724026914678, guid: 188208524bdf4bf4892ccc1dac69e829,
         type: 3}
       propertyPath: coolDown
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2244738724026914678, guid: 188208524bdf4bf4892ccc1dac69e829,
         type: 3}
@@ -5297,7 +5370,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &545809503
 Light:
   m_ObjectHideFlags: 0
@@ -6610,7 +6683,6 @@ MonoBehaviour:
   lidClose: {fileID: 1836933895}
   openSpeed: 5
   canClose: 0
-  TreasureMonster: {fileID: 0}
   _open: 0
   _get: 0
 --- !u!65 &658959038
@@ -7406,36 +7478,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224603631451490810, guid: 0f931a9ef3f76264998857851f8f827d,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224603631451490810, guid: 0f931a9ef3f76264998857851f8f827d,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224603631451490810, guid: 0f931a9ef3f76264998857851f8f827d,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224603631451490810, guid: 0f931a9ef3f76264998857851f8f827d,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224603631451490810, guid: 0f931a9ef3f76264998857851f8f827d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224603631451490810, guid: 0f931a9ef3f76264998857851f8f827d,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114953711120744244, guid: 0f931a9ef3f76264998857851f8f827d, type: 3}
     - {fileID: 114473738998969478, guid: 0f931a9ef3f76264998857851f8f827d, type: 3}
@@ -7775,18 +7817,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 780976999}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 189374439}
-        m_MethodName: buyItem
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 6
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &780976999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8751,14 +8782,6 @@ PrefabInstance:
       propertyPath: CollisionModule.collisionMessages
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 19800002, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
-      propertyPath: InitialModule.startRotationX.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800002, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
-      propertyPath: InitialModule.startRotationY.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
 --- !u!1 &905692790 stripped
@@ -8779,7 +8802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a65cb743729bb41eb8422411b8322ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 2
+  damageAmount: 1
 --- !u!1001 &914792234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16880,7 +16903,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinText: {fileID: 1166206695}
-  storeCoinText: {fileID: 0}
 --- !u!114 &1166206695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16912,7 +16934,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 100
 --- !u!222 &1166206696
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18859,7 +18881,6 @@ MonoBehaviour:
   lidClose: {fileID: 121543079}
   openSpeed: 5
   canClose: 0
-  TreasureMonster: {fileID: 0}
   _open: 0
   _get: 0
 --- !u!65 &1353236334
@@ -21453,8 +21474,6 @@ MonoBehaviour:
   waringImage: {fileID: 1553797834}
   InfoText: {fileID: 576147084}
   infoBar: {fileID: 1231641050}
-  pureTimer: 0
-  pureTimerText: {fileID: 0}
 --- !u!1001 &1495330338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21716,7 +21735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a65cb743729bb41eb8422411b8322ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 2
+  damageAmount: 1
 --- !u!1001 &1511242688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21832,7 +21851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a65cb743729bb41eb8422411b8322ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 2
+  damageAmount: 1
 --- !u!1 &1524474779
 GameObject:
   m_ObjectHideFlags: 0
@@ -22540,7 +22559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a65cb743729bb41eb8422411b8322ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 2
+  damageAmount: 1
 --- !u!1 &1553797834
 GameObject:
   m_ObjectHideFlags: 0
@@ -22812,7 +22831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a65cb743729bb41eb8422411b8322ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 2
+  damageAmount: 1
 --- !u!1 &1596153575
 GameObject:
   m_ObjectHideFlags: 0
@@ -23939,14 +23958,6 @@ PrefabInstance:
       propertyPath: CollisionModule.collisionMessages
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 19800002, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
-      propertyPath: InitialModule.startRotationX.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800002, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
-      propertyPath: InitialModule.startRotationY.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f24726d6977d94ebf5a33200b6e275, type: 3}
 --- !u!1 &1687548411 stripped
@@ -23967,7 +23978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a65cb743729bb41eb8422411b8322ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 2
+  damageAmount: 1
 --- !u!1 &1689351605
 GameObject:
   m_ObjectHideFlags: 0
@@ -24336,7 +24347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a65cb743729bb41eb8422411b8322ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 2
+  damageAmount: 1
 --- !u!1 &1717079828
 GameObject:
   m_ObjectHideFlags: 0
@@ -26987,18 +26998,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1998444320}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 189374439}
-        m_MethodName: buyItem
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 7
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1998444320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27131,7 +27131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2010255772
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27187,6 +27187,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010255771}
   m_CullTransparentMesh: 0
+--- !u!1 &2021448933 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2034403431319805858, guid: e48e3a839f16662449241d1cdd769979,
+    type: 3}
+  m_PrefabInstance: {fileID: 337389248}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2024778678
 GameObject:
   m_ObjectHideFlags: 0
@@ -27381,7 +27387,6 @@ MonoBehaviour:
   lidClose: {fileID: 1035210320}
   openSpeed: 5
   canClose: 0
-  TreasureMonster: {fileID: 0}
   _open: 0
   _get: 0
 --- !u!65 &2034631806
