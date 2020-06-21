@@ -11,7 +11,6 @@ public class StoreMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Coins.money += 100;
         gameObject.SetActive(false);
         Debug.Log("money1:" + Coins.money);
     }

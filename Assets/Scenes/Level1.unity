@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1240,6 +1240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinText: {fileID: 796045337}
+  storeCoinText: {fileID: 0}
 --- !u!1 &182061229
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,8 +1351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40582381fd9d44d519f3f413ed1a9009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pureTimer: 0
-  pureTimerText: {fileID: 0}
   itemCost: 280000003c0000006400000032000000c80000006400000064000000f4010000
 --- !u!114 &189374440
 MonoBehaviour:
@@ -1784,7 +1783,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 219514530}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 189374439}
+        m_MethodName: buyItem
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &219514530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4528,7 +4538,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 463082775}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 189374439}
+        m_MethodName: buyItem
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &463082775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6683,6 +6704,7 @@ MonoBehaviour:
   lidClose: {fileID: 1836933895}
   openSpeed: 5
   canClose: 0
+  TreasureMonster: {fileID: 0}
   _open: 0
   _get: 0
 --- !u!65 &658959038
@@ -7817,7 +7839,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 780976999}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 189374439}
+        m_MethodName: buyItem
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &780976999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16903,6 +16936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinText: {fileID: 1166206695}
+  storeCoinText: {fileID: 0}
 --- !u!114 &1166206695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18881,6 +18915,7 @@ MonoBehaviour:
   lidClose: {fileID: 121543079}
   openSpeed: 5
   canClose: 0
+  TreasureMonster: {fileID: 0}
   _open: 0
   _get: 0
 --- !u!65 &1353236334
@@ -21474,6 +21509,8 @@ MonoBehaviour:
   waringImage: {fileID: 1553797834}
   InfoText: {fileID: 576147084}
   infoBar: {fileID: 1231641050}
+  pureTimer: 0
+  pureTimerText: {fileID: 0}
 --- !u!1001 &1495330338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26998,7 +27035,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1998444320}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 189374439}
+        m_MethodName: buyItem
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1998444320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27387,6 +27435,7 @@ MonoBehaviour:
   lidClose: {fileID: 1035210320}
   openSpeed: 5
   canClose: 0
+  TreasureMonster: {fileID: 0}
   _open: 0
   _get: 0
 --- !u!65 &2034631806
