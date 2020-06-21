@@ -9,6 +9,7 @@ public class ActivateChest : MonoBehaviour {
 	public bool canClose;                       // Can the chest be closed
 	public static int skillNum;
 	public static bool[] activeSkills;
+	public GameObject TreasureMonster;
 
 	[HideInInspector]
 	public bool _open;                          // Is the chest opened
@@ -42,7 +43,8 @@ public class ActivateChest : MonoBehaviour {
 	void ChestClicked(Quaternion toRot){
 		if (lid.rotation != toRot){
 			lid.rotation = Quaternion.Lerp(lid.rotation, toRot, Time.deltaTime * openSpeed);
-			int mors = Random.Range(0, 3);
+			int mors = Random.Range(0, 4);
+			
 			if (mors == 2 && skillNum < 4 && !_get)
 			{
 				int index = Random.Range(0, 4);
@@ -67,6 +69,14 @@ public class ActivateChest : MonoBehaviour {
 				Coins.money = Coins.money + Random.Range(50,100);
 				_get = true;
             }
+			else if (mors == 3 && !_get)
+			{
+				Vector3 pos;
+				pos = new Vector3(this.transform.position.x - 3, this.transform.position.y, this.transform.position.z);
+				Instantiate(TreasureMonster, pos, TreasureMonster.transform.rotation);
+				_get = true;
+			}
+
 		}
 	}
 	
