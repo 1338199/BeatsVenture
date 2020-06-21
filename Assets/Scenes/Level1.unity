@@ -2915,7 +2915,6 @@ GameObject:
   m_Component:
   - component: {fileID: 350472439}
   - component: {fileID: 350472438}
-  - component: {fileID: 350472437}
   - component: {fileID: 350472436}
   m_Layer: 0
   m_Name: cam2
@@ -2944,14 +2943,6 @@ MonoBehaviour:
   camRotationY: 0
   camRotationZ: 0
   turnSpeed: 2
---- !u!81 &350472437
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 350472435}
-  m_Enabled: 1
 --- !u!20 &350472438
 Camera:
   m_ObjectHideFlags: 0
@@ -6683,6 +6674,7 @@ MonoBehaviour:
   lidClose: {fileID: 1836933895}
   openSpeed: 5
   canClose: 0
+  TreasureMonster: {fileID: 0}
   _open: 0
   _get: 0
 --- !u!65 &658959038
@@ -7611,6 +7603,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   beatCanAttack: 5
+--- !u!1 &760512219 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6894200878353086848, guid: d6c406ee4a3e87f41b11087106124ba0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1223573790}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &760512220
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760512219}
+  m_Enabled: 1
 --- !u!1 &767152263
 GameObject:
   m_ObjectHideFlags: 0
@@ -18881,6 +18887,7 @@ MonoBehaviour:
   lidClose: {fileID: 121543079}
   openSpeed: 5
   canClose: 0
+  TreasureMonster: {fileID: 0}
   _open: 0
   _get: 0
 --- !u!65 &1353236334
@@ -27387,6 +27394,7 @@ MonoBehaviour:
   lidClose: {fileID: 1035210320}
   openSpeed: 5
   canClose: 0
+  TreasureMonster: {fileID: 0}
   _open: 0
   _get: 0
 --- !u!65 &2034631806
