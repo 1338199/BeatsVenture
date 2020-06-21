@@ -68,7 +68,7 @@ public class MusicController : MonoBehaviour
             {
                 time = nextForeseeTime,
                 stamp = nextForeseeBeatCount * 10 + nextForeseeHitInBeat
-            }); ;
+            });
             int beatInBar = (int)nextForeseeBeatCount % beatsPerBar;
             var pattern = rhythm[beatInBar];
             if (nextForeseeHitInBeat + 1 > pattern.Count - 1)

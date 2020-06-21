@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityScript.Steps;
 
 public class BeatIconController : MonoBehaviour
 {
     public GameObject Blackhole;
     public float time;
+    // the ratio of blackhole vibration time span over total flying time
+    public float VibrateRatio = 0.1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,10 +30,16 @@ public class BeatIconController : MonoBehaviour
         Vector3 startPostion = this.transform.position;
         Vector3 endPosition = Blackhole.transform.position;
         float frac = 0;
+        bool vibrated = false;
         while (frac <= 1)
         {
             frac = (Time.time - start_time) / totalTime;
             transform.position = Vector3.Lerp(startPostion, endPosition, frac);
+            if(!vibrated && frac>1f-VibrateRatio/2)
+            {
+                Blackhole.GetComponent<BlackholeController>().startVibrate(this.VibrateRatio * totalTime);
+                vibrated = true;
+            }
             yield return null;
         }
         Destroy(gameObject);
