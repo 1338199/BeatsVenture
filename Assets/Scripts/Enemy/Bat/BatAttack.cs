@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BatAttack : EnemyAttack
 {
-
     private Animator anim;
+    public DarkbcController darkbc;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -17,6 +17,9 @@ public class BatAttack : EnemyAttack
     public override void Attack(GameObject gameObject)
     {
         anim.SetTrigger("Attack");
+        
         gameObject.GetComponent<HealthController>().TakeDamage(damage);
+        //    GameObject.Find("Directional Light").SetActive(false);
+        darkbc.setLast();
     }
 }

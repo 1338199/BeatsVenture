@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyHealth : HealthController
 {
 
-    private Animator anim;
-    private ParticleSystem hitPs;
+    protected Animator anim;
+    protected ParticleSystem hitPs;
 
     private void Awake()
     {
