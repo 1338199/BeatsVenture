@@ -90,7 +90,7 @@ public class MinMap:MonoBehaviour
         for(int i=0;i < players.Count; i++)
         {
 
-            players[i].twdPosition.x = 35 + mapTexutre.height / 2 - (Mathf.Abs(players[i].thdPosition.x - planeLeftDown.transform.position.x) / maxMapRWidth * mapTexutre.height / 2);
+            players[i].twdPosition.x = Screen.height - 300  + mapTexutre.height / 2 - (Mathf.Abs(players[i].thdPosition.x - planeLeftDown.transform.position.x) / maxMapRWidth * mapTexutre.height / 2);
          
 
             //players[i].twdPosition.x = (Mathf.Abs(players[i].thdPosition.x - planeLeftDown.transform.position.x) / maxMapRWidth * mapTexutre.width / 2)
@@ -105,7 +105,8 @@ public class MinMap:MonoBehaviour
 
     private void OnGUI()
     {
-        GUI.DrawTexture(new Rect(Screen.width - mapTexutre.width / 2-20, 50, mapTexutre.width / 2, mapTexutre.height / 2), mapTexutre,ScaleMode.StretchToFill,false);
+
+        GUI.DrawTexture(new Rect(Screen.width - mapTexutre.width / 2-20, Screen.height - 300, mapTexutre.width / 2, mapTexutre.height / 2), mapTexutre,ScaleMode.StretchToFill,false);
         for (int j = 0; j < players.Count; j++)
         { 
             GUI.DrawTexture(new Rect(players[j].twdPosition.y, players[j].twdPosition.x, 15, 15), players[j].icon);

@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
-public class BatHealthController : EnemyHealth
+public class TreasureHealth : EnemyHealth
 {
-    // Start is called before the first frame update
+
     public override void Die()
     {
         this.GetComponent<EnemyController>().enabled = false;
@@ -15,9 +14,10 @@ public class BatHealthController : EnemyHealth
         Money();
     }
 
+
     public override void Money()
     {
-        int money = UnityEngine.Random.Range(10, 14);
+        int money = UnityEngine.Random.Range(8, 22);
         Coins.money += money;
     }
 }
