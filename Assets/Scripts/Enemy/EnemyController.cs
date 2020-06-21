@@ -11,14 +11,18 @@ public class EnemyController : MonoBehaviour
 
     protected float moveTimer = 0;   //用来控制敌人的行动时机
     public int beatCanMove = 2;   //敌人经过多少个节拍才可以移动
-    protected int beatTimer;  //用来标记经过多少个节拍
+//    protected int beatTimer;  //用来标记经过多少个节拍
     public bool isDie = false;
     public int step = 1;
+
+    protected int originBeat = 0;
+    protected int accumulateBeat = 0;
 
     public float speed = 5f;
 
     protected Animator anim;
     protected GameObject player;
+    protected EnemyAttack enemyAttack;
 
     protected NavMeshAgent agent;
 
@@ -29,51 +33,65 @@ public class EnemyController : MonoBehaviour
         new Vector3(1,0,-1).normalized, new Vector3(-1,0,-1).normalized
     };
 
-    Coroutine coroutine = null;
+    protected Coroutine coroutine = null;
 
     public virtual void Start()
     {
         anim = this.GetComponent<Animator>();
         agent = this.GetComponent<NavMeshAgent>();
+        enemyAttack = this.GetComponentInChildren<EnemyAttack>();
         agent.speed = 5f;
         agent.stoppingDistance = 1.5f;
     }
 
     public virtual void FixedUpdate()   //不用update是因为update调用的事件是不固定的，而fixedupdate是每0.02s执行一次
     {
-        moveTimer += Time.deltaTime;  //
+        //moveTimer += Time.deltaTime;  //
 
-        
-        //计算经过的beat
-        float timeOffset = Mathf.Abs(moveTimer - MusicController.getInstance().BeatTime);
-        if (timeOffset <= 0.01f)   //两个浮点数不能直接用 == 比较
+
+        ////计算经过的beat
+        //float timeOffset = Mathf.Abs(moveTimer - MusicController.getInstance().BeatTime);
+        //if (timeOffset <= 0.01f)   //两个浮点数不能直接用 == 比较
+        //{
+        //    beatTimer++;
+
+        int tempBeat;
+        MusicController.getInstance().CheckTime(out tempBeat);
+        if(tempBeat > originBeat)
         {
-            beatTimer++;
+            accumulateBeat++;
+        }
+        originBeat = tempBeat;
 
 
-            if (beatTimer > beatCanMove)
+        if (!isHitPlayer && accumulateBeat > beatCanMove)
+        {
+
+            if (coroutine != null)
             {
-
-                if (coroutine != null)
-                {
-                    StopCoroutine(coroutine);
-                }
-
-                if (isFindPlayer && !isHitPlayer)
-                {
-                    coroutine = StartCoroutine(Move());
-                }
-                else
-                {
-
-                }
-                
-                beatTimer = 0;
+                StopCoroutine(coroutine);
             }
+
+            if (isFindPlayer && !isHitPlayer)
+            {
+                coroutine = StartCoroutine(Move());
+            }
+            else if(!isFindPlayer)
+            {
+                coroutine = StartCoroutine(Patrol());
+            }
+
+            accumulateBeat = 0;
+        }
+        else if(isHitPlayer && accumulateBeat > enemyAttack.beatCanAttack)
+        {
+            enemyAttack.Attack(player);
+            accumulateBeat = 0;
+        }
             
 
-            moveTimer = 0;
-        }
+        //    moveTimer = 0;
+        //}
     }
 
     public void SetPlayer(GameObject g)
@@ -121,10 +139,38 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    //protected virtual IEnumerator Patrol()
-    //{
+    protected virtual IEnumerator Patrol()
+    {
+        int a = UnityEngine.Random.Range(0, directions.Length);
+        Vector3 target = this.transform.position + directions[a] * step;
+        NavMeshPath path = new NavMeshPath();
+        NavMesh.CalculatePath(this.transform.position, target, NavMesh.AllAreas, path);
+        if(path.corners.Length == 0)
+        {
+
+        }
+        else
+        {
+            Vector3 middlePoint = path.corners[0];
+            if (path.corners.Length > 1)
+            {
+                middlePoint = path.corners[1];
+            }
+
+
+            if (Vector3.Distance(middlePoint, target) < 0.01f)
+            {
+                this.transform.LookAt(target);
+
+                while (Vector3.Distance(this.transform.position, target) > 0.1)
+                {
+                    this.transform.position = Vector3.MoveTowards(this.transform.position, target, speed * Time.deltaTime);
+                    yield return null;
+                }
+            }
+        }
         
-    //}
+    }
 
     protected IEnumerator Move2Player()
     {

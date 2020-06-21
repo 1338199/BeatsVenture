@@ -4,18 +4,18 @@ using System.Collections;
 public class EnemyAttack : MonoBehaviour
 {
     public int damage = 5;
-    private EnemyController enemyController;
-    private ParticleSystem ps;
-    private bool isStay = false;
+    protected EnemyController enemyController;
+    protected ParticleSystem ps;
+    protected bool isStay = false;
 
-    private float moveTimer = 0f;
+    protected float moveTimer = 0f;
     public int beatCanAttack = 3;
-    private int beat = 0;
-    private GameObject mplayer;
+    protected int beat = 0;
+    protected GameObject mplayer;
 
 
     // Use this for initialization
-    void Start()
+    protected virtual void Start()
     {
         ps = GetComponent<ParticleSystem>();
         enemyController = this.transform.parent.GetComponent<EnemyController>();
@@ -29,27 +29,27 @@ public class EnemyAttack : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (isStay)
-        {
-            moveTimer += Time.deltaTime;
+        //if (isStay)
+        //{
+        //    moveTimer += Time.deltaTime;
 
-            float timeOffset = Mathf.Abs(moveTimer - MusicController.getInstance().BeatTime);
-            if (timeOffset < 0.1f)
-            {
-                beat++;
-                if (!enemyController.isDie && beat >= beatCanAttack && enemyController.isHitPlayer)
-                {
-                    Attack(mplayer);
-                    beat = 0;
-                }
-                moveTimer = 0;
-            }
-        }
-        else
-        {
-            moveTimer = 0;
-            beat = 0;
-        }
+        //    float timeOffset = Mathf.Abs(moveTimer - MusicController.getInstance().BeatTime);
+        //    if (timeOffset < 0.1f)
+        //    {
+        //        beat++;
+        //        if (!enemyController.isDie && beat >= beatCanAttack && enemyController.isHitPlayer)
+        //        {
+        //            Attack(mplayer);
+        //            beat = 0;
+        //        }
+        //        moveTimer = 0;
+        //    }
+        //}
+        //else
+        //{
+        //    moveTimer = 0;
+        //    beat = 0;
+        //}
         
     }
 
@@ -79,7 +79,7 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
-    protected void Attack(GameObject other)
+    public virtual void Attack(GameObject other)
     {
         ps.Play();
         other.GetComponent<HealthController>().TakeDamage(damage);
