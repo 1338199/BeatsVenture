@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Projectile : MonoBehaviour
 {
@@ -40,5 +41,11 @@ public class Projectile : MonoBehaviour
             collision.transform.GetComponent<EnemyHealth>().TakeDamage(damageAmout);
             Destroy(this.gameObject);
         }
+    }
+
+    public void AddDamage()
+    {
+        damageAmout += 5;
+        Debug.Log("damage" + damageAmout);
     }
 }

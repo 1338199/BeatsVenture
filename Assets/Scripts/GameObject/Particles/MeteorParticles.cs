@@ -6,7 +6,7 @@ using UnityEngine;
 public class MeteorParticles : Particles
 {
     //伤害
-    public int damageAmount = 3;
+    public int damageAmount = 10;
 
     //粒子系统
     private ParticleSystem ps;
