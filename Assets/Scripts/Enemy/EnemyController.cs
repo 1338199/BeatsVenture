@@ -43,6 +43,7 @@ public class EnemyController : MonoBehaviour
         enemyAttack = this.GetComponentInChildren<EnemyAttack>();
         agent.speed = 5f;
         agent.stoppingDistance = 1.5f;
+        agent.updateRotation = false;
     }
 
     public virtual void FixedUpdate()   //不用update是因为update调用的事件是不固定的，而fixedupdate是每0.02s执行一次
@@ -65,6 +66,7 @@ public class EnemyController : MonoBehaviour
             accumulateBeat++;
         }
         originBeat = tempBeat;
+
 
 
         if (!isHitPlayer && accumulateBeat > beatCanMove)
@@ -117,28 +119,36 @@ public class EnemyController : MonoBehaviour
         //Debug.Log(transform.position);
         //Debug.Log(player.transform.position);
         NavMesh.CalculatePath(transform.position, player.transform.position, NavMesh.AllAreas, path);
-        //Debug.Log(path.corners[path.corners.Length - 1]);
-        Vector3 middlePoint = path.corners[1];
-        Vector3 mmDistance = middlePoint - this.transform.position;
-        Vector3 direc = mmDistance.normalized;
-        float p = mmDistance.x / direc.x;
-        Vector3 target = mmDistance + this.transform.position;
-        if(p > step)
+//        Debug.Log(path.corners[path.corners.Length - 1]);
+        if(path.corners.Length == 0)
         {
-            target = this.transform.position + step * direc;
+
+        }
+        else
+        {
+            Vector3 middlePoint = path.corners[1];
+            Vector3 mmDistance = middlePoint - this.transform.position;
+            Vector3 direc = mmDistance.normalized;
+            float p = mmDistance.x / direc.x;
+            Vector3 target = mmDistance + this.transform.position;
+            if (p > step)
+            {
+                target = this.transform.position + step * direc;
+            }
+
+
+
+            while (Vector3.Distance(this.transform.position, target) > 0.1 && !isHitPlayer)
+            {
+                //   anim.SetTrigger("move");
+                this.transform.position = Vector3.MoveTowards(this.transform.position, target, speed * Time.deltaTime);
+                yield return null;
+            }
+            //Vector3 destination = this.transform.position + agent.speed * direc;
+            //agent.SetDestination(path.corners[path.corners.Length-1]);
         }
 
 
-
-        while(Vector3.Distance(this.transform.position,target) > 0.1 && !isHitPlayer)
-        {
-         //   anim.SetTrigger("move");
-            this.transform.position = Vector3.MoveTowards(this.transform.position, target, speed * Time.deltaTime);
-            yield return null;
-        }
-        //Vector3 destination = this.transform.position + agent.speed * direc;
-        //agent.SetDestination(path.corners[path.corners.Length-1]);
-        
     }
 
 
