@@ -20,6 +20,8 @@ public class MusicController : MonoBehaviour
         return _instance;
     }
 
+    public Light spotLight;
+
     public void Awake()
     {
         _instance = this;
@@ -31,8 +33,8 @@ public class MusicController : MonoBehaviour
     {
         this.TimeOkey = false;
 
-        this.nextForeseeTime = this.foreseeTime;
-        this.nextForeseeBeatCount = this.ForeseeBeats;
+        this.nextForeseeBeatCount = this.WarmUpBars * this.beatsPerBar;
+        this.nextForeseeTime = this.nextForeseeBeatCount * this.BeatTime;
         this.nextForeseeHitInBeat = 1;
 
         BeatBlackhole = GameObject.Find("BeatBlackhole");
@@ -58,6 +60,7 @@ public class MusicController : MonoBehaviour
     private int nextForeseeHitInBeat;
     private float nextForeseeTime;
 
+    private int temp = 0;
     public void Update()
     {
         float timeSpan = this.audioPlayer.time;
@@ -87,7 +90,13 @@ public class MusicController : MonoBehaviour
         if (foreseenHits.Count!=0 && timeSpan > foreseenHits.Peek().time - thresh)
         {
             if (foreseenHits.Peek().stamp > this.Stamp)
+            {
+                //var Colors = new Color[] { Color.red, Color.yellow, Color.white};
+                //spotLight.color = Colors[temp % Colors.Length];
+                //temp++;
                 this.Stamp = foreseenHits.Peek().stamp;
+                //spotLight.enabled = !spotLight.enabled;
+            }
             if (timeSpan > foreseenHits.Peek().time + thresh)
             {
                 foreseenHits.Dequeue();
@@ -194,6 +203,12 @@ public class MusicController : MonoBehaviour
             return 60f / bpm;
         }
     }
+
+    public int WarmUpBars
+    {
+        get;
+        set;
+    } = 1;
     private List<List<int>> rhythm = new List<List<int>>();
 
     public UnityEngine.GameObject BeatIcon;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,7 +48,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         mc = MusicController.getInstance();
-       
     }
 
     private void FixedUpdate()
@@ -58,6 +58,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (GameController.paused)
+            return;
         if (move())
             return;
         if (Attack())

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,12 +26,14 @@ public class StoreMenu : MonoBehaviour
         isShown = true;
         Debug.Log("show shop2");
         gameObject.SetActive(true);
+        GameController.pauseGame();
     }
 
     public void closeStoreMenu()
     {
         isShown = false;
         gameObject.SetActive(false);
+        GameController.resumeGame();
     }
 
     // 没写完等会再写
