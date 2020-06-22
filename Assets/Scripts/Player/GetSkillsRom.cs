@@ -21,14 +21,7 @@ public class GetSkillsRom : MonoBehaviour
             child.gameObject.SetActive(false);
         }
 
-        try
-        {
-            activeSkills = skillUtils.loadSkills();
-        }
-        catch
-        {
-            activeSkills = new bool[4] { false, false, false, false };
-        }
+        activeSkills = new bool[4] { false, false, false, false };
     }
 
     // Update is called once per frame

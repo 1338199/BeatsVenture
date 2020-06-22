@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         get
         {
-            return 0.5f + continuousOnBeatCount/5;
+            return 2.5f + continuousOnBeatCount/10;
         }
     }
 
