@@ -6091,7 +6091,7 @@ Transform:
   - {fileID: 244155066}
   - {fileID: 1266005317}
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &547322788 stripped
 Transform:
@@ -7211,7 +7211,7 @@ MonoBehaviour:
   lidClose: {fileID: 1836933895}
   openSpeed: 5
   canClose: 0
-  TreasureMonster: {fileID: 1504603067}
+  TreasureMonster: {fileID: 0}
   _open: 0
   _get: 0
 --- !u!65 &658959038
@@ -8334,7 +8334,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &780976996
 GameObject:
@@ -15292,7 +15292,7 @@ RectTransform:
   - {fileID: 926667624}
   - {fileID: 1828622260}
   m_Father: {fileID: 1493396926}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16633,7 +16633,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1104593814
 GameObject:
@@ -18136,7 +18136,7 @@ RectTransform:
   - {fileID: 530557453}
   - {fileID: 576147083}
   m_Father: {fileID: 1493396926}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -19440,7 +19440,7 @@ MonoBehaviour:
   lidClose: {fileID: 121543079}
   openSpeed: 5
   canClose: 0
-  TreasureMonster: {fileID: 1504603067}
+  TreasureMonster: {fileID: 100046, guid: 99d348bd1a0ac7d438dd6239352c91d8, type: 3}
   _open: 0
   _get: 0
 --- !u!65 &1353236334
@@ -19651,7 +19651,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1368253441
 GameObject:
@@ -19687,7 +19687,7 @@ RectTransform:
   - {fileID: 1050108412}
   - {fileID: 1524474780}
   m_Father: {fileID: 1493396926}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -20881,7 +20881,7 @@ RectTransform:
   - {fileID: 1379066535}
   - {fileID: 1381542326}
   m_Father: {fileID: 1493396926}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -21146,7 +21146,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1493396926}
-  m_RootOrder: 7
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21830,7 +21830,7 @@ RectTransform:
   - {fileID: 1872651362}
   - {fileID: 1853738416}
   m_Father: {fileID: 1493396926}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -22143,16 +22143,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 2010255772}
-  - {fileID: 189374442}
-  - {fileID: 176754858}
   - {fileID: 1231641051}
   - {fileID: 1403659472}
   - {fileID: 1420513653}
+  - {fileID: 1553797835}
   - {fileID: 997600548}
   - {fileID: 1368253442}
   - {fileID: 2010255772}
-  - {fileID: 176754858}
   - {fileID: 1469830942}
   - {fileID: 189374442}
   m_Father: {fileID: 0}
@@ -22386,12 +22383,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496529759}
   m_Mesh: {fileID: 4300018, guid: b1ed70984716593449276df5ea9a6e20, type: 3}
---- !u!1 &1504603067 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100046, guid: 99d348bd1a0ac7d438dd6239352c91d8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1666768890}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1507313704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23499,7 +23490,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1493396926}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -24767,96 +24758,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664666076}
   m_Mesh: {fileID: 4300002, guid: b1ed70984716593449276df5ea9a6e20, type: 3}
---- !u!1001 &1666768890
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 100022, guid: 99d348bd1a0ac7d438dd6239352c91d8, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 100046, guid: 99d348bd1a0ac7d438dd6239352c91d8, type: 3}
-      propertyPath: m_Name
-      value: Treasure Chest Monster-Blue
-      objectReference: {fileID: 0}
-    - target: {fileID: 100046, guid: 99d348bd1a0ac7d438dd6239352c91d8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400046, guid: 99d348bd1a0ac7d438dd6239352c91d8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -68.91
-      objectReference: {fileID: 0}
-    - target: {fileID: 400046, guid: 99d348bd1a0ac7d438dd6239352c91d8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.57
-      objectReference: {fileID: 0}
-    - target: {fileID: 400046, guid: 99d348bd1a0ac7d438dd6239352c91d8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 16.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 400046, guid: 99d348bd1a0ac7d438dd6239352c91d8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400046, guid: 99d348bd1a0ac7d438dd6239352c91d8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400046, guid: 99d348bd1a0ac7d438dd6239352c91d8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400046, guid: 99d348bd1a0ac7d438dd6239352c91d8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400046, guid: 99d348bd1a0ac7d438dd6239352c91d8, type: 3}
-      propertyPath: m_RootOrder
-      value: 37
-      objectReference: {fileID: 0}
-    - target: {fileID: 400046, guid: 99d348bd1a0ac7d438dd6239352c91d8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400046, guid: 99d348bd1a0ac7d438dd6239352c91d8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400046, guid: 99d348bd1a0ac7d438dd6239352c91d8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 66933985966028377, guid: 99d348bd1a0ac7d438dd6239352c91d8,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 5207987517234458613, guid: 99d348bd1a0ac7d438dd6239352c91d8,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5207987517234458613, guid: 99d348bd1a0ac7d438dd6239352c91d8,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6455224856899160167, guid: 99d348bd1a0ac7d438dd6239352c91d8,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 8497076790169319891, guid: 99d348bd1a0ac7d438dd6239352c91d8,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 99d348bd1a0ac7d438dd6239352c91d8, type: 3}
 --- !u!1 &1668351991
 GameObject:
   m_ObjectHideFlags: 0
@@ -28555,7 +28456,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1493396926}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -28811,7 +28712,7 @@ MonoBehaviour:
   lidClose: {fileID: 1035210320}
   openSpeed: 5
   canClose: 0
-  TreasureMonster: {fileID: 1504603067}
+  TreasureMonster: {fileID: 0}
   _open: 0
   _get: 0
 --- !u!65 &2034631806
