@@ -86,14 +86,11 @@ public class EnemyAttack : MonoBehaviour
 
     }
 
-    //protected IEnumerator Attack(Collider other)
-    //{
-    //    while (isStay)
-    //    {
-    //        ps.Play();
+    protected virtual IEnumerator AttackEffect(GameObject other)
+    {
+        
 
-    //        yield return new WaitForSeconds(2.0f);
-    //    }
-    //}
+        yield return new WaitForSeconds(2.0f);
+    }
 
 }

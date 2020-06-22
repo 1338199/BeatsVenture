@@ -17,7 +17,15 @@ public class BatAttack : EnemyAttack
     public override void Attack(GameObject gameObject)
     {
         anim.SetTrigger("Attack");
-        
+
+        StartCoroutine(AttackEffect(gameObject));
+    }
+
+    protected override IEnumerator AttackEffect(GameObject other)
+    {
+
+
+        yield return new WaitForSeconds(0.5f);
         gameObject.GetComponent<HealthController>().TakeDamage(damage);
         //    GameObject.Find("Directional Light").SetActive(false);
         darkbc.setLast();

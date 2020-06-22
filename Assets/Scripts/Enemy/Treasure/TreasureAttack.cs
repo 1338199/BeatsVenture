@@ -18,7 +18,15 @@ public class TreasureAttack : EnemyAttack
     {
         animator.SetTrigger("Bite Attack");
 
-        gameObject.GetComponent<HealthController>().TakeDamage(damage);
+      
         //    GameObject.Find("Directional Light").SetActive(false);
+    }
+
+    protected override IEnumerator AttackEffect(Collider other)
+    {
+
+
+        yield return new WaitForSeconds(0.4f);
+        gameObject.GetComponent<HealthController>().TakeDamage(damage);
     }
 }
