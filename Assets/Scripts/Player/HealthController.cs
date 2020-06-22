@@ -41,4 +41,9 @@ public class HealthController : MonoBehaviour
         }
         UpdateInfo();
     }
+
+    public bool FullHp()
+    {
+        return hp == 100;
+    }
 }
