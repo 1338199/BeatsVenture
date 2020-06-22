@@ -40,11 +40,6 @@ public class PlayerSkills : MonoBehaviour
         }
     }
 
-    public virtual void ShowIndicator(Renderer r)
-    {
-
-    }
-
 
 
     protected bool CheckIsInRange(Vector3 a, Vector3 b)

@@ -4921,7 +4921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13647c8f3d84754d8f45d79cccdae10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmout: 5
+  damageAmout: 30
   maxDistance: 5
   speed: 10
   spawnPos: {fileID: 1480055686717267146, guid: 292e59c871f304a01b837ee3851ac383,
