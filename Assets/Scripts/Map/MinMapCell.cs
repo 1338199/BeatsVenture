@@ -11,7 +11,7 @@ public class MinMapCell : MonoBehaviour
 
     public void Awake()
     {
-        mapData.name = name;
+        mapData.name = name + MinMap.getInstance().getGloablId();
         mapData.icon = icon;
         mapData.thdPosition = this.transform.position;
 

@@ -23,6 +23,8 @@ public class MinMap:MonoBehaviour
 
     private float initH;
 
+    public int id;
+
 
     public static MinMap getInstance()
     {
@@ -41,6 +43,9 @@ public class MinMap:MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
+        id = 0;
+
         maxMapRHeight = plane.GetComponent<MeshFilter>().mesh.bounds.size.x;
         maxMapRWidth = plane.GetComponent<MeshFilter>().mesh.bounds.size.z;
 
@@ -48,6 +53,11 @@ public class MinMap:MonoBehaviour
         maxMapRHeight = maxMapRHeight * scaleZ;
         float scaleX = plane.transform.localScale.x;
         maxMapRWidth = maxMapRWidth * scaleX;
+    }
+
+    public int getGloablId()
+    {
+        return id++;
     }
 
 
