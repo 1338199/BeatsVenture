@@ -20,6 +20,7 @@ public class BatController : EnemyController
         anim = this.GetComponent<Animator>();
         agent = this.GetComponent<NavMeshAgent>();
         enemyAttack = this.GetComponentInChildren<EnemyAttack>();
+        agent.updateRotation = false;
         agent.speed = 5f;
         agent.stoppingDistance = 1.5f;
         if(select == 1)

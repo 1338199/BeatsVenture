@@ -112,7 +112,10 @@ public class FrozenSkills : PlayerSkills
             timer += Time.deltaTime;
             yield return null;
         }
-
-        enemyController.enabled = true;
+        if (enemyController)
+        {
+            enemyController.enabled = true;
+        }
+        
     }
 }

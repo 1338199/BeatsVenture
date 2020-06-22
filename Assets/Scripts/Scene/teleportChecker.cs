@@ -34,6 +34,7 @@ public class teleportChecker : MonoBehaviour
                     var nextStageName = "Level" + (stageId + 1).ToString();
                     Debug.Log(nextStageName);
                     SceneManager.LoadScene(nextStageName);
+                    
                 }
                 else
                 {
