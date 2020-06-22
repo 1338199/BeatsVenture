@@ -1715,7 +1715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72155a20d842f444ba03f7168fd2b39d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+  hp: 400
   actor: 0
   healthSilder: {fileID: 1912454664413250525}
   healthText: {fileID: 0}
