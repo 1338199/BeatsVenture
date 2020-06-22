@@ -10,7 +10,6 @@ public class HealthController : MonoBehaviour
     public int actor;
     public Slider healthSilder;
     public Text healthText;
-    public DeathMenu deathMenu;
 
     public void TakeDamage(int amount)
     {
@@ -28,5 +27,18 @@ public class HealthController : MonoBehaviour
     public virtual void Die()
     {
 
+    }
+
+    public void Recover(int amount)
+    {
+        if (hp + amount > 100)
+        {
+            hp = 100;
+        }
+        else
+        {
+            hp += amount;
+        }
+        UpdateInfo();
     }
 }

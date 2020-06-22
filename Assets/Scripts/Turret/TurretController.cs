@@ -13,6 +13,7 @@ public class TurretController : MonoBehaviour
     public GameObject rotatingbase;
     public float height = 16f;
     public float gravity = -9.8f;
+    public float range = 10f;
     private ParabolaPath path;
     public GameObject bullet;
     private bool shot;
@@ -21,6 +22,7 @@ public class TurretController : MonoBehaviour
     private GameObject canon;
     public GameObject bombIndicator;
     private GameObject bombIndicatorClone;
+    public AudioSource fireAudio;
 
     void Start()
     {
@@ -47,16 +49,18 @@ public class TurretController : MonoBehaviour
         canon.transform.Rotate(Vector3.up * 90);
         if (!shot)
         {
-            
-            Instantiate(bullet, ammo.transform.position, rotatingbase.transform.rotation);
-            path = new ParabolaPath(bullet.transform.position, player.transform.position, height, gravity);
-            path.isClampStartEnd = true;
-            
-            shot = true;
-            bombIndicatorClone = Instantiate(bombIndicator) as GameObject;
-            bombIndicatorClone.transform.position = player.transform.position;
-            bombIndicatorClone.transform.rotation = Quaternion.identity;
-            bombIndicatorClone.GetComponent<Renderer>().material.SetFloat("_ColorMask", 3f);
+            if (Vector3.Distance(player.transform.position, rotatingbase.transform.position) < range) {
+                Instantiate(bullet, ammo.transform.position, rotatingbase.transform.rotation);
+                path = new ParabolaPath(bullet.transform.position, player.transform.position, height, gravity);
+                path.isClampStartEnd = true;
+
+                shot = true;
+                bombIndicatorClone = Instantiate(bombIndicator) as GameObject;
+                bombIndicatorClone.transform.position = player.transform.position;
+                bombIndicatorClone.transform.rotation = Quaternion.identity;
+                bombIndicatorClone.GetComponent<Renderer>().material.SetFloat("_ColorMask", 3f);
+                fireAudio.Play();
+            }
         } else
         {
             float t = Time.deltaTime;

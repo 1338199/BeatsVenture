@@ -500,7 +500,7 @@ Transform:
   m_GameObject: {fileID: 8854619882081110099}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -58.9, y: 30.722473, z: 81.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_Children:
   - {fileID: 5249835682068019595}
   - {fileID: 2043240322228822235}
@@ -530,6 +530,8 @@ MonoBehaviour:
   bombIndicator: {fileID: 507548576814924008, guid: d9df59cd44cdfce41992093d48ec667c,
     type: 3}
   fx: {fileID: 1965343156803978, guid: aa8d6482d70a23445b4b2a928ed1b845, type: 3}
+  globalExplosionAudio: {fileID: 8816869356942106452, guid: a747fed227b5c304383aacabc22d3469,
+    type: 3}
 --- !u!1 &8972606480291121315
 GameObject:
   m_ObjectHideFlags: 0
