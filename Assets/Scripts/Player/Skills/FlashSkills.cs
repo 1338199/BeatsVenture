@@ -10,7 +10,7 @@ public class FlashSkills : PlayerSkills
 {
 
     public GameObject portalParticleGO;   //传送门粒子
-
+    public AudioSource audioSource;
     private bool isFlash = false;
     private LayerMask layer;
 
@@ -47,6 +47,7 @@ public class FlashSkills : PlayerSkills
                                 this.transform.parent.position = new Vector3(portalParticleGO.transform.position.x, this.transform.parent.position.y, portalParticleGO.transform.position.z);
                                 portalParticleGO.gameObject.SetActive(false);
                                 isFlash = true;
+                                audioSource.Play();
                                 skill2Cnt++;
                             }
                         }
