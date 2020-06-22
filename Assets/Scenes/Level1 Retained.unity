@@ -40119,11 +40119,7 @@ Transform:
   m_LocalScale: {x: 5.892315, y: 5.892315, z: 79.37461}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD:Assets/Scenes/Level1.unity
-  m_RootOrder: 26
-=======
   m_RootOrder: 27
->>>>>>> feat_czm_turret_fix:Assets/Scenes/Level1 Retained.unity
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2139730522
 GameObject:
