@@ -75,6 +75,11 @@ public class StoreMenu : MonoBehaviour
                     Debug.Log("Buy 1");
                     if (healthController != null)
                     {
+                        if (healthController.FullHp())
+                        {
+                            UIController.Instance.ShowInfo("Your Hp is Full");
+                            Coins.money += itemCost[id];
+                        }
                         healthController.Recover(20);
                     }
                     break;
@@ -82,6 +87,11 @@ public class StoreMenu : MonoBehaviour
                     Debug.Log("Buy 2");
                     if (healthController != null)
                     {
+                        if (healthController.FullHp())
+                        {
+                            UIController.Instance.ShowInfo("Your Hp is Full");
+                            Coins.money += itemCost[id];
+                        }
                         healthController.Recover(40);
                     }
                     break;
@@ -99,6 +109,7 @@ public class StoreMenu : MonoBehaviour
                     }
                     else
                     {
+                        UIController.Instance.ShowInfo("The skill has been acquired before.");
                         Coins.money += itemCost[id];
                     }
                     break;
@@ -111,6 +122,7 @@ public class StoreMenu : MonoBehaviour
                     }
                     else
                     {
+                        UIController.Instance.ShowInfo("The skill has been acquired before.");
                         Coins.money += itemCost[id];
                     }
                     break;
@@ -123,6 +135,7 @@ public class StoreMenu : MonoBehaviour
                     }
                     else
                     {
+                        UIController.Instance.ShowInfo("The skill has been acquired before.");
                         Coins.money += itemCost[id];
                     }
                     break;
@@ -135,6 +148,7 @@ public class StoreMenu : MonoBehaviour
                     }
                     else
                     {
+                        UIController.Instance.ShowInfo("The skill has been acquired before.");
                         Coins.money += itemCost[id];
                     }
                     break;
