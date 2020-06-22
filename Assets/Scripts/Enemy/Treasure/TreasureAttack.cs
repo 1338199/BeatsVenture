@@ -18,11 +18,11 @@ public class TreasureAttack : EnemyAttack
     {
         animator.SetTrigger("Bite Attack");
 
-      
+        StartCoroutine(AttackEffect(gameObject));
+
         //    GameObject.Find("Directional Light").SetActive(false);
     }
-
-    protected override IEnumerator AttackEffect(Collider other)
+    protected override IEnumerator AttackEffect(GameObject gameObject)
     {
 
 

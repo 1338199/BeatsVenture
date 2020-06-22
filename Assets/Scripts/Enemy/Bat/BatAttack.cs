@@ -21,7 +21,7 @@ public class BatAttack : EnemyAttack
         StartCoroutine(AttackEffect(gameObject));
     }
 
-    protected override IEnumerator AttackEffect(GameObject other)
+    protected override IEnumerator AttackEffect(GameObject gameObject)
     {
 
 

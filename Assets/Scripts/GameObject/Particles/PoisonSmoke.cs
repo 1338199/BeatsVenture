@@ -30,6 +30,7 @@ public class PoisonSmoke : Particles
         {
             HealthController healthController = other.GetComponent<HealthController>();
             if (healthController != null)
+                UIController.Instance.ShowInfo("You are suffering from gas attack!");
                 healthController.TakeDamage(damageAmount);
         }
     }
