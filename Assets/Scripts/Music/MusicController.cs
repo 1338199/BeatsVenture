@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
@@ -57,6 +58,8 @@ public class MusicController : MonoBehaviour
 
         Invoke("Play", -this.timeBias);
         this.startTime = Time.time;
+
+        GameController.startGuide();
     }
 
     private struct HitStamp
@@ -89,7 +92,10 @@ public class MusicController : MonoBehaviour
     {
         if (time + foreseeTime > nextForeseeTime)
         {
-            createBeatIcon();
+            if(nextForeseeBeatCount>=this.guideBeats)
+            {
+                createBeatIcon();
+            }
             foreseenHits.Enqueue(new HitStamp
             {
                 time = nextForeseeTime,
@@ -116,19 +122,19 @@ public class MusicController : MonoBehaviour
         {
             if (foreseenHits.Peek().stamp > this.Stamp)
             {
-                //var Colors = new Color[] { Color.red, Color.yellow, Color.white };
-                //spotLight.color = Colors[temp % Colors.Length];
-                //temp++;
                 this.Stamp = foreseenHits.Peek().stamp;
-                //ParLight.enabled = !ParLight.enabled;
-                //ParLight.SetActive(true);
-                ParLight.SetActive(!ParLight.activeSelf);
+                if(GameController.guiding)
+                    ParLight.GetComponent<ParController>().changeState(this.Stamp);
             }
             if (time > foreseenHits.Peek().time + thresh)
             {
+                if(Stamp/10 == this.guideBeats-1)
+                {
+                    GameController.stopGuide();
+                    ParLight.GetComponent<ParController>().stopGuide();
+                }
                 foreseenHits.Dequeue();
                 TimeOkey = false;
-                //ParLight.SetActive(false);
             }
             else
             {
@@ -186,6 +192,13 @@ public class MusicController : MonoBehaviour
     }
     private int beatsPerBar = 4;
     public int ForeseeBeats = 2;
+    public int guideBeats
+    {
+        get
+        {
+            return this.beatsPerBar * 4;
+        }
+    }
     private int bpm
     {
         get

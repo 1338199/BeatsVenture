@@ -35,5 +35,37 @@ namespace Assets.Scripts
             AudioListener.pause = false;
             Time.timeScale = 1;
         }
+
+        static public bool guiding
+        {
+            get;
+            private set;
+        }
+
+        static public void startGuide()
+        {
+            guiding = true;
+        }
+
+        static public void stopGuide()
+        {
+            guiding = false;
+        }
+
+        static public bool enemyCanMove
+        {
+            get
+            {
+                return !paused && !guiding;
+            }
+        }
+
+        static public bool playerCanMove
+        {
+            get
+            {
+                return !paused && !guiding;
+            }
+        }
     }
 }

@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (GameController.paused)
+        if (!GameController.playerCanMove)
             return;
         if (move())
             return;
