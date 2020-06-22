@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6810,7 +6810,7 @@ MonoBehaviour:
   lidClose: {fileID: 1836933895}
   openSpeed: 5
   canClose: 0
-  TreasureMonster: {fileID: 0}
+  TreasureMonster: {fileID: 1504603067}
   _open: 0
   _get: 0
 --- !u!65 &658959038
@@ -19010,7 +19010,7 @@ MonoBehaviour:
   lidClose: {fileID: 121543079}
   openSpeed: 5
   canClose: 0
-  TreasureMonster: {fileID: 0}
+  TreasureMonster: {fileID: 1504603067}
   _open: 0
   _get: 0
 --- !u!65 &1353236334
@@ -20363,7 +20363,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 94.8, y: 23.199951}
+  m_AnchoredPosition: {x: 94.799805, y: 23.199951}
   m_SizeDelta: {x: 189.6, y: 46.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1403659473
@@ -21312,7 +21312,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 115.90991, y: -15.109863}
+  m_AnchoredPosition: {x: 115.91016, y: -15.109863}
   m_SizeDelta: {x: 231.82, y: 30.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1469830943
@@ -21861,6 +21861,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496529759}
   m_Mesh: {fileID: 4300018, guid: b1ed70984716593449276df5ea9a6e20, type: 3}
+--- !u!1 &1504603067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100046, guid: 99d348bd1a0ac7d438dd6239352c91d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1666768890}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1507313704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24251,6 +24257,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Treasure Chest Monster-Blue
       objectReference: {fileID: 0}
+    - target: {fileID: 100046, guid: 99d348bd1a0ac7d438dd6239352c91d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400046, guid: 99d348bd1a0ac7d438dd6239352c91d8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -68.91
@@ -24303,17 +24313,22 @@ PrefabInstance:
     - target: {fileID: 5207987517234458613, guid: 99d348bd1a0ac7d438dd6239352c91d8,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5207987517234458613, guid: 99d348bd1a0ac7d438dd6239352c91d8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6455224856899160167, guid: 99d348bd1a0ac7d438dd6239352c91d8,
         type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8497076790169319891, guid: 99d348bd1a0ac7d438dd6239352c91d8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99d348bd1a0ac7d438dd6239352c91d8, type: 3}
@@ -27982,7 +27997,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2010255772
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28251,7 +28266,7 @@ MonoBehaviour:
   lidClose: {fileID: 1035210320}
   openSpeed: 5
   canClose: 0
-  TreasureMonster: {fileID: 0}
+  TreasureMonster: {fileID: 1504603067}
   _open: 0
   _get: 0
 --- !u!65 &2034631806
