@@ -6,7 +6,7 @@ using VSCodeEditor;
 
 public class teleportChecker : MonoBehaviour
 {
-    public static int[] pointCount = {3, 3, 3};
+    public int[] pointCount = {0, 3, 3};
     public int stageId;
     public static int getPointNum = 0;
 

@@ -29,16 +29,15 @@ public class FrozenSkills : PlayerSkills
             {
                 base.SetRange();  //显示施法范围
 
-                ShowIndicator(hitRender);
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hitInfo;
-                if (Physics.Raycast(ray, out hitInfo, 100, enemyLayer))
+                if (Physics.Raycast(ray, out hitInfo, 6, enemyLayer))
                 {
                     if (hitInfo.transform.parent.tag == "Enemy")
                     {
-                        
+
                         hitRender = hitInfo.transform.parent.GetComponentInChildren<Renderer>();
-                       
+
                         if (Input.GetMouseButtonDown(0))
                         {
                             Debug.Log("Frozen");
@@ -55,15 +54,15 @@ public class FrozenSkills : PlayerSkills
                             StartCoroutine(RecoverSpeed(enemyController));
 
                             hitRender = null;
-                            ShowIndicator(hitRender);
                             isSelectTarget = true;
                             skill3Cnt++;
                         }
                     }
-                }
-                else       //没检测到enemy
-                {
-                    hitRender = null;
+                    else       //没检测到enemy
+                    {
+                        hitRender = null;
+                    }
+
                 }
                 yield return null;
             }
@@ -79,29 +78,6 @@ public class FrozenSkills : PlayerSkills
         return base.StartCoolDown();
     }
 
-    public override void ShowIndicator(Renderer r)
-    {
-        if (r == null)
-        {
-            indicator.SetActive(false);
-            return;
-        }
-        else
-        {
-            if (CheckIsInRange(hitRender.transform.position, this.transform.position))
-            {
-                float x = hitRender.bounds.size.x * 0.2f;
-                float y = hitRender.bounds.size.z * 0.2f;
-
-                indicator.SetActive(true);
-                Vector3 pos = r.transform.position;
-                pos.y = 0.1f;
-                indicator.transform.position = pos;
-                indicator.transform.localScale = new Vector3(x, y, 0);
-            }
-
-        }
-    }
 
 
     private IEnumerator RecoverSpeed(EnemyController enemyController)

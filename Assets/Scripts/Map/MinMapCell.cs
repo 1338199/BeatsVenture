@@ -40,9 +40,14 @@ public class MinMapCell : MonoBehaviour
     {
         if (isOk)
         {
-            MinMap.getInstance().removeCell(mapData);
-            isOk = false;
+            RemoveFromMap();
         }
         
+    }
+
+    public void RemoveFromMap()
+    {
+        MinMap.getInstance().removeCell(mapData);
+        isOk = false;
     }
 }

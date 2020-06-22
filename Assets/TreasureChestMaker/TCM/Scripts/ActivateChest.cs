@@ -79,6 +79,11 @@ public class ActivateChest : MonoBehaviour {
 				UIController.Instance.ShowInfo("An enemy has been produced");
 			}
 
+            if (_get)
+            {
+				gameObject.GetComponent<MinMapCell>().RemoveFromMap();
+            }
+
 		}
 	}
 	

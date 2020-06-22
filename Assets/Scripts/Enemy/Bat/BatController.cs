@@ -89,8 +89,9 @@ public class BatController : EnemyController
         
         Vector3 target = this.transform.position + curDirec * step;
         Vector3 target_clone = target;
+        //target_clone.y = 1.6f;
         NavMeshPath path = new NavMeshPath();
-        NavMesh.CalculatePath(this.transform.position, target, NavMesh.AllAreas, path);
+        NavMesh.CalculatePath(target_clone, target, NavMesh.AllAreas, path);
         if (path.corners.Length == 0)
         {
             ChangeDirec();
