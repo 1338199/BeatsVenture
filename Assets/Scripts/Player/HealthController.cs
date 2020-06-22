@@ -29,4 +29,17 @@ public class HealthController : MonoBehaviour
     {
 
     }
+
+    public void Recover(int amount)
+    {
+        if (hp + amount > 100)
+        {
+            hp = 100;
+        }
+        else
+        {
+            hp += amount;
+        }
+        UpdateInfo();
+    }
 }

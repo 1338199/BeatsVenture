@@ -8,11 +8,21 @@ public class StoreMenu : MonoBehaviour
     private bool isShown = false;
 
     public int[] itemCost = {40, 60, 100, 50, 200, 100, 100, 500};
+
+    public GameObject player;
+
+    public GameObject bullet;
+
+    public Text attackText;
+
     // Start is called before the first frame update
     void Start()
     {
         gameObject.SetActive(false);
         Debug.Log("money1:" + Coins.money);
+        
+        attackText.text = "30";
+
     }
     
     void Update()
@@ -50,6 +60,8 @@ public class StoreMenu : MonoBehaviour
         {
             Coins.money -= itemCost[id];
             UIController.Instance.ShowInfo("Bug Item Successfully");
+            HealthController healthController = player.GetComponent<HealthController>();
+            Projectile projectile = bullet.GetComponent<Projectile>();
             switch (id)
             {
                 case 0:
@@ -58,12 +70,22 @@ public class StoreMenu : MonoBehaviour
                     break;
                 case 1:
                     Debug.Log("Buy 1");
+                    if (healthController != null)
+                    {
+                        healthController.Recover(20);
+                    }
                     break;
                 case 2:
                     Debug.Log("Buy 2");
+                    if (healthController != null)
+                    {
+                        healthController.Recover(40);
+                    }
                     break;
                 case 3:
                     Debug.Log("Buy 3");
+                    projectile.AddDamage();
+                    attackText.text = projectile.damageAmout.ToString();
                     break;
                 case 4:
                     Debug.Log("Buy 4");
