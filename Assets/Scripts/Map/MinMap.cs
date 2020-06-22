@@ -99,7 +99,7 @@ public class MinMap:MonoBehaviour
          //   Debug.Log(players[i].twdPosition.x);
             players[i].twdPosition.y = (Mathf.Abs(players[i].thdPosition.z - planeLeftDown.transform.position.z) / maxMapRHeight * mapTexutre.width / 2)
                                             + (Screen.width - mapTexutre.width / 2 - 20);
-            Debug.Log(players[i].twdPosition.y);
+            //Debug.Log(players[i].twdPosition.y);
         }
     }
 

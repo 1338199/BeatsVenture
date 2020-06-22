@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,7 +48,8 @@ public class EnemyController : MonoBehaviour
 
     public virtual void FixedUpdate()   //不用update是因为update调用的事件是不固定的，而fixedupdate是每0.02s执行一次
     {
-        
+        if (!GameController.enemyCanMove)
+            return;
         //moveTimer += Time.deltaTime;  //
 
 
@@ -114,8 +116,8 @@ public class EnemyController : MonoBehaviour
         //agent.destination = player.transform.position;
         //Debug.Log(agent.path.corners);
         NavMeshPath path = new NavMeshPath();
-        Debug.Log(transform.position);
-        Debug.Log(player.transform.position);
+        //Debug.Log(transform.position);
+        //Debug.Log(player.transform.position);
         NavMesh.CalculatePath(transform.position, player.transform.position, NavMesh.AllAreas, path);
 //        Debug.Log(path.corners[path.corners.Length - 1]);
         if(path.corners.Length == 0)

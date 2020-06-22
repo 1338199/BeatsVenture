@@ -19,7 +19,7 @@ namespace Assets.Scripts.Player
         static public int loadMoney()
         {
             var result = PlayerPrefs.GetString("money");
-            Debug.Log("result" + result);
+            //Debug.Log("result" + result);
             int money = int.Parse(result);
             return money;
         }
