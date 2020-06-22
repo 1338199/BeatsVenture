@@ -25,7 +25,8 @@ public class ParController : MonoBehaviour
 
     private GameObject[] lights;
     List<GameObject[]> lightsInGroup;
-    public void Start()
+
+    public void Awake()
     {
         this.lights = new GameObject[] { ParLeft1, ParLeft2, ParLeft3, ParRight1, ParRight2, ParRight3 };
         this.lightsInGroup = new List<GameObject[]>();
@@ -36,6 +37,10 @@ public class ParController : MonoBehaviour
         lightsInGroup.Add(new GameObject[] { ParLeft1, ParRight1 });
         lightsInGroup.Add(new GameObject[] { ParLeft1, ParRight1 });
         lightsInGroup.Add(new GameObject[] { ParRight3, ParRight3 });
+    }
+    public void Start()
+    {
+
     }
 
     private int change_index = 0;

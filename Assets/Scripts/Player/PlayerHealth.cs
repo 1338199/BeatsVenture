@@ -11,6 +11,8 @@ public class PlayerHealth : HealthController
     private void Start()
     {
         anim = GetComponent<Animator>();
+        hp = PlayerPrefs.GetInt("playerHP", 100);
+        UpdateInfo();
     }
 
     public override void UpdateInfo()
@@ -30,5 +32,10 @@ public class PlayerHealth : HealthController
         Debug.Log("showDeathMenu!");
         deathMenu.ShowDeathMenu();
         MusicController.getInstance().Pause();
+    }
+
+    public void OnDestroy()
+    {
+        PlayerPrefs.SetInt("playerHP", hp);
     }
 }
