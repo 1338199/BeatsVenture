@@ -91,9 +91,9 @@ public class MusicController : MonoBehaviour
         {
             if (foreseenHits.Peek().stamp > this.Stamp)
             {
-                //var Colors = new Color[] { Color.red, Color.yellow, Color.white};
-                //spotLight.color = Colors[temp % Colors.Length];
-                //temp++;
+                var Colors = new Color[] { Color.red, Color.yellow, Color.white };
+                spotLight.color = Colors[temp % Colors.Length];
+                temp++;
                 this.Stamp = foreseenHits.Peek().stamp;
                 //spotLight.enabled = !spotLight.enabled;
             }
