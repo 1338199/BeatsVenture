@@ -111,10 +111,10 @@ public class EnemyController : MonoBehaviour
         //agent.destination = player.transform.position;
         //Debug.Log(agent.path.corners);
         NavMeshPath path = new NavMeshPath();
-        Debug.Log(transform.position);
-        Debug.Log(player.transform.position);
+        //Debug.Log(transform.position);
+        //Debug.Log(player.transform.position);
         NavMesh.CalculatePath(transform.position, player.transform.position, NavMesh.AllAreas, path);
-        Debug.Log(path.corners[path.corners.Length - 1]);
+        //Debug.Log(path.corners[path.corners.Length - 1]);
         Vector3 middlePoint = path.corners[1];
         Vector3 mmDistance = middlePoint - this.transform.position;
         Vector3 direc = mmDistance.normalized;

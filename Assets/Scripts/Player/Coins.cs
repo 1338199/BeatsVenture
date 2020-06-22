@@ -16,7 +16,7 @@ public class Coins : MonoBehaviour
         try
         {
             money = MoneyUtils.loadMoney();
-            Debug.Log("money:"+MoneyUtils.loadMoney());
+            //Debug.Log("money:"+MoneyUtils.loadMoney());
             coinText.text = money.ToString();
             if (storeCoinText)
             {

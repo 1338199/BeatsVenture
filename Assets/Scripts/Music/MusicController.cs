@@ -20,27 +20,43 @@ public class MusicController : MonoBehaviour
         return _instance;
     }
 
-    public Light spotLight;
+    public GameObject ParLight;
 
     public void Awake()
     {
         _instance = this;
         this.SongName = "NoEscape";
-        Play();
+        var audioObject = new GameObject("backtrack");
+        this.audioPlayer = audioObject.AddComponent<AudioSource>();
+        audioPlayer.clip = Resources.Load<AudioClip>("Music/" + SongName);
+        audioPlayer.playOnAwake = false;
+        audioPlayer.loop = true;
+
+        float volume = PlayerPrefs.GetFloat("volume", 0.1f);
+        audioPlayer.volume = volume;
+        rhythm.Add(new List<int>(new int[] { 1, 0 }));
+        rhythm.Add(new List<int>(new int[] { 1, 0 }));
+        rhythm.Add(new List<int>(new int[] { 1, 0 }));
+        //rhythm.Add(new List<int>(new int[] { 2, 0, 1 }));
+        rhythm.Add(new List<int>(new int[] { 1, 0 }));
     }
 
     public void Start()
     {
         this.TimeOkey = false;
 
-        this.nextForeseeBeatCount = this.WarmUpBars * this.beatsPerBar;
-        this.nextForeseeTime = this.nextForeseeBeatCount * this.BeatTime;
+        this.timeBias = -3;
+        this.nextForeseeBeatCount = 0;
+        this.nextForeseeTime = 0;
         this.nextForeseeHitInBeat = 1;
 
         BeatBlackhole = GameObject.Find("BeatBlackhole");
         Canvas = GameObject.Find("Canvas");
 
         foreseenHits = new Queue<HitStamp>();
+
+        Invoke("Play", -this.timeBias);
+        this.startTime = Time.time;
     }
 
     private struct HitStamp
@@ -59,12 +75,19 @@ public class MusicController : MonoBehaviour
     private int nextForeseeBeatCount;
     private int nextForeseeHitInBeat;
     private float nextForeseeTime;
+    private float timeBias;
+    private float startTime;
+    private float time
+    {
+        get
+        {
+            return Time.time - this.startTime + this.timeBias;
+        }
+    }
 
-    private int temp = 0;
     public void Update()
     {
-        float timeSpan = this.audioPlayer.time;
-        if (timeSpan + foreseeTime > nextForeseeTime)
+        if (time + foreseeTime > nextForeseeTime)
         {
             createBeatIcon();
             foreseenHits.Enqueue(new HitStamp
@@ -79,28 +102,33 @@ public class MusicController : MonoBehaviour
                 nextForeseeBeatCount++;
                 nextForeseeHitInBeat = 1;
                 nextForeseeTime = BeatTime * nextForeseeBeatCount;
+                Debug.Log(1);
             }
             else
             {
                 nextForeseeHitInBeat++;
                 nextForeseeTime = nextForeseeBeatCount * BeatTime + BeatTime * (float)pattern[nextForeseeHitInBeat] / pattern[0];
+                Debug.Log(2);
             }
         }
 
-        if (foreseenHits.Count!=0 && timeSpan > foreseenHits.Peek().time - thresh)
+        if (foreseenHits.Count!=0 && time > foreseenHits.Peek().time - thresh)
         {
             if (foreseenHits.Peek().stamp > this.Stamp)
             {
-                var Colors = new Color[] { Color.red, Color.yellow, Color.white };
-                spotLight.color = Colors[temp % Colors.Length];
-                temp++;
+                //var Colors = new Color[] { Color.red, Color.yellow, Color.white };
+                //spotLight.color = Colors[temp % Colors.Length];
+                //temp++;
                 this.Stamp = foreseenHits.Peek().stamp;
-                //spotLight.enabled = !spotLight.enabled;
+                //ParLight.enabled = !ParLight.enabled;
+                //ParLight.SetActive(true);
+                ParLight.SetActive(!ParLight.activeSelf);
             }
-            if (timeSpan > foreseenHits.Peek().time + thresh)
+            if (time > foreseenHits.Peek().time + thresh)
             {
                 foreseenHits.Dequeue();
                 TimeOkey = false;
+                //ParLight.SetActive(false);
             }
             else
             {
@@ -117,22 +145,10 @@ public class MusicController : MonoBehaviour
     private AudioSource audioPlayer;
     public void Play()
     {
-        var audioObject = new GameObject("backtrack");
-        this.audioPlayer = audioObject.AddComponent<AudioSource>();
-        audioPlayer.clip = Resources.Load<AudioClip>("Music/" + SongName);
-        audioPlayer.playOnAwake = false;
-        audioPlayer.loop = true;
-
-        float volume = PlayerPrefs.GetFloat("volume", 0.1f);
-        audioPlayer.volume = volume;
         //for (var i = 0; i != beatsPerBar; ++i)
         //{
         //    rhythm.Add(new List<int>(new int[] { 1, 0 }));
         //}
-        rhythm.Add(new List<int>(new int[] { 1, 0 }));
-        rhythm.Add(new List<int>(new int[] { 1, 0 }));
-        rhythm.Add(new List<int>(new int[] { 2, 0, 1 }));
-        rhythm.Add(new List<int>(new int[] { 1, 0 }));
         audioPlayer.Play();
     }
 

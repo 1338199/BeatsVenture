@@ -13,7 +13,7 @@ public class StoreMenu : MonoBehaviour
     void Start()
     {
         gameObject.SetActive(false);
-        Debug.Log("money1:" + Coins.money);
+        //Debug.Log("money1:" + Coins.money);
     }
     
     void Update()
