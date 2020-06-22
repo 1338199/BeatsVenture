@@ -22,6 +22,7 @@ public class TurretController : MonoBehaviour
     private GameObject canon;
     public GameObject bombIndicator;
     private GameObject bombIndicatorClone;
+    public AudioSource fireAudio;
 
     void Start()
     {
@@ -58,6 +59,7 @@ public class TurretController : MonoBehaviour
                 bombIndicatorClone.transform.position = player.transform.position;
                 bombIndicatorClone.transform.rotation = Quaternion.identity;
                 bombIndicatorClone.GetComponent<Renderer>().material.SetFloat("_ColorMask", 3f);
+                fireAudio.Play();
             }
         } else
         {
