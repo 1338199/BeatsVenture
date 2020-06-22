@@ -10,7 +10,6 @@ public class HealthController : MonoBehaviour
     public int actor;
     public Slider healthSilder;
     public Text healthText;
-    public DeathMenu deathMenu;
 
     public void TakeDamage(int amount)
     {

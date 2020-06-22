@@ -25,7 +25,7 @@ public class DeathMenu : MonoBehaviour
         bgImg.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, transition);
     }
 
-    public void showDeathMenu()
+    public void ShowDeathMenu()
     {
         isShown = true;
         gameObject.SetActive(true);

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerHealth : HealthController
 {
     private Animator anim;
+    public DeathMenu deathMenu;
 
     private void Start()
     {
@@ -27,7 +28,7 @@ public class PlayerHealth : HealthController
         this.GetComponent<PlayerController>().enabled = false;
         anim.SetTrigger("die");
         Debug.Log("showDeathMenu!");
-        deathMenu.showDeathMenu();
+        deathMenu.ShowDeathMenu();
         MusicController.getInstance().Pause();
     }
 }
