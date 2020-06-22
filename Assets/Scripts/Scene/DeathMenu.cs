@@ -8,7 +8,7 @@ public class DeathMenu : MonoBehaviour
 {
     public Image bgImg;
     private bool isShown = true;
-    private float transition = 0.0f;
+   //private float transition = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,8 +21,8 @@ public class DeathMenu : MonoBehaviour
     {
         if (!isShown)
             return;
-        transition += Time.deltaTime;
-        bgImg.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, transition);
+        //transition += Time.deltaTime;
+        //bgImg.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, transition);
     }
 
     public void ShowDeathMenu()
