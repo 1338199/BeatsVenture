@@ -8619,6 +8619,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224393305879815282, guid: 0f931a9ef3f76264998857851f8f827d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224393305879815282, guid: 0f931a9ef3f76264998857851f8f827d,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114953711120744244, guid: 0f931a9ef3f76264998857851f8f827d, type: 3}
     - {fileID: 114473738998969478, guid: 0f931a9ef3f76264998857851f8f827d, type: 3}
@@ -26527,6 +26537,16 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224175554038898528, guid: 67e3ca4d97d896240b5b4fa784dba74d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224175554038898528, guid: 67e3ca4d97d896240b5b4fa784dba74d,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 224200960708469034, guid: 67e3ca4d97d896240b5b4fa784dba74d,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -26535,6 +26555,16 @@ PrefabInstance:
     - target: {fileID: 224200960708469034, guid: 67e3ca4d97d896240b5b4fa784dba74d,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224200960708469034, guid: 67e3ca4d97d896240b5b4fa784dba74d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224200960708469034, guid: 67e3ca4d97d896240b5b4fa784dba74d,
+        type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224751733274952276, guid: 67e3ca4d97d896240b5b4fa784dba74d,
