@@ -6,7 +6,7 @@ public class PlayerUltimateSkills : PlayerSkills
 {
     public GameObject meteorPS;
     public float continuousTime = 3;
-
+    public AudioSource audioSource;
 
     public override void Start()
     {
@@ -35,6 +35,7 @@ public class PlayerUltimateSkills : PlayerSkills
 
             for (int i = 0; i < 4; i++)
             {
+                audioSource.Play();
                 Instantiate(meteorPS, pos[i], meteorPS.transform.rotation);
                 yield return null;
             }

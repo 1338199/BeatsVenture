@@ -6,6 +6,7 @@ public class AoeSkills : PlayerSkills
 {
     public GameObject aoeSphere;
     public GameObject aoeProjectile;  //AOE生成的物体
+    public AudioSource audioSource;
 
     public override void Start()
     {
@@ -16,9 +17,10 @@ public class AoeSkills : PlayerSkills
     public override IEnumerator Release()
     {
         if (timer >= coolDown)
-        {
+        { 
             timer = 0;
             int dirCount = 12;
+            audioSource.Play();
             while (dirCount != 0)
             {
                 aoeSphere.transform.RotateAround(this.transform.position, Vector3.up, 30);

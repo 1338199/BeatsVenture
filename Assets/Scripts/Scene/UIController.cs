@@ -53,7 +53,7 @@ public class UIController : MonoBehaviour
         }
         else
         {
-  //          pureTimerText.text = "0";
+            pureTimerText.text = "0";
         }
     }
 

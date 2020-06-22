@@ -11,6 +11,7 @@ public class FrozenSkills : PlayerSkills
     private bool isSelectTarget = false;
     private LayerMask enemyLayer;
     private Renderer hitRender;
+    public AudioSource audioSource;
 
     public override void Start()
     {
@@ -46,6 +47,7 @@ public class FrozenSkills : PlayerSkills
                             Instantiate(frozenParicles, hitRender.transform.position, Quaternion.identity);
 
                             //冰冻
+                            audioSource.Play();
                             EnemyController enemyController = hitInfo.transform.parent.GetComponent<EnemyController>();
                             enemyController.enabled = false;
                             float orginSpeed = enemyController.speed;
