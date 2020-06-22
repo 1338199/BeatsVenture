@@ -13,10 +13,12 @@ public class RocketController : MonoBehaviour
     public GameObject fx;
     static GameObject fxClone;
     private Vector3 aim;
+    public AudioSource globalExplosionAudio;
   
     
     void Start()
     {
+        globalExplosionAudio = GameObject.Find("/ExplosionAudio").GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
         path = new ParabolaPath(this.transform.position, player.transform.position, height, gravity);
         aim = player.transform.position;
@@ -39,6 +41,7 @@ public class RocketController : MonoBehaviour
         // 简单模拟一下碰撞检测
         if (path.time >= path.totalTime)
         {
+            globalExplosionAudio.Play();
             fxClone = Instantiate(fx) as GameObject;
             fxClone.transform.position = path.GetPosition(path.totalTime);
             fxClone.transform.position = fxClone.transform.position + Vector3.up*0.3f;
