@@ -1,13 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TurretHealth : EnemyHealth
 {
 
+    private Boolean die;
+    private GameObject explosion;
+    private GameObject explosionClone;
 
     private void Awake()
     {
+        explosion = GameObject.Find("Explosion");
+        explosion.SetActive(false);
     }
 
     public override void UpdateInfo()
@@ -19,6 +25,13 @@ public class TurretHealth : EnemyHealth
 
     public override void Die()
     {
+        explosionClone = Instantiate(explosion) as GameObject;
+        explosionClone.transform.position = gameObject.transform.position;
+        explosionClone.transform.rotation = Quaternion.identity;
+        explosionClone.SetActive(true);
+        explosionClone.GetComponent<ParticleSystem>().Play();
+        die = true;
+        Destroy(gameObject);
     }
 
     IEnumerator StartSinking()   //通过动画事件调用下沉
