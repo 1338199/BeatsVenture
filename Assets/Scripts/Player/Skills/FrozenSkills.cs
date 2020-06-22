@@ -32,7 +32,7 @@ public class FrozenSkills : PlayerSkills
                 ShowIndicator(hitRender);
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hitInfo;
-                if (Physics.Raycast(ray, out hitInfo, 100, enemyLayer))
+                if (Physics.Raycast(ray, out hitInfo, 6, enemyLayer))
                 {
                     if (hitInfo.transform.parent.tag == "Enemy")
                     {
