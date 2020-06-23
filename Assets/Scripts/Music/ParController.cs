@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -43,48 +44,66 @@ public class ParController : MonoBehaviour
 
     }
 
+    private bool firstTime = true;
     private int change_index = 0;
     private Color[] colors = new Color[] { new Color(255, 154, 0), new Color(255, 70, 30, 100), new Color(255, 92, 0) };
-    public void changeState(int stamp)
+    public void changeState()
     {
-        gameObject.SetActive(!activate);
-        if (activate)
+        for (int i = 0; i != this.lights.Length; ++i)
         {
-            for(int i=0;i!=this.lights.Length;++i)
-            {
-                lights[i].GetComponent<AreaLight>().m_Color = colors[change_index % colors.Length];
-                lights[i].SetActive(false);
-            }
-            lightsInGroup[change_index % lightsInGroup.Count][0].SetActive(true);
-            lightsInGroup[change_index % lightsInGroup.Count][1].SetActive(true);
-            change_index++;
-            //changeColor();
+            lights[i].GetComponent<AreaLight>().m_Color = colors[change_index % colors.Length];
+            lights[i].SetActive(false);
+        }
+        lightsInGroup[change_index % lightsInGroup.Count][0].SetActive(true);
+        lightsInGroup[change_index % lightsInGroup.Count][1].SetActive(true);
+        change_index++;
+        //changeColor();
+    }
+
+    public void switchPar()
+    {
+        if (firstTime)
+        {
+            firstTime = false;
+            return;
+        }
+        gameObject.SetActive(!activate);
+        if(activate)
+        {
+            changeState();
         }
     }
 
+
+
     public void stopGuide()
     {
-        gameObject.SetActive(false);
+        gameObject.SetActive(true);
+        for (int i = 0; i != this.lights.Length; ++i)
+        {
+            lights[i].SetActive(false);
+        }
+
+    }
+    public void startFlush()
+    {
+        gameObject.SetActive(true);
+        StartCoroutine(flush(4));
     }
 
-    //public void startFlush()
-    //{
-    //    StartCoroutine(flush(4));
-    //}
-
-    //public IEnumerator flush(float flushes)
-    //{
-    //    var startTime = Time.time;
-    //    var TimeSpan = MusicController.getInstance().BeatTime / flushes;
-    //    var nextFlshTime = Time.time;
-    //    for (int i = 0; i!= flushes; ++i)
-    //    {
-    //        if (Time.time > nextFlshTime)
-    //        {
-    //            nextFlshTime += TimeSpan;
-    //            changeState(0);
-    //            yield return null;
-    //        }
-    //    }
-    //}
+    private IEnumerator flush(int flushes)
+    {
+        var TimeSpan = MusicController.getInstance().BeatTime / flushes;
+        var nextFlshTime = Time.time;
+        while(flushes != 0)
+        {
+            if (Time.time > nextFlshTime)
+            {
+                nextFlshTime += TimeSpan;
+                changeState();
+                flushes--;
+            }
+            yield return null;
+        }
+    }
 }
