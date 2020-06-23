@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private float currentTime = 0;   //用来记录时间
 
     private Animator anim;
+    private NavMeshAgent agent;
 
     private SkillsController SkillsController;
     private Rigidbody rb;
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
 
         SkillsController = GetComponent<SkillsController>();
         rb = GetComponent<Rigidbody>();
@@ -252,24 +254,47 @@ public class PlayerController : MonoBehaviour
     private bool CheckCanMove(Vector3 dir)   //判断是否能够进行移动
     {
         Ray ray = new Ray(this.transform.position, dir);
+        Vector2 twoDirec = new Vector2(dir.x, dir.z).normalized;
+
+        
+        float agentRadius = agent.radius;
+        Vector3 orthogonalDirecNorm = new Vector3(-agentRadius*twoDirec.y, 0, agentRadius*twoDirec.x);
+     
+
+
+        Ray ray1 = new Ray(this.transform.position+ orthogonalDirecNorm, dir);
+        Ray ray2 = new Ray(this.transform.position - orthogonalDirecNorm, dir);
 
         RaycastHit hitInfo;
+        RaycastHit hitInfo1;
+        RaycastHit hitInfo2;
+ 
         if (Physics.Raycast(ray, out hitInfo, 1.5f))
         {
-            if (hitInfo.transform.tag == "Obstacle" || hitInfo.transform.tag == "Enemy")
+            if ((hitInfo.transform.tag == "Obstacle" || hitInfo.transform.tag == "Enemy"))
             {
                 anim.SetTrigger("move");
                 return false;
             }
 
-            else
+        }else if (Physics.Raycast(ray1, out hitInfo1, 1.5f))
+        {
+            if ((hitInfo1.transform.tag == "Obstacle" || hitInfo1.transform.tag == "Enemy"))
             {
-                return true;
+                anim.SetTrigger("move");
+                return false;
             }
+
+        }else if(Physics.Raycast(ray2, out hitInfo2, 1.5f)){
+            if ((hitInfo2.transform.tag == "Obstacle" || hitInfo2.transform.tag == "Enemy"))
+            {
+                anim.SetTrigger("move");
+                return false;
+            }
+
         }
-        else {
-            return true;
-        }
+
+        return true;
     }
 
     private IEnumerator SmoothMove(Vector3 start, Vector3 target)
