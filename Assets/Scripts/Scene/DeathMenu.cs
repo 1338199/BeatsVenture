@@ -7,9 +7,7 @@ using UnityEngine.UI;
 
 public class DeathMenu : MonoBehaviour
 {
-    public Image bgImg;
     private bool isShown = true;
-   //private float transition = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +37,7 @@ public class DeathMenu : MonoBehaviour
     public void Restart()
     {
         Debug.Log("Restart");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Level1");
     }
 
     public void BackToMenu()
@@ -49,10 +47,10 @@ public class DeathMenu : MonoBehaviour
 
     public void quitGame()
     {
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
             Application.Quit();
-        #endif
+#endif
     }
 }

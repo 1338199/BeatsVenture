@@ -8,6 +8,7 @@ public class teleportChecker : MonoBehaviour
     public int[] pointCount = {0, 3, 3};
     public int stageId;
     public static int getPointNum = 0;
+    public DeathMenu winMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -32,11 +33,14 @@ public class teleportChecker : MonoBehaviour
                 {
                     var nextStageName = "Level" + (stageId + 1).ToString();
                     Debug.Log(nextStageName);
+                 //   MinMap.getInstance().flushList();
                     SceneManager.LoadScene(nextStageName);
                     
                 }
                 else
                 {
+                    MinMap.getInstance().setDie();
+                    winMenu.ShowDeathMenu();
                     Debug.Log("全部通关！");
                 }
             }

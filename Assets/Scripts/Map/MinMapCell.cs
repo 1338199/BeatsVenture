@@ -47,7 +47,11 @@ public class MinMapCell : MonoBehaviour
 
     public void RemoveFromMap()
     {
-        MinMap.getInstance().removeCell(mapData);
-        isOk = false;
+        if (MinMap.getInstance())
+        {
+            MinMap.getInstance().removeCell(mapData);
+            isOk = false;
+        }
+        
     }
 }

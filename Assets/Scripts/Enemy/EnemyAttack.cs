@@ -9,7 +9,7 @@ public class EnemyAttack : MonoBehaviour
     protected bool isStay = false;
 
     protected float moveTimer = 0f;
-    public int beatCanAttack = 3;
+    private int beatCanAttack = 1;
     protected int beat = 0;
     protected GameObject mplayer;
 
@@ -91,6 +91,11 @@ public class EnemyAttack : MonoBehaviour
         
 
         yield return new WaitForSeconds(2.0f);
+    }
+
+    public int getCanAttack()
+    {
+        return this.beatCanAttack;
     }
 
 }
