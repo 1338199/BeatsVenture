@@ -125,8 +125,16 @@ public class MusicController : MonoBehaviour
                 this.Stamp = foreseenHits.Peek().stamp;
                 if(GameController.guiding)
                 {
-                    ParLight.GetComponent<ParController>().changeState(this.Stamp);
-                    if (Stamp / 10 == this.guideBeats)
+                    int beatCount = Stamp / 10;
+                    if(beatCount < this.guideBeats -3)
+                    {
+                        ParLight.GetComponent<ParController>().switchPar();
+                    }
+                    else if(beatCount < this.guideBeats)
+                    {
+                        ParLight.GetComponent<ParController>().startFlush();
+                    }
+                    else if (beatCount == this.guideBeats)
                     {
                         GameController.stopGuide();
                         ParLight.GetComponent<ParController>().stopGuide();
