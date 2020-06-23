@@ -7,6 +7,7 @@ public class EnemyHealth : HealthController
 
     protected Animator anim;
     protected ParticleSystem hitPs;
+    protected bool isDie = false;
 
     private void Awake()
     {
@@ -28,7 +29,11 @@ public class EnemyHealth : HealthController
         this.GetComponent<EnemyController>().isDie = true;
         this.GetComponent<EnemyController>().disableNav();
         anim.SetTrigger("die");
-        Money();
+        if (!isDie)
+        {
+            Money();
+        }
+        
     }
 
     IEnumerator StartSinking()   //通过动画事件调用下沉
@@ -44,6 +49,7 @@ public class EnemyHealth : HealthController
 
     public virtual void Money()
     {
+        isDie = true;
         int money = UnityEngine.Random.Range(8, 12);
         Coins.money += money;
     }

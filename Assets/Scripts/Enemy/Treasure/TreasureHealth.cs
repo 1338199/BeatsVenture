@@ -11,12 +11,16 @@ public class TreasureHealth : EnemyHealth
         this.GetComponent<EnemyController>().disableNav();
         anim.SetTrigger("Die");
         Destroy(this.gameObject, 0.9f);
-        Money();
+        if (!isDie)
+        {
+            Money();
+        }
     }
 
 
     public override void Money()
     {
+        isDie = true;
         int money = UnityEngine.Random.Range(8, 22);
         Coins.money += money;
     }

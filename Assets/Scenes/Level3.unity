@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10399,7 +10399,7 @@ PrefabInstance:
     - target: {fileID: -8257001749578377580, guid: 62455f283ec250249919c3ac8f82ea6e,
         type: 3}
       propertyPath: range
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1925270962399752, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
       propertyPath: m_Name
@@ -11865,7 +11865,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 385574264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 196eace9af12d419c86e9274a6de3dc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 508f66b57074c49a098caa3d041b53ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 200
@@ -17191,6 +17191,11 @@ PrefabInstance:
       propertyPath: rotatingbase
       value: 
       objectReference: {fileID: 658540569}
+    - target: {fileID: -8257001749578377580, guid: 62455f283ec250249919c3ac8f82ea6e,
+        type: 3}
+      propertyPath: range
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1925270962399752, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
       propertyPath: m_Name
       value: PM_VoyagerTurret (3)
@@ -20733,6 +20738,11 @@ PrefabInstance:
       propertyPath: rotatingbase
       value: 
       objectReference: {fileID: 1667364157}
+    - target: {fileID: -8257001749578377580, guid: 62455f283ec250249919c3ac8f82ea6e,
+        type: 3}
+      propertyPath: range
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1925270962399752, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
       propertyPath: m_Name
       value: PM_VoyagerTurret (1)
@@ -26988,7 +26998,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 920146718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 196eace9af12d419c86e9274a6de3dc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 508f66b57074c49a098caa3d041b53ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 200
@@ -30949,7 +30959,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1078404033}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 196eace9af12d419c86e9274a6de3dc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 508f66b57074c49a098caa3d041b53ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 200
@@ -31452,7 +31462,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1085430183}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 196eace9af12d419c86e9274a6de3dc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 508f66b57074c49a098caa3d041b53ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 200
@@ -46057,7 +46067,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1361357060}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 196eace9af12d419c86e9274a6de3dc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 508f66b57074c49a098caa3d041b53ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 200
@@ -51390,6 +51400,11 @@ PrefabInstance:
       propertyPath: rotatingbase
       value: 
       objectReference: {fileID: 1180460266}
+    - target: {fileID: -8257001749578377580, guid: 62455f283ec250249919c3ac8f82ea6e,
+        type: 3}
+      propertyPath: range
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1925270962399752, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
       propertyPath: m_Name
       value: PM_VoyagerTurret
@@ -53745,6 +53760,11 @@ PrefabInstance:
       propertyPath: rotatingbase
       value: 
       objectReference: {fileID: 1738373043}
+    - target: {fileID: -8257001749578377580, guid: 62455f283ec250249919c3ac8f82ea6e,
+        type: 3}
+      propertyPath: range
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1925270962399752, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
       propertyPath: m_Name
       value: PM_VoyagerTurret (4)
@@ -59838,7 +59858,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1812157251}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 196eace9af12d419c86e9274a6de3dc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 508f66b57074c49a098caa3d041b53ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 200
@@ -74526,7 +74546,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2106618521}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 196eace9af12d419c86e9274a6de3dc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 508f66b57074c49a098caa3d041b53ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 200

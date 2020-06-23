@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -46275,18 +46275,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1488991484}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1488991486 stripped
+--- !u!114 &1488991486
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114822742229705754, guid: 67e3ca4d97d896240b5b4fa784dba74d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1488991484}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1488991485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 508f66b57074c49a098caa3d041b53ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 200
+  actor: 0
+  healthSilder: {fileID: 1488991491}
+  healthText: {fileID: 0}
 --- !u!4 &1488991487 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4773862628850526, guid: 67e3ca4d97d896240b5b4fa784dba74d,
@@ -46338,22 +46342,18 @@ MonoBehaviour:
   isDie: 0
   step: 2
   speed: 5
---- !u!114 &1488991491
+--- !u!114 &1488991491 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 114822742229705754, guid: 67e3ca4d97d896240b5b4fa784dba74d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1488991484}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488991485}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 196eace9af12d419c86e9274a6de3dc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 200
-  actor: 0
-  healthSilder: {fileID: 1488991486}
-  healthText: {fileID: 0}
 --- !u!114 &1488991492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53214,7 +53214,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1574502916}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 196eace9af12d419c86e9274a6de3dc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 508f66b57074c49a098caa3d041b53ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 200
@@ -53612,7 +53612,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1611552918}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 196eace9af12d419c86e9274a6de3dc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 508f66b57074c49a098caa3d041b53ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 200
@@ -61665,6 +61665,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1769192401202682, guid: 67e3ca4d97d896240b5b4fa784dba74d, type: 3}
+      propertyPath: m_Name
+      value: HPSlider7
+      objectReference: {fileID: 0}
     - target: {fileID: 1769260314348560, guid: 67e3ca4d97d896240b5b4fa784dba74d, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -61852,18 +61856,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1831127088}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1831127090 stripped
+--- !u!114 &1831127090
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114822742229705754, guid: 67e3ca4d97d896240b5b4fa784dba74d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1831127088}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1831127089}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 508f66b57074c49a098caa3d041b53ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 200
+  actor: 0
+  healthSilder: {fileID: 1831127095}
+  healthText: {fileID: 0}
 --- !u!4 &1831127091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4773862628850526, guid: 67e3ca4d97d896240b5b4fa784dba74d,
@@ -61915,22 +61923,18 @@ MonoBehaviour:
   isDie: 0
   step: 2
   speed: 5
---- !u!114 &1831127095
+--- !u!114 &1831127095 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 114822742229705754, guid: 67e3ca4d97d896240b5b4fa784dba74d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1831127088}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1831127089}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 196eace9af12d419c86e9274a6de3dc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 200
-  actor: 0
-  healthSilder: {fileID: 1831127090}
-  healthText: {fileID: 0}
 --- !u!114 &1831127096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63333,7 +63337,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1888035579}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 196eace9af12d419c86e9274a6de3dc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 508f66b57074c49a098caa3d041b53ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 200
@@ -63931,7 +63935,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1925247570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 196eace9af12d419c86e9274a6de3dc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 508f66b57074c49a098caa3d041b53ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 200
@@ -71626,7 +71630,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2129757191}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 196eace9af12d419c86e9274a6de3dc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 508f66b57074c49a098caa3d041b53ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 200

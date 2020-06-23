@@ -31,6 +31,7 @@ public class TurretHealth : EnemyHealth
         explosionClone.SetActive(true);
         explosionClone.GetComponent<ParticleSystem>().Play();
         die = true;
+        Money();
         GetComponent<TurretController>().enabled = false;
         Destroy(this.gameObject);
     }
@@ -44,5 +45,12 @@ public class TurretHealth : EnemyHealth
             yield return null;
         }
         Destroy(this.gameObject, 0.5f);
+    }
+
+    public override void Money()
+    {
+        isDie = true;
+        int money = UnityEngine.Random.Range(60, 80);
+        Coins.money += money;
     }
 }
