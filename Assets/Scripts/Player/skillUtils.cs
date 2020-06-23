@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Player
 {
-    class skillUtils
+    public class skillUtils
     {
         static public void saveSkills(bool[] skills)
         {

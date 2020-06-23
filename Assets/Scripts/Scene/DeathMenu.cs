@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Player;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -29,6 +30,10 @@ public class DeathMenu : MonoBehaviour
     {
         isShown = true;
         gameObject.SetActive(true);
+        skillUtils.saveSkills(new bool[4] { false, false, false, false });
+        MoneyUtils.saveMoney(1000);
+        SkillNumUtils.saveSkillNum(0);
+        PlayerPrefs.SetFloat("playerHP", 100);
     }
 
     public void Restart()

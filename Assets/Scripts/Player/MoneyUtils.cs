@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Player
 {
-    class MoneyUtils
+    public class MoneyUtils
     {
         static public void saveMoney(int money)
         {
