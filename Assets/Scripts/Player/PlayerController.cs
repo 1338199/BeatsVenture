@@ -251,13 +251,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private bool CheckCanMove(Vector3 dir)   //判断是否能够进行移动
+    private bool CheckCanMove(Vector3 dir,float distance=1.4f)   //判断是否能够进行移动
     {
         Ray ray = new Ray(this.transform.position, dir);
         Vector2 twoDirec = new Vector2(dir.x, dir.z).normalized;
 
         
-        float agentRadius = agent.radius;
+        float agentRadius = agent.radius*1.3f;
         Vector3 orthogonalDirecNorm = new Vector3(-agentRadius*twoDirec.y, 0, agentRadius*twoDirec.x);
      
 
@@ -269,7 +269,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hitInfo1;
         RaycastHit hitInfo2;
  
-        if (Physics.Raycast(ray, out hitInfo, 1.5f))
+        if (Physics.Raycast(ray, out hitInfo, distance))
         {
             if ((hitInfo.transform.tag == "Obstacle" || hitInfo.transform.tag == "Enemy"))
             {
@@ -277,7 +277,7 @@ public class PlayerController : MonoBehaviour
                 return false;
             }
 
-        }else if (Physics.Raycast(ray1, out hitInfo1, 1.5f))
+        }else if (Physics.Raycast(ray1, out hitInfo1, distance))
         {
             if ((hitInfo1.transform.tag == "Obstacle" || hitInfo1.transform.tag == "Enemy"))
             {
@@ -285,7 +285,7 @@ public class PlayerController : MonoBehaviour
                 return false;
             }
 
-        }else if(Physics.Raycast(ray2, out hitInfo2, 1.5f)){
+        }else if(Physics.Raycast(ray2, out hitInfo2, distance)){
             if ((hitInfo2.transform.tag == "Obstacle" || hitInfo2.transform.tag == "Enemy"))
             {
                 anim.SetTrigger("move");
@@ -304,8 +304,9 @@ public class PlayerController : MonoBehaviour
         bool first = true;
         bool canMove = true;
         // while (Vector3.Distance(this.transform.position, target) > 0.001f)
-       // Debug.Log((this.transform.position - target).sqrMagnitude);
-        while ((this.transform.position - target).sqrMagnitude > 0.1f && canMove)
+        // Debug.Log((this.transform.position - target).sqrMagnitude);
+        float distance = (this.transform.position - target).sqrMagnitude;
+        while (distance > 0.1f && canMove && CheckCanMove(target-this.transform.position,distance))
         {
             Lookat();
            // Debug.Log(target);
@@ -315,6 +316,8 @@ public class PlayerController : MonoBehaviour
             Vector3 originMovement = movement;
             Vector3 curPosition = this.transform.position;
             NavMeshHit hit;
+            
+
             //Debug.Log(first);
             if (first)
             {

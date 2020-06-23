@@ -10566,6 +10566,7 @@ MonoBehaviour:
   plane: {fileID: 1776286843}
   planeLeftDown: {fileID: 1396819068}
   mapTexutre: {fileID: 2800000, guid: 47685d6f649ff493997203bde2ebc255, type: 3}
+  id: 0
 --- !u!4 &771195158
 Transform:
   m_ObjectHideFlags: 0
@@ -17457,7 +17458,7 @@ NavMeshAgent:
   m_Radius: 0.8
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 80
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1

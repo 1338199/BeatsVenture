@@ -116,7 +116,7 @@ public class MinMap:MonoBehaviour
     private void OnGUI()
     {
 
-        GUI.DrawTexture(new Rect(Screen.width - mapTexutre.width / 2-20, Screen.height - 300, mapTexutre.width / 2, mapTexutre.height / 2), mapTexutre,ScaleMode.StretchToFill,false);
+        GUI.DrawTexture(new Rect(Screen.width - mapTexutre.width / 2-20, Screen.height - 300, mapTexutre.width / 2 + 30, mapTexutre.height / 2 + 20), mapTexutre,ScaleMode.StretchToFill,false);
         for (int j = 0; j < players.Count; j++)
         { 
             GUI.DrawTexture(new Rect(players[j].twdPosition.y, players[j].twdPosition.x, 15, 15), players[j].icon);
