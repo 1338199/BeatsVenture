@@ -9,6 +9,7 @@ public class teleportChecker : MonoBehaviour
     public int[] pointCount = {0, 3, 3};
     public int stageId;
     public static int getPointNum = 0;
+    public DeathMenu winMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,8 @@ public class teleportChecker : MonoBehaviour
                 }
                 else
                 {
+                    MinMap.getInstance().setDie();
+                    winMenu.ShowDeathMenu();
                     Debug.Log("全部通关！");
                 }
             }

@@ -257,6 +257,7 @@ public class MusicController : MonoBehaviour
     {
         var icon = GameObject.Instantiate(BeatIcon);
         icon.transform.SetParent(Canvas.transform, false);
+        icon.transform.SetSiblingIndex(3);
         icon.GetComponent<BeatIconController>().time = foreseeTime;
         icon.GetComponent<BeatIconController>().Blackhole = BeatBlackhole;
     }

@@ -19,6 +19,8 @@ public class MinMap:MonoBehaviour
 
     private float maxMapRHeight;
 
+    public bool isDie;
+
 
     public int id;
 
@@ -42,6 +44,7 @@ public class MinMap:MonoBehaviour
     {
 
         id = 0;
+        isDie = false;
 
         //maxMapRHeight = plane.GetComponent<MeshFilter>().mesh.bounds.size.x;
         //maxMapRWidth = plane.GetComponent<MeshFilter>().mesh.bounds.size.z;
@@ -119,13 +122,20 @@ public class MinMap:MonoBehaviour
 
     private void OnGUI()
     {
-
-        GUI.DrawTexture(new Rect(Screen.width - mapTexutre.width / 2-20, Screen.height - 300, mapTexutre.width / 2 + 30, mapTexutre.height / 2 + 20), mapTexutre,ScaleMode.StretchToFill,false);
-        for (int j = 0; j < mapInstance.players.Count; j++)
-        { 
-            GUI.DrawTexture(new Rect(mapInstance.players[j].twdPosition.y, mapInstance.players[j].twdPosition.x, 15, 15), mapInstance.players[j].icon);
-           // GUIUtility.RotateAroundPivot(-90, new Vector2(players[j].twdPosition.x, players[j].twdPosition.y));
+        if (!mapInstance.isDie)
+        {
+            GUI.DrawTexture(new Rect(Screen.width - mapTexutre.width / 2 - 20, Screen.height - 300, mapTexutre.width / 2 + 30, mapTexutre.height / 2 + 20), mapTexutre, ScaleMode.StretchToFill, false);
+            for (int j = 0; j < mapInstance.players.Count; j++)
+            {
+                GUI.DrawTexture(new Rect(mapInstance.players[j].twdPosition.y, mapInstance.players[j].twdPosition.x, 15, 15), mapInstance.players[j].icon);
+                // GUIUtility.RotateAroundPivot(-90, new Vector2(players[j].twdPosition.x, players[j].twdPosition.y));
+            }
         }
+    }
+
+    public void setDie()
+    {
+        mapInstance.isDie = true; 
     }
 
 
