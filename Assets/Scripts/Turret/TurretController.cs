@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
@@ -40,6 +41,10 @@ public class TurretController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameController.enemyCanMove)
+        {
+            return;
+        }
         rotatingbase.transform.LookAt(player.transform);
         rotatingbase.transform.Rotate(Vector3.up * 90);
         invisiblePath = new ParabolaPath(canon.transform.position, player.transform.position, height, gravity);

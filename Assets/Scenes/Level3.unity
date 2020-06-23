@@ -10951,7 +10951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   beatCanAttack: 2
-  darkbc: {fileID: 0}
+  darkbc: {fileID: 2010255775}
 --- !u!135 &341119326
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18248,7 +18248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   beatCanAttack: 2
-  darkbc: {fileID: 0}
+  darkbc: {fileID: 2010255775}
 --- !u!135 &664364526
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18694,7 +18694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   beatCanAttack: 2
-  darkbc: {fileID: 0}
+  darkbc: {fileID: 2010255775}
 --- !u!135 &677937844
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -50573,7 +50573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   beatCanAttack: 2
-  darkbc: {fileID: 0}
+  darkbc: {fileID: 2010255775}
 --- !u!135 &1501414053
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -65932,7 +65932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   beatCanAttack: 2
-  darkbc: {fileID: 0}
+  darkbc: {fileID: 2010255775}
 --- !u!135 &2109237763
 SphereCollider:
   m_ObjectHideFlags: 0
