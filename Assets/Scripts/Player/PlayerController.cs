@@ -251,13 +251,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private bool CheckCanMove(Vector3 dir,float distance=1.4f)   //判断是否能够进行移动
+    private bool CheckCanMove(Vector3 dir,float distance=1f)   //判断是否能够进行移动
     {
         Ray ray = new Ray(this.transform.position, dir);
         Vector2 twoDirec = new Vector2(dir.x, dir.z).normalized;
 
         
-        float agentRadius = agent.radius*1.3f;
+        float agentRadius = agent.radius;
         Vector3 orthogonalDirecNorm = new Vector3(-agentRadius*twoDirec.y, 0, agentRadius*twoDirec.x);
      
 
@@ -268,26 +268,34 @@ public class PlayerController : MonoBehaviour
         RaycastHit hitInfo;
         RaycastHit hitInfo1;
         RaycastHit hitInfo2;
+
+        
  
-        if (Physics.Raycast(ray, out hitInfo, distance))
+        if (Physics.Raycast(ray, out hitInfo, 1.5f))
         {
+            Debug.DrawLine(ray.origin, hitInfo.point);
             if ((hitInfo.transform.tag == "Obstacle" || hitInfo.transform.tag == "Enemy"))
             {
+                Debug.Log("cant move0!");
                 anim.SetTrigger("move");
                 return false;
             }
 
-        }else if (Physics.Raycast(ray1, out hitInfo1, distance))
+        }else if (Physics.Raycast(ray1, out hitInfo1, 1.5f))
         {
+            Debug.DrawLine(ray1.origin, hitInfo1.point);
             if ((hitInfo1.transform.tag == "Obstacle" || hitInfo1.transform.tag == "Enemy"))
             {
+                Debug.Log("cant move1!");
                 anim.SetTrigger("move");
                 return false;
             }
 
-        }else if(Physics.Raycast(ray2, out hitInfo2, distance)){
+        }else if(Physics.Raycast(ray2, out hitInfo2, 1.5f)){
+            Debug.DrawLine(ray2.origin, hitInfo2.point);
             if ((hitInfo2.transform.tag == "Obstacle" || hitInfo2.transform.tag == "Enemy"))
             {
+                Debug.Log("cant move2!");
                 anim.SetTrigger("move");
                 return false;
             }

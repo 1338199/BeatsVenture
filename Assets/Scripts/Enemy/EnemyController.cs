@@ -90,6 +90,10 @@ public class EnemyController : MonoBehaviour
         }
         else if(isHitPlayer && accumulateBeat > enemyAttack.beatCanAttack)
         {
+            if (coroutine != null)
+            {
+                StopCoroutine(coroutine);
+            }
             enemyAttack.Attack(player);
             accumulateBeat = 0;
         }

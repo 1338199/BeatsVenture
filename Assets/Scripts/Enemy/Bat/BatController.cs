@@ -13,6 +13,7 @@ public class BatController : EnemyController
     protected Vector3[] ver_direc = { new Vector3(0, 0, 1), new Vector3(0, 0, -1) };
     public int select = 1;
     protected Vector3 curDirec;
+   
 
     // Start is called before the first frame update
     public override void Start()
@@ -90,6 +91,8 @@ public class BatController : EnemyController
         
         Vector3 target = this.transform.position + curDirec * step;
         Vector3 target_clone = target;
+        Vector3 origin_pos = this.transform.position;
+        int simi = 0;
         //target_clone.y = 1.6f;
         NavMeshPath path = new NavMeshPath();
         NavMesh.CalculatePath(target_clone, target, NavMesh.AllAreas, path);
@@ -113,6 +116,24 @@ public class BatController : EnemyController
 
                 while (Vector3.Distance(this.transform.position, target) > 0.1)
                 {
+                    
+                    if(Vector3.Distance(this.transform.position, origin_pos) < 0.01f)
+                    {
+                        simi++;
+                    }
+                    else
+                    {
+                        simi = 0;
+                    }
+                    if(simi > 10)
+                    {
+                        ChangeDirec();
+                        break;
+                    }
+                    origin_pos = this.transform.position;
+
+
+
                     this.transform.position = Vector3.MoveTowards(this.transform.position, target, speed * Time.deltaTime);
                     yield return null;
                 }
