@@ -19,9 +19,6 @@ public class MinMap:MonoBehaviour
 
     private float maxMapRHeight;
 
-    private float initW;
-
-    private float initH;
 
     public int id;
 
@@ -46,8 +43,11 @@ public class MinMap:MonoBehaviour
 
         id = 0;
 
-        maxMapRHeight = plane.GetComponent<MeshFilter>().mesh.bounds.size.x;
-        maxMapRWidth = plane.GetComponent<MeshFilter>().mesh.bounds.size.z;
+        //maxMapRHeight = plane.GetComponent<MeshFilter>().mesh.bounds.size.x;
+        //maxMapRWidth = plane.GetComponent<MeshFilter>().mesh.bounds.size.z;
+
+        maxMapRHeight = 1;
+        maxMapRWidth = 1;
 
         float scaleZ = plane.transform.localScale.z;
         maxMapRHeight = maxMapRHeight * scaleZ;
