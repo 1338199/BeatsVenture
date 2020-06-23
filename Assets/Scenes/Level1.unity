@@ -24221,7 +24221,7 @@ PrefabInstance:
     - target: {fileID: 6543433505727091577, guid: d6c406ee4a3e87f41b11087106124ba0,
         type: 3}
       propertyPath: thresh
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6543433505727091577, guid: d6c406ee4a3e87f41b11087106124ba0,
         type: 3}

@@ -208,7 +208,7 @@ public class MusicController : MonoBehaviour
             return this.beatsPerBar * 4 + 2;
         }
     }
-    private int bpm
+    private float bpm
     {
         get
         {
@@ -221,7 +221,7 @@ public class MusicController : MonoBehaviour
                 //    return 119;
                 //    break;
                 default:
-                    return 117;
+                    return 117.5f;
                     break;
             }
         }
