@@ -67,15 +67,24 @@ public class ParController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    //public IEnumerator changeColor()
+    //public void startFlush()
     //{
-    //    var colors = new Color[] { new Color(255, 154, 0), new Color(255, 0, 174), new Color(255, 92, 0) };
-    //    for (int i = 0; ;++i)
+    //    StartCoroutine(flush(4));
+    //}
+
+    //public IEnumerator flush(float flushes)
+    //{
+    //    var startTime = Time.time;
+    //    var TimeSpan = MusicController.getInstance().BeatTime / flushes;
+    //    var nextFlshTime = Time.time;
+    //    for (int i = 0; i!= flushes; ++i)
     //    {
-    //        ParLeft1.GetComponent<AreaLight>().m_Color = colors[i % colors.Length];
-    //        ParLeft2.GetComponent<AreaLight>().m_Color = colors[i % colors.Length];
-    //        ParLeft3.GetComponent<AreaLight>().m_Color = colors[i % colors.Length];
-    //        yield return null;
+    //        if (Time.time > nextFlshTime)
+    //        {
+    //            nextFlshTime += TimeSpan;
+    //            changeState(0);
+    //            yield return null;
+    //        }
     //    }
     //}
 }

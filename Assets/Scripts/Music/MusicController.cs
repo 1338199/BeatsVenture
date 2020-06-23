@@ -26,7 +26,7 @@ public class MusicController : MonoBehaviour
     public void Awake()
     {
         _instance = this;
-        this.SongName = "NoEscape";
+        this.SongName = "Hate";
         var audioObject = new GameObject("backtrack");
         this.audioPlayer = audioObject.AddComponent<AudioSource>();
         audioPlayer.clip = Resources.Load<AudioClip>("Music/" + SongName);
@@ -124,15 +124,17 @@ public class MusicController : MonoBehaviour
             {
                 this.Stamp = foreseenHits.Peek().stamp;
                 if(GameController.guiding)
+                {
                     ParLight.GetComponent<ParController>().changeState(this.Stamp);
+                    if (Stamp / 10 == this.guideBeats)
+                    {
+                        GameController.stopGuide();
+                        ParLight.GetComponent<ParController>().stopGuide();
+                    }
+                }
             }
             if (time > foreseenHits.Peek().time + thresh)
             {
-                if(Stamp/10 == this.guideBeats-1)
-                {
-                    GameController.stopGuide();
-                    ParLight.GetComponent<ParController>().stopGuide();
-                }
                 foreseenHits.Dequeue();
                 TimeOkey = false;
             }
@@ -196,7 +198,7 @@ public class MusicController : MonoBehaviour
     {
         get
         {
-            return this.beatsPerBar * 4;
+            return this.beatsPerBar * 4 + 2;
         }
     }
     private int bpm
@@ -205,14 +207,14 @@ public class MusicController : MonoBehaviour
         {
             switch (this._songName)
             {
-                case "mygame1":
-                    return 130;
-                    break;
-                case "NoEscape":
-                    return 119;
-                    break;
+                //case "mygame1":
+                //    return 130;
+                //    break;
+                //case "NoEscape":
+                //    return 119;
+                //    break;
                 default:
-                    return 119;
+                    return 117;
                     break;
             }
         }

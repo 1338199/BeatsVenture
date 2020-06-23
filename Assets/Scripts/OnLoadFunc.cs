@@ -17,6 +17,7 @@ namespace Assets.Scripts
             skillUtils.saveSkills(new bool[4] { false, false, false, false });
             MoneyUtils.saveMoney(1000);
             SkillNumUtils.saveSkillNum(0);
+            PlayerPrefs.SetFloat("playerHP", 100);
         }
     }
 }
