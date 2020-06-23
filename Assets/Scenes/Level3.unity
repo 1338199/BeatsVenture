@@ -1270,7 +1270,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 2
   isDie: 0
   step: 1
   speed: 5
@@ -1337,7 +1336,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  beatCanAttack: 3
 --- !u!1001 &77471684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1767,7 +1765,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 8
-  beatCanAttack: 3
 --- !u!135 &86591580
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6852,7 +6849,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 2
   isDie: 0
   step: 1
   speed: 5
@@ -7034,9 +7030,101 @@ PrefabInstance:
       propertyPath: range
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 1005324069398030, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022294579125664, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050490888592094, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1089965784733022, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150745291887934, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211528525696048, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233528693755220, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347959965629302, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1382921985969552, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1424493894840720, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440466942353044, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456626024251436, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579027005866126, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1581158157998426, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1589509596412170, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590409617796236, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744623573661344, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1751976267938076, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810891995827746, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924208915859038, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1925270962399752, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
       propertyPath: m_Name
       value: PM_VoyagerTurret (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1925270962399752, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1929404427157784, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1978379444171216, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4327719134266240, guid: 62455f283ec250249919c3ac8f82ea6e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7082,6 +7170,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 305302536387244434, guid: 62455f283ec250249919c3ac8f82ea6e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 440317074392172838, guid: 62455f283ec250249919c3ac8f82ea6e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 915122137206206873, guid: 62455f283ec250249919c3ac8f82ea6e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064665851814070788, guid: 62455f283ec250249919c3ac8f82ea6e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1699534594398066804, guid: 62455f283ec250249919c3ac8f82ea6e,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -7090,6 +7198,16 @@ PrefabInstance:
     - target: {fileID: 1699534594398066804, guid: 62455f283ec250249919c3ac8f82ea6e,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752088888124246117, guid: 62455f283ec250249919c3ac8f82ea6e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7725355820193392177, guid: 62455f283ec250249919c3ac8f82ea6e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9309,7 +9427,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 2
   isDie: 0
   step: 1
   speed: 5
@@ -10143,7 +10260,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 2
   isDie: 0
   step: 1
   speed: 5
@@ -10210,7 +10326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  beatCanAttack: 3
 --- !u!1001 &297561906
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10950,7 +11065,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  beatCanAttack: 2
   darkbc: {fileID: 2010255775}
 --- !u!135 &341119326
 SphereCollider:
@@ -11162,7 +11276,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 1
   isDie: 0
   step: 3
   speed: 5
@@ -11869,7 +11982,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 2
   isDie: 0
   step: 2
   speed: 5
@@ -14326,7 +14438,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 8
-  beatCanAttack: 3
 --- !u!135 &478173955
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15144,7 +15255,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  beatCanAttack: 3
 --- !u!1 &525263782
 GameObject:
   m_ObjectHideFlags: 0
@@ -15751,7 +15861,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 2
   isDie: 0
   step: 1
   speed: 5
@@ -16699,7 +16808,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 2
   isDie: 0
   step: 1
   speed: 5
@@ -17184,7 +17292,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 8
-  beatCanAttack: 3
 --- !u!135 &619075143
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18247,7 +18354,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  beatCanAttack: 2
   darkbc: {fileID: 2010255775}
 --- !u!135 &664364526
 SphereCollider:
@@ -18693,7 +18799,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  beatCanAttack: 2
   darkbc: {fileID: 2010255775}
 --- !u!135 &677937844
 SphereCollider:
@@ -19201,7 +19306,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 8
-  beatCanAttack: 3
 --- !u!135 &707980256
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19494,7 +19598,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 2
   isDie: 0
   step: 1
   speed: 5
@@ -27198,7 +27301,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 2
   isDie: 0
   step: 1
   speed: 5
@@ -27265,7 +27367,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  beatCanAttack: 3
 --- !u!1001 &911887903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27848,7 +27949,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 2
   isDie: 0
   step: 2
   speed: 5
@@ -28077,7 +28177,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 1
   isDie: 0
   step: 3
   speed: 5
@@ -28419,7 +28518,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 1
   isDie: 0
   step: 3
   speed: 5
@@ -31734,7 +31832,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  beatCanAttack: 3
 --- !u!1001 &1070650944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32039,7 +32136,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 2
   isDie: 0
   step: 2
   speed: 5
@@ -32529,7 +32625,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 2
   isDie: 0
   step: 2
   speed: 5
@@ -38616,7 +38711,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  beatCanAttack: 3
 --- !u!1 &1160917460
 GameObject:
   m_ObjectHideFlags: 0
@@ -40537,7 +40631,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  beatCanAttack: 3
 --- !u!1 &1261739243
 GameObject:
   m_ObjectHideFlags: 0
@@ -47086,7 +47179,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 2
   isDie: 0
   step: 2
   speed: 5
@@ -47575,7 +47667,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 8
-  beatCanAttack: 3
 --- !u!135 &1388435226
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -49376,7 +49467,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  beatCanAttack: 3
 --- !u!1 &1455372803
 GameObject:
   m_ObjectHideFlags: 0
@@ -50328,7 +50418,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  beatCanAttack: 3
 --- !u!1 &1493396925
 GameObject:
   m_ObjectHideFlags: 0
@@ -50572,7 +50661,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  beatCanAttack: 2
   darkbc: {fileID: 2010255775}
 --- !u!135 &1501414053
 SphereCollider:
@@ -51011,7 +51099,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  beatCanAttack: 3
 --- !u!1001 &1524856237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51459,7 +51546,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 8
-  beatCanAttack: 3
 --- !u!135 &1550418416
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -53701,7 +53787,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 1
   isDie: 0
   step: 3
   speed: 5
@@ -54069,7 +54154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 2
   isDie: 0
   step: 1
   speed: 5
@@ -55819,7 +55903,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 2
   isDie: 0
   step: 2
   speed: 5
@@ -59026,7 +59109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 1
   isDie: 0
   step: 3
   speed: 5
@@ -64003,7 +64085,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 2
   isDie: 0
   step: 1
   speed: 5
@@ -65329,7 +65410,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 8
-  beatCanAttack: 3
 --- !u!135 &2084128575
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -65860,7 +65940,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFindPlayer: 0
   isHitPlayer: 0
-  beatCanMove: 2
   isDie: 0
   step: 2
   speed: 5
@@ -65931,7 +66010,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  beatCanAttack: 2
   darkbc: {fileID: 2010255775}
 --- !u!135 &2109237763
 SphereCollider:

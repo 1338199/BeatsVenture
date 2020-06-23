@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     public bool isHitPlayer = false;  //由meleeSphere控制
 
     protected float moveTimer = 0;   //用来控制敌人的行动时机
-    public int beatCanMove = 2;   //敌人经过多少个节拍才可以移动
+    private int beatCanMove = 1;   //敌人经过多少个节拍才可以移动
 //    protected int beatTimer;  //用来标记经过多少个节拍
     public bool isDie = false;
     public int step = 1;
@@ -64,12 +64,13 @@ public class EnemyController : MonoBehaviour
         if(tempBeat > originBeat)
         {
             accumulateBeat++;
+            Debug.Log(accumulateBeat);
         }
         originBeat = tempBeat;
 
 
 
-        if (!isHitPlayer && accumulateBeat > beatCanMove)
+        if (!isHitPlayer && accumulateBeat >= beatCanMove)
         {
 
             if (coroutine != null)
@@ -88,7 +89,7 @@ public class EnemyController : MonoBehaviour
 
             accumulateBeat = 0;
         }
-        else if(isHitPlayer && accumulateBeat > enemyAttack.beatCanAttack)
+        else if(isHitPlayer && accumulateBeat >= enemyAttack.getCanAttack())
         {
             if (coroutine != null)
             {
