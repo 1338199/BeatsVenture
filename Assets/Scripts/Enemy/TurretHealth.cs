@@ -19,7 +19,7 @@ public class TurretHealth : EnemyHealth
     public override void UpdateInfo()
     {
         healthSilder.value = hp;
-        if (hp <= 0)
+        if (hp <= 0 & !die)
             Die();
     }
 
@@ -32,7 +32,7 @@ public class TurretHealth : EnemyHealth
         explosionClone.GetComponent<ParticleSystem>().Play();
         die = true;
         GetComponent<TurretController>().enabled = false;
-        Destroy(this.gameObject, 0.9f);
+        Destroy(this.gameObject);
     }
 
     IEnumerator StartSinking()   //通过动画事件调用下沉
