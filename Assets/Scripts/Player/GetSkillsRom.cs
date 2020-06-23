@@ -74,6 +74,7 @@ public class GetSkillsRom : MonoBehaviour
 
     public void OnDestroy()
     {
-        skillUtils.saveSkills(activeSkills);
+        skillUtils.saveSkills(ActivateChest.activeSkills);
+        SkillNumUtils.saveSkillNum(ActivateChest.skillNum);
     }
 }

@@ -13,9 +13,10 @@ public class MainMenu : MonoBehaviour
     public void ClickStart()
     {
         skillUtils.saveSkills(new bool[4] { false, false, false, false });
-        MoneyUtils.saveMoney(1000);
+        MoneyUtils.saveMoney(200);
         SkillNumUtils.saveSkillNum(0);
         PlayerPrefs.SetFloat("playerHP", 100);
+        PlayerPrefs.SetInt("damage", 30);
         SceneManager.LoadScene("Level1");
     }
 

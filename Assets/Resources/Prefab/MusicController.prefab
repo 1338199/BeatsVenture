@@ -43,8 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053ccdebfbbcb5c4b971fa2acfa91793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ParLight: {fileID: 0}
   ForeseeBeats: 2
-  thresh: 0.1
+  thresh: 0.2
   BeatIcon: {fileID: 7643633764095824823, guid: e8199eae36d15b446b7ac7def9cb7854,
     type: 3}
   BeatBlackhole: {fileID: 0}

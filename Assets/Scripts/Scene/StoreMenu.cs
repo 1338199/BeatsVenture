@@ -21,8 +21,9 @@ public class StoreMenu : MonoBehaviour
     {
         gameObject.SetActive(false);
         Debug.Log("money1:" + Coins.money);
-        
-        attackText.text = "30";
+
+        Projectile.damageAmout = PlayerPrefs.GetInt("damage");
+        attackText.text = Projectile.damageAmout.ToString();
 
     }
     
@@ -98,7 +99,7 @@ public class StoreMenu : MonoBehaviour
                 case 3:
                     Debug.Log("Buy 3");
                     projectile.AddDamage();
-                    attackText.text = projectile.damageAmout.ToString();
+                    attackText.text = Projectile.damageAmout.ToString();
                     break;
                 case 4:
                     Debug.Log("Buy 4");
@@ -158,4 +159,8 @@ public class StoreMenu : MonoBehaviour
         }
     }
     
+    public void OnDestroy()
+    {
+        PlayerPrefs.SetInt("damage", Projectile.damageAmout);
+    }
 }

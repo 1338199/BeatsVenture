@@ -10586,6 +10586,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6155872489010161014, guid: f2d01a4d0ce623b4d97b25e63d0dbb68,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1050304522}
     - target: {fileID: 6197090462718319909, guid: f2d01a4d0ce623b4d97b25e63d0dbb68,
         type: 3}
       propertyPath: m_Mesh
@@ -10593,6 +10598,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2d01a4d0ce623b4d97b25e63d0dbb68, type: 3}
+--- !u!114 &882282950 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 545809505, guid: f2d01a4d0ce623b4d97b25e63d0dbb68,
+    type: 3}
+  m_PrefabInstance: {fileID: 882282949}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d816a7a72c2d14192a891d8ce8619368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &891314641
 GameObject:
   m_ObjectHideFlags: 0
@@ -47138,7 +47155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ba3ec028022453ebbd8d513289fe53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  directionalLight: {fileID: 0}
+  directionalLight: {fileID: 882282950}
 --- !u!1 &2010690153
 GameObject:
   m_ObjectHideFlags: 0

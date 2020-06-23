@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class Projectile : MonoBehaviour
 {
-    public int damageAmout = 30;
+    static public int damageAmout
+    {
+        get;set;
+    }
     public float maxDistance = 3f;
     public float speed = 10f;
 
@@ -47,5 +50,9 @@ public class Projectile : MonoBehaviour
     {
         damageAmout += 5;
         Debug.Log("damage" + damageAmout);
+    }
+
+    public void OnDestroy()
+    {
     }
 }
