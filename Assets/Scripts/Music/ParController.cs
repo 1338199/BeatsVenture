@@ -10,6 +10,7 @@ using UnityEngine;
 
 public class ParController : MonoBehaviour
 {
+    public GameObject Player;
     public GameObject ParLeft1;
     public GameObject ParRight1;
     public GameObject ParLeft2;
@@ -41,7 +42,9 @@ public class ParController : MonoBehaviour
     }
     public void Start()
     {
-
+        float y = gameObject.transform.position.y;
+        var playerPostion = Player.transform.position;
+        gameObject.transform.position = new Vector3(playerPostion.x, y, playerPostion.z);
     }
 
     private bool firstTime = true;

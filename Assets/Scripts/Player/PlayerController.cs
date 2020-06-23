@@ -118,6 +118,10 @@ public class PlayerController : MonoBehaviour
         {
             if (checkOnBeat())
             {
+                if (moveCorotine != null)
+                {
+                    StopCoroutine(moveCorotine);
+                }
                 SkillsController.RealseSkills(2);
                 return true;
             }
