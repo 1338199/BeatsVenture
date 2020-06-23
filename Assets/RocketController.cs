@@ -14,8 +14,9 @@ public class RocketController : MonoBehaviour
     static GameObject fxClone;
     private Vector3 aim;
     public AudioSource globalExplosionAudio;
-  
-    
+    private bool die = false;
+
+
     void Start()
     {
         globalExplosionAudio = GameObject.Find("/ExplosionAudio").GetComponent<AudioSource>();
@@ -50,11 +51,16 @@ public class RocketController : MonoBehaviour
             fxClone.transform.Rotate(Vector3.right * 90);
             float range = bombIndicator.GetComponent<MeshFilter>().sharedMesh.bounds.size.x * bombIndicator.transform.localScale.x/2;
             float dis = Vector3.Distance(player.transform.position, aim) ;
-            if (dis < range)
+            if (dis < range & !die)
             {
                 player.GetComponent<HealthController>().TakeDamage(10);
             }
-            DestroyImmediate(gameObject, true); 
+            die = true;
+            DestroyImmediate(gameObject, false);
         }
+    }
+
+    void OnDestroy(){
+      DestroyImmediate(fxClone, false);
     }
 }

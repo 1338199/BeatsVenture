@@ -17,6 +17,8 @@ public class TurretController : MonoBehaviour
     public float range = 10f;
     private ParabolaPath path;
     public GameObject bullet;
+
+    private GameObject bulletClone;
     private bool shot;
     private ParabolaPath invisiblePath;
     private GameObject ammo;
@@ -27,24 +29,28 @@ public class TurretController : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        ammo = GameObject.Find("Canon_Spout");
-        canon = GameObject.Find("canon");
         shot = false;
         /*path = new ParabolaPath(transform.position, player.transform.position, height, gravity);
         path.isClampStartEnd = true;
         transform.LookAt(path.GetPosition(path.time + Time.deltaTime));*/
     }
 
-
+    void OnDestroy(){
+        DestroyImmediate(bombIndicatorClone, true);
+        
+    }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+
         if (!GameController.enemyCanMove)
         {
             return;
         }
+        player = GameObject.FindGameObjectWithTag("Player");
+        ammo = GameObject.Find("Canon_Spout");
+        canon = GameObject.Find("canon");
         rotatingbase.transform.LookAt(player.transform);
         rotatingbase.transform.Rotate(Vector3.up * 90);
         invisiblePath = new ParabolaPath(canon.transform.position, player.transform.position, height, gravity);
@@ -54,8 +60,11 @@ public class TurretController : MonoBehaviour
         canon.transform.Rotate(Vector3.up * 90);
         if (!shot)
         {
-            if (Vector3.Distance(player.transform.position, rotatingbase.transform.position) < range) {
-                Instantiate(bullet, ammo.transform.position, rotatingbase.transform.rotation);
+            if (Vector3.Distance(player.transform.position, rotatingbase.transform.position) < range)
+            {
+                bulletClone = Instantiate(bullet) as GameObject;
+                bulletClone.transform.position = ammo.transform.position;
+                bulletClone.transform.rotation = rotatingbase.transform.rotation;
                 path = new ParabolaPath(bullet.transform.position, player.transform.position, height, gravity);
                 path.isClampStartEnd = true;
 
@@ -66,7 +75,8 @@ public class TurretController : MonoBehaviour
                 bombIndicatorClone.GetComponent<Renderer>().material.SetFloat("_ColorMask", 3f);
                 fireAudio.Play();
             }
-        } else
+        }
+        else
         {
             float t = Time.deltaTime;
             path.time += t;
@@ -78,12 +88,14 @@ public class TurretController : MonoBehaviour
         }
         /*if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-          
+
         }*/
         /*float t = Time.deltaTime;
         path.time += t;
         transform.position = path.position;
         transform.LookAt(path.GetPosition(path.time + t));
         if (path.time >= path.totalTime) enabled = false;*/
+
     }
 }
+

@@ -31,7 +31,8 @@ public class TurretHealth : EnemyHealth
         explosionClone.SetActive(true);
         explosionClone.GetComponent<ParticleSystem>().Play();
         die = true;
-        Destroy(gameObject);
+        GetComponent<TurretController>().enabled = false;
+        Destroy(this.gameObject, 0.9f);
     }
 
     IEnumerator StartSinking()   //通过动画事件调用下沉
