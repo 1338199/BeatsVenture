@@ -8,7 +8,7 @@ public class ElephantAttack : EnemyAttack
     
 
     private Animator anim;
-
+    protected new int beatCanAttack = 1;  //修改该值去修改攻击节拍
 
     protected override void Start()
     {

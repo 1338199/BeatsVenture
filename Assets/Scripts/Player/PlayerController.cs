@@ -265,12 +265,12 @@ public class PlayerController : MonoBehaviour
      
 
 
-        Ray ray1 = new Ray(this.transform.position+ orthogonalDirecNorm, dir);
-        Ray ray2 = new Ray(this.transform.position - orthogonalDirecNorm, dir);
+        //Ray ray1 = new Ray(this.transform.position+ orthogonalDirecNorm, dir);
+        //Ray ray2 = new Ray(this.transform.position - orthogonalDirecNorm, dir);
 
         RaycastHit hitInfo;
-        RaycastHit hitInfo1;
-        RaycastHit hitInfo2;
+        //RaycastHit hitInfo1;
+        //RaycastHit hitInfo2;
 
         
  
@@ -284,26 +284,27 @@ public class PlayerController : MonoBehaviour
                 return false;
             }
 
-        }else if (Physics.Raycast(ray1, out hitInfo1, 1.5f))
-        {
-            Debug.DrawLine(ray1.origin, hitInfo1.point);
-            if ((hitInfo1.transform.tag == "Obstacle" || hitInfo1.transform.tag == "Enemy"))
-            {
-                Debug.Log("cant move1!");
-                anim.SetTrigger("move");
-                return false;
-            }
-
-        }else if(Physics.Raycast(ray2, out hitInfo2, 1.5f)){
-            Debug.DrawLine(ray2.origin, hitInfo2.point);
-            if ((hitInfo2.transform.tag == "Obstacle" || hitInfo2.transform.tag == "Enemy"))
-            {
-                Debug.Log("cant move2!");
-                anim.SetTrigger("move");
-                return false;
-            }
-
         }
+        //else if (Physics.Raycast(ray1, out hitInfo1, 1.5f))
+        //{
+        //    Debug.DrawLine(ray1.origin, hitInfo1.point);
+        //    if ((hitInfo1.transform.tag == "Obstacle" || hitInfo1.transform.tag == "Enemy"))
+        //    {
+        //        Debug.Log("cant move1!");
+        //        anim.SetTrigger("move");
+        //        return false;
+        //    }
+
+        //}else if(Physics.Raycast(ray2, out hitInfo2, 1.5f)){
+        //    Debug.DrawLine(ray2.origin, hitInfo2.point);
+        //    if ((hitInfo2.transform.tag == "Obstacle" || hitInfo2.transform.tag == "Enemy"))
+        //    {
+        //        Debug.Log("cant move2!");
+        //        anim.SetTrigger("move");
+        //        return false;
+        //    }
+
+        //}
 
         return true;
     }

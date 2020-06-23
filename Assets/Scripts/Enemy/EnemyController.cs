@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     public bool isHitPlayer = false;  //由meleeSphere控制
 
     protected float moveTimer = 0;   //用来控制敌人的行动时机
-    private int beatCanMove = 1;   //敌人经过多少个节拍才可以移动
+    protected int beatCanMove = 2;   ///修改该值去修改移动节拍
 //    protected int beatTimer;  //用来标记经过多少个节拍
     public bool isDie = false;
     public int step = 1;

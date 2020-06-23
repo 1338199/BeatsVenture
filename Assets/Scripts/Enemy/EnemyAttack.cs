@@ -9,7 +9,7 @@ public class EnemyAttack : MonoBehaviour
     protected bool isStay = false;
 
     protected float moveTimer = 0f;
-    private int beatCanAttack = 1;
+    protected int beatCanAttack = 1;
     protected int beat = 0;
     protected GameObject mplayer;
 

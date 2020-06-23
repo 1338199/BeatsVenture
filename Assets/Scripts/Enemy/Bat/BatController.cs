@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine;
 using UnityEngine.AI;
 
 public class BatController : EnemyController
@@ -13,7 +12,7 @@ public class BatController : EnemyController
     protected Vector3[] ver_direc = { new Vector3(0, 0, 1), new Vector3(0, 0, -1) };
     public int select = 1;
     protected Vector3 curDirec;
-   
+    protected new int beatCanMove = 1;  //修改该值去修改移动节拍
 
     // Start is called before the first frame update
     public override void Start()
