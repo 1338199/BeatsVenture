@@ -119,6 +119,7 @@ public class MusicController : MonoBehaviour
 
         if (foreseenHits.Count!=0 && time > foreseenHits.Peek().time - thresh)
         {
+            
             if (foreseenHits.Peek().stamp > this.Stamp)
             {
                 this.Stamp = foreseenHits.Peek().stamp;
@@ -137,6 +138,16 @@ public class MusicController : MonoBehaviour
                     {
                         GameController.stopGuide();
                         ParLight.GetComponent<ParController>().stopGuide();
+                    }
+
+                    string sceneName = SceneManager.GetActiveScene().name;
+                    if (sceneName.Equals("Level1"))
+                    {
+                        UIController.Instance.ShowInfo("Go to the Teleport marked as a Star in MinMap. \n Beware of monsters!");
+                    }
+                    else if (sceneName.Equals("Level2"))
+                    {
+                        UIController.Instance.ShowInfo("Find all Keys marked in MinMap to activate the Teleport.");
                     }
                 }
             }

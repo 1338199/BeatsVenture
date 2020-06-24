@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -40,6 +41,11 @@ public class PlayerController : MonoBehaviour
         set;
     } = 0;
 
+    private void Awake()
+    {
+        
+    }
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -49,6 +55,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         mc = MusicController.getInstance();
+     
+      
     }
 
     private void FixedUpdate()

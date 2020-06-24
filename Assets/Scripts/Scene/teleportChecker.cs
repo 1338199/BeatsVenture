@@ -47,6 +47,7 @@ public class teleportChecker : MonoBehaviour
             else
             {
                 Debug.Log("还没有捡到所有的点！");
+                UIController.Instance.ShowInfo("Some keys to activate the teleport has not been found!");
             }
 
         }

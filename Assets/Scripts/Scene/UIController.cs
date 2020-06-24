@@ -70,7 +70,7 @@ public class UIController : MonoBehaviour
 */
     public void ShowInfo(string str)
     {
-        InfoText.text = str;
+        InfoText.text = str.Replace("\\n", "\n");
         infoBar.gameObject.SetActive(true);
         StartCoroutine(TextFade(infoBar));
     }
@@ -89,7 +89,7 @@ public class UIController : MonoBehaviour
     
     IEnumerator TextFade(GameObject g)
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         g.SetActive(false);
     }
 }
