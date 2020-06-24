@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BatAttack : EnemyAttack
 {
-    protected new int beatCanAttack = 1;   //修改该值去修改攻击节拍
+    protected new int beatCanAttack = 2;   //修改该值去修改攻击节拍
     protected Animator anim;
     public DarkbcController darkbc;
     // Start is called before the first frame update

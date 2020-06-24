@@ -53,7 +53,7 @@ public class RocketController : MonoBehaviour
             float dis = Vector3.Distance(player.transform.position, aim) ;
             if (dis < range & !die)
             {
-                player.GetComponent<HealthController>().TakeDamage(10);
+                player.GetComponent<HealthController>().TakeDamage(40);
             }
             die = true;
             DestroyImmediate(gameObject, false);
