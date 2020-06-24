@@ -59,8 +59,4 @@ public class RocketController : MonoBehaviour
             DestroyImmediate(gameObject, false);
         }
     }
-
-    void OnDestroy(){
-      DestroyImmediate(fxClone, false);
-    }
 }

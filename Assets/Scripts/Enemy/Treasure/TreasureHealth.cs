@@ -21,7 +21,7 @@ public class TreasureHealth : EnemyHealth
     public override void Money()
     {
         isDie = true;
-        int money = UnityEngine.Random.Range(8, 22);
+        int money = UnityEngine.Random.Range(100, 150);
         Coins.money += money;
     }
 }

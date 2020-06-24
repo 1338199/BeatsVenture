@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class BatAttack : EnemyAttack
 {
-    protected new int beatCanAttack = 2;   //修改该值去修改攻击节拍
     protected Animator anim;
     public DarkbcController darkbc;
     // Start is called before the first frame update
     protected override void Start()
     {
+        beatCanAttack = 2;
         anim = this.transform.parent.GetComponent<Animator>();
         enemyController = this.transform.parent.GetComponent<EnemyController>();
     }

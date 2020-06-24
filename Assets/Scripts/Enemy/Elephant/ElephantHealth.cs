@@ -8,7 +8,7 @@ public class ElephantHealth : EnemyHealth
     public override void Money()
     {
         isDie = true;
-        int money = UnityEngine.Random.Range(18, 22);
+        int money = UnityEngine.Random.Range(70, 100);
         Coins.money += money;
     }
 

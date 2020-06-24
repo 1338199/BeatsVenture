@@ -21,8 +21,8 @@ public class TurretController : MonoBehaviour
     private GameObject bulletClone;
     private bool shot;
     private ParabolaPath invisiblePath;
-    private GameObject ammo;
-    private GameObject canon;
+    public GameObject ammo;
+    public GameObject canon;
     public GameObject bombIndicator;
     private GameObject bombIndicatorClone;
     public AudioSource fireAudio;
@@ -49,8 +49,6 @@ public class TurretController : MonoBehaviour
             return;
         }
         player = GameObject.FindGameObjectWithTag("Player");
-        ammo = GameObject.Find("Canon_Spout");
-        canon = GameObject.Find("canon");
         rotatingbase.transform.LookAt(player.transform);
         rotatingbase.transform.Rotate(Vector3.up * 90);
         invisiblePath = new ParabolaPath(canon.transform.position, player.transform.position, height, gravity);

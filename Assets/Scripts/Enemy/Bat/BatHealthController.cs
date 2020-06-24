@@ -21,7 +21,7 @@ public class BatHealthController : EnemyHealth
     public override void Money()
     {
         isDie = true;
-        int money = UnityEngine.Random.Range(10, 14);
+        int money = UnityEngine.Random.Range(50, 70);
         Coins.money += money;
     }
 }

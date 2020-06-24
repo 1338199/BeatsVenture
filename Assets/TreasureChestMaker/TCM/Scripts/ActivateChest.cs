@@ -67,7 +67,7 @@ public class ActivateChest : MonoBehaviour {
 			else if(mors < 2 && !_get)
             {
 				UIController.Instance.ShowInfo("Your money has been raised");
-				Coins.money = Coins.money + Random.Range(50,100);
+				Coins.money = Coins.money + Random.Range(100,150);
 				_get = true;
             }
 			else if (mors == 3 && !_get)

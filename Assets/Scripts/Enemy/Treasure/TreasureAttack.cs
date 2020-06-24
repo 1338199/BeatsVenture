@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class TreasureAttack : EnemyAttack
 {
-    protected new int beatCanAttack = 1;  //修改该值去修改攻击节拍
     protected Animator animator;
     // Start is called before the first frame update
     protected override void Start()
     {
+        beatCanAttack = 1;
         enemyController = gameObject.GetComponentInParent<EnemyController>();
         animator = gameObject.GetComponentInParent<Animator>();
-        
+
     }
 
     public override void Attack(GameObject gameObject)

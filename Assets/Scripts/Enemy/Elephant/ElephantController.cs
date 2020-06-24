@@ -3,5 +3,9 @@ using System.Collections;
 
 public class ElephantController : EnemyController
 {
-    protected new int beatCanMove = 1;  //修改该值去修改移动节拍
+    public override void Start()
+    {
+        base.Start();
+        beatCanMove = 2;
+    }
 }

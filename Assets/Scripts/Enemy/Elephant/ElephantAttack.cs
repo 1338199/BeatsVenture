@@ -8,10 +8,10 @@ public class ElephantAttack : EnemyAttack
     
 
     private Animator anim;
-    protected new int beatCanAttack = 3;  //修改该值去修改攻击节拍
 
     protected override void Start()
     {
+        beatCanAttack = 3;
         anim = this.transform.parent.GetComponent<Animator>();
         enemyController = this.transform.parent.GetComponent<EnemyController>();
     }

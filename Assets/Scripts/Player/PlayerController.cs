@@ -110,6 +110,10 @@ public class PlayerController : MonoBehaviour
         {
             if (checkOnBeat())
             {
+                if (moveCorotine != null)
+                {
+                    StopCoroutine(moveCorotine);
+                }
                 SkillsController.RealseSkills(1);
                 return true;
             }
@@ -130,6 +134,10 @@ public class PlayerController : MonoBehaviour
         {
             if (checkOnBeat())
             {
+                if (moveCorotine != null)
+                {
+                    StopCoroutine(moveCorotine);
+                }
                 SkillsController.RealseSkills(3);
                 return true;
             }
@@ -138,6 +146,10 @@ public class PlayerController : MonoBehaviour
         {
             if (checkOnBeat())
             {
+                if (moveCorotine != null)
+                {
+                    StopCoroutine(moveCorotine);
+                }
                 SkillsController.RealseSkills(4);
                 return true;
             }

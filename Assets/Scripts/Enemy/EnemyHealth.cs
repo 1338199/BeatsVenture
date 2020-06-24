@@ -50,7 +50,7 @@ public class EnemyHealth : HealthController
     public virtual void Money()
     {
         isDie = true;
-        int money = UnityEngine.Random.Range(8, 12);
+        int money = UnityEngine.Random.Range(30, 50);
         Coins.money += money;
     }
 }
