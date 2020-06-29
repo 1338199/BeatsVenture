@@ -33,7 +33,7 @@ public class FrozenSkills : PlayerSkills
                 RaycastHit hitInfo;
                 if (Physics.Raycast(ray, out hitInfo, 6, enemyLayer))
                 {
-                    if (hitInfo.transform.parent.tag == "Enemy")
+                    if (hitInfo.transform.parent != null && hitInfo.transform.parent.tag == "Enemy")
                     {
 
                         hitRender = hitInfo.transform.parent.GetComponentInChildren<Renderer>();
