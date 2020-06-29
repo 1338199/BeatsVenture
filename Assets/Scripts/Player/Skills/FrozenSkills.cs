@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FrozenSkills : PlayerSkills
@@ -25,7 +24,7 @@ public class FrozenSkills : PlayerSkills
         skill3Cnt++;
         if (timer >= coolDown)
         {
-            while (!isSelectTarget && skill3Cnt%2==1)
+            while (!isSelectTarget && skill3Cnt % 2 == 1)
             {
                 base.SetRange();  //显示施法范围
 
@@ -33,7 +32,7 @@ public class FrozenSkills : PlayerSkills
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hitInfo;
 
-                if (Physics.Raycast(ray, out hitInfo, 100, enemyLayer))
+                if (Physics.Raycast(ray, out hitInfo, 12, enemyLayer))
                 {
                     if (hitInfo.transform.tag == "Enemy")
                     {
@@ -114,6 +113,6 @@ public class FrozenSkills : PlayerSkills
         {
             enemyController.enabled = true;
         }
-        
+
     }
 }

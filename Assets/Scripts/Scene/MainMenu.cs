@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
         }
 
         if (!isMainMenu)
-        {        
+        {
             volume = PlayerPrefs.GetFloat("volume");
             volumeSlider.value = volume;
         }
@@ -35,7 +35,7 @@ public class MainMenu : MonoBehaviour
         gameObject.SetActive(true);
         GameController.pauseGame();
     }
-    
+
     public void CloseMenu()
     {
         Debug.Log(volume);
@@ -43,7 +43,7 @@ public class MainMenu : MonoBehaviour
         gameObject.SetActive(false);
         GameController.resumeGame();
     }
-    
+
     public void ClickStart()
     {
         skillUtils.saveSkills(new bool[4] { false, false, false, false });
@@ -73,12 +73,20 @@ public class MainMenu : MonoBehaviour
     public void AdjustVolume(float newVolume)
     {
         volume = newVolume;
-        int showVolume = (int) (newVolume*100);
+        int showVolume = (int)(newVolume * 100);
         volumeText.text = showVolume.ToString();
         Debug.Log("newVolume:" + volumeText.text);
         PlayerPrefs.SetFloat("volume", volume);
+        try
+        {
+            MusicController.getInstance().setVolume(newVolume);
+        }
+        catch
+        {
+            return;
+        }
     }
-    
+
     public void BackToMenu()
     {
         AdjustVolume(volume);

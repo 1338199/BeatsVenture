@@ -1,12 +1,6 @@
 ﻿using Assets.Scripts;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq.Expressions;
-using System.Runtime.Serialization;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 public class MusicController : MonoBehaviour
 {
@@ -91,7 +85,7 @@ public class MusicController : MonoBehaviour
     {
         if (time + foreseeTime > nextForeseeTime)
         {
-            if(nextForeseeBeatCount>=this.guideBeats)
+            if (nextForeseeBeatCount >= this.guideBeats)
             {
                 createBeatIcon();
             }
@@ -117,20 +111,20 @@ public class MusicController : MonoBehaviour
             }
         }
 
-        if (foreseenHits.Count!=0 && time > foreseenHits.Peek().time - thresh)
+        if (foreseenHits.Count != 0 && time > foreseenHits.Peek().time - thresh)
         {
-            
+
             if (foreseenHits.Peek().stamp > this.Stamp)
             {
                 this.Stamp = foreseenHits.Peek().stamp;
-                if(GameController.guiding)
+                if (GameController.guiding)
                 {
                     int beatCount = Stamp / 10;
-                    if(beatCount < this.guideBeats -3)
+                    if (beatCount < this.guideBeats - 3)
                     {
                         ParLight.GetComponent<ParController>().switchPar();
                     }
-                    else if(beatCount < this.guideBeats)
+                    else if (beatCount < this.guideBeats)
                     {
                         ParLight.GetComponent<ParController>().startFlush();
                     }
@@ -166,6 +160,11 @@ public class MusicController : MonoBehaviour
     public void lateUpdate()
     {
 
+    }
+
+    public void setVolume(float volume)
+    {
+        audioPlayer.volume = volume;
     }
 
     private AudioSource audioPlayer;
