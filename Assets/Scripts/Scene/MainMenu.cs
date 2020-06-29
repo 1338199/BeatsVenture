@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,6 +11,39 @@ public class MainMenu : MonoBehaviour
 {
     public float volume = 0.5f;
     public Text volumeText;
+    public bool inGameScene = false;
+    public bool isMainMenu = false;
+    public Slider volumeSlider;
+
+    void Start()
+    {
+        if (inGameScene)
+        {
+            gameObject.SetActive(false);
+        }
+
+        if (!isMainMenu)
+        {        
+            volume = PlayerPrefs.GetFloat("volume");
+            volumeSlider.value = volume;
+        }
+
+    }
+
+    public void ShowMenu()
+    {
+        gameObject.SetActive(true);
+        GameController.pauseGame();
+    }
+    
+    public void CloseMenu()
+    {
+        Debug.Log(volume);
+        AdjustVolume(volume);
+        gameObject.SetActive(false);
+        GameController.resumeGame();
+    }
+    
     public void ClickStart()
     {
         skillUtils.saveSkills(new bool[4] { false, false, false, false });
@@ -47,6 +81,7 @@ public class MainMenu : MonoBehaviour
     
     public void BackToMenu()
     {
+        AdjustVolume(volume);
         SceneManager.LoadScene("StartMenu");
     }
 }
