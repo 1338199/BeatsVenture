@@ -686,6 +686,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volume: 0.5
   volumeText: {fileID: 0}
+  inGameScene: 0
+  isMainMenu: 1
+  volumeSlider: {fileID: 0}
 --- !u!114 &1376740854
 MonoBehaviour:
   m_ObjectHideFlags: 0
