@@ -49,6 +49,10 @@ public class PlayerSkills : MonoBehaviour
         else return false;
     }
 
+    public virtual void ShowIndicator(Renderer r)
+    {
+
+    }
 
     protected void SetRange()
     {

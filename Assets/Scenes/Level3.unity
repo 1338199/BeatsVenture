@@ -8565,6 +8565,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 135651572827621230, guid: 67e3ca4d97d896240b5b4fa784dba74d,
+        type: 3}
+      propertyPath: m_Radius
+      value: 7.536446
+      objectReference: {fileID: 0}
     - target: {fileID: 224175554038898528, guid: 67e3ca4d97d896240b5b4fa784dba74d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -11600,6 +11605,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 135651572827621230, guid: 67e3ca4d97d896240b5b4fa784dba74d,
+        type: 3}
+      propertyPath: m_Radius
+      value: 7.536446
       objectReference: {fileID: 0}
     - target: {fileID: 224175554038898528, guid: 67e3ca4d97d896240b5b4fa784dba74d,
         type: 3}
@@ -17189,6 +17199,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 135651572827621230, guid: 67e3ca4d97d896240b5b4fa784dba74d,
+        type: 3}
+      propertyPath: m_Radius
+      value: 7.536446
       objectReference: {fileID: 0}
     - target: {fileID: 224175554038898528, guid: 67e3ca4d97d896240b5b4fa784dba74d,
         type: 3}
@@ -27400,6 +27415,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 135651572827621230, guid: 67e3ca4d97d896240b5b4fa784dba74d,
+        type: 3}
+      propertyPath: m_Radius
+      value: 7.536446
+      objectReference: {fileID: 0}
     - target: {fileID: 224175554038898528, guid: 67e3ca4d97d896240b5b4fa784dba74d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -30683,6 +30703,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 135651572827621230, guid: 67e3ca4d97d896240b5b4fa784dba74d,
+        type: 3}
+      propertyPath: m_Radius
+      value: 7.536446
       objectReference: {fileID: 0}
     - target: {fileID: 224175554038898528, guid: 67e3ca4d97d896240b5b4fa784dba74d,
         type: 3}
@@ -60334,6 +60359,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 135651572827621230, guid: 67e3ca4d97d896240b5b4fa784dba74d,
+        type: 3}
+      propertyPath: m_Radius
+      value: 7.536446
+      objectReference: {fileID: 0}
     - target: {fileID: 224175554038898528, guid: 67e3ca4d97d896240b5b4fa784dba74d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -75518,6 +75548,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 135651572827621230, guid: 67e3ca4d97d896240b5b4fa784dba74d,
+        type: 3}
+      propertyPath: m_Radius
+      value: 7.536446
       objectReference: {fileID: 0}
     - target: {fileID: 224175554038898528, guid: 67e3ca4d97d896240b5b4fa784dba74d,
         type: 3}
